@@ -222,7 +222,7 @@ MonoBehaviour:
   m_ActionsAsset: {fileID: -944628639613478452, guid: e11bfb84e24f7fd46bf59fc0db335046,
     type: 3}
   m_PointAction: {fileID: 0}
-  m_MoveAction: {fileID: -290151463088113386, guid: e11bfb84e24f7fd46bf59fc0db335046,
+  m_MoveAction: {fileID: 1348284426456097492, guid: e11bfb84e24f7fd46bf59fc0db335046,
     type: 3}
   m_SubmitAction: {fileID: -1415160774500086508, guid: e11bfb84e24f7fd46bf59fc0db335046,
     type: 3}
@@ -1015,6 +1015,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePanel: {fileID: 2074085654}
   dialogueText: {fileID: 1336515274}
+  choices:
+  - {fileID: 1192533629}
+  - {fileID: 1946896171}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,6 +1692,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7b6191c0-c8fe-4ab8-a573-ad42b8423382
     m_ActionName: UI_Input/Submit[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 47402808-3ded-4416-a919-ded795dd5af6
+    m_ActionName: UI_Input/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControls
@@ -1924,7 +1931,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1192533632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 383764441}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: MakeChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1192533632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3002,7 +3021,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1946896174}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 383764441}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: MakeChoice
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1946896174
 MonoBehaviour:
   m_ObjectHideFlags: 0
