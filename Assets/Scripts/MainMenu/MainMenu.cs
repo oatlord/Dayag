@@ -17,6 +17,9 @@ public class MainMenu : Menu
         if (!DataPersistenceManager.instance.HasGameData()) {
             loadGameButton.interactable = false;
             // continueGameButton.interactable = false;
+        } else
+        {
+            loadGameButton.interactable = true;
         }
     }
 

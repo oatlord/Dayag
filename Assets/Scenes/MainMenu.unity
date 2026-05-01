@@ -551,7 +551,7 @@ MonoBehaviour:
   firstSelected: {fileID: 1082803691}
   saveSlotsMenu: {fileID: 1099014574}
   newGameButton: {fileID: 1082803693}
-  loadGameButton: {fileID: 0}
+  loadGameButton: {fileID: 1724678993}
 --- !u!1 &637012468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1188,12 @@ PrefabInstance:
     - target: {fileID: 1670409266517548679, guid: 7177ce961b6007a4b8ec4bb1c6e4e078,
         type: 3}
       propertyPath: initializeDataIfNull
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670409266517548679, guid: 7177ce961b6007a4b8ec4bb1c6e4e078,
+        type: 3}
+      propertyPath: overrideSelectedProfileId
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3815271892318162359, guid: 7177ce961b6007a4b8ec4bb1c6e4e078,
         type: 3}

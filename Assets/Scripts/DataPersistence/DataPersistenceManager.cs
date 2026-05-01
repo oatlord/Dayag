@@ -57,6 +57,12 @@ public class DataPersistenceManager : MonoBehaviour
             this.selectedProfileId = testSelectedProfileId;
             Debug.LogWarning("Overrode selected profile id with test id: " + testSelectedProfileId);
         }
+
+        // Load game data if a profile exists
+        if (this.selectedProfileId != null)
+        {
+            this.gameData = dataHandler.Load(this.selectedProfileId);
+        }
     }
 
     private void OnEnable()
@@ -81,7 +87,7 @@ public class DataPersistenceManager : MonoBehaviour
     private void OnSceneUnloaded(Scene scene)
     {
         Debug.Log("OnSceneUnloaded called");
-        SaveGame();
+        // SaveGame();
     }
 
     public void ChangeSelectedProfileId(string newProfileId)
@@ -93,6 +99,7 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData = new GameData();
+        Debug.Log("New game created");
     }
 
     public void LoadGame()
@@ -102,18 +109,22 @@ public class DataPersistenceManager : MonoBehaviour
             return;
         }
 
-        this.gameData = dataHandler.Load(selectedProfileId);
-
-        if (this.gameData == null && initializeDataIfNull)
-        {
-            Debug.Log("No data found. Initializing data to defaults.");
-            NewGame();
-        }
-
+        // Only load from file if we don't already have game data in memory
         if (this.gameData == null)
         {
-            Debug.Log("No data found. A new game needs to be started before data can be loaded.");
-            return;
+            this.gameData = dataHandler.Load(selectedProfileId);
+
+            if (this.gameData == null && initializeDataIfNull)
+            {
+                Debug.Log("No data found. Initializing data to defaults.");
+                NewGame();
+            }
+
+            if (this.gameData == null)
+            {
+                Debug.Log("No data found. A new game needs to be started before data can be loaded.");
+                return;
+            }
         }
 
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
@@ -172,6 +183,6 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        SaveGame();
+        // SaveGame();
     }
 }
