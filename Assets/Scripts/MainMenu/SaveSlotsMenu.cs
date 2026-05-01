@@ -15,44 +15,54 @@ public class SaveSlotsMenu : Menu
     private SaveSlot[] saveSlots;
     private bool isLoadingGame = false;
 
-    private void Awake() {
+    private void Awake()
+    {
         saveSlots = this.GetComponentsInChildren<SaveSlot>();
     }
 
-    public void OnSaveSlotClicked(SaveSlot saveSlot) {
+    public void OnSaveSlotClicked(SaveSlot saveSlot)
+    {
         DisableMenuButtons();
 
         DataPersistenceManager.instance.ChangeSelectedProfileId(saveSlot.GetProfileId());
 
-        if (!isLoadingGame) {
+        if (!isLoadingGame)
+        {
             DataPersistenceManager.instance.NewGame();
+            // Debug.Log("New game created.");
         }
 
         SceneManager.LoadSceneAsync("SampleScene");
     }
 
-    public void OnBackClicked() {
+    public void OnBackClicked()
+    {
         mainMenu.ActivateMenu();
         this.DeactivateMenu();
     }
 
-    public void ActivateMenu(bool isLoadingGame) {
+    public void ActivateMenu(bool isLoadingGame)
+    {
         this.gameObject.SetActive(true);
         this.isLoadingGame = isLoadingGame;
 
         Dictionary<string, GameData> profilesGameData = DataPersistenceManager.instance.GetAllProfilesGameData();
 
         GameObject firstSelected = backButton.gameObject;
-        foreach (SaveSlot saveSlot in saveSlots) 
+        foreach (SaveSlot saveSlot in saveSlots)
         {
             GameData profileData = null;
             profilesGameData.TryGetValue(saveSlot.GetProfileId(), out profileData);
             saveSlot.SetData(profileData);
-            if (profileData == null && isLoadingGame) {
+            if (profileData == null && isLoadingGame)
+            {
                 saveSlot.SetInteractable(false);
-            } else {
+            }
+            else
+            {
                 saveSlot.SetInteractable(true);
-                if (firstSelected.Equals(backButton.gameObject)) {
+                if (firstSelected.Equals(backButton.gameObject))
+                {
                     firstSelected = saveSlot.gameObject;
                 }
             }
@@ -61,12 +71,15 @@ public class SaveSlotsMenu : Menu
         StartCoroutine(this.SetFirstSelected(firstSelected));
     }
 
-    public void DeactivateMenu() {
+    public void DeactivateMenu()
+    {
         this.gameObject.SetActive(false);
     }
 
-    private void DisableMenuButtons() {
-        foreach (SaveSlot saveSlot in saveSlots) {
+    private void DisableMenuButtons()
+    {
+        foreach (SaveSlot saveSlot in saveSlots)
+        {
             saveSlot.SetInteractable(false);
         }
         backButton.interactable = false;
