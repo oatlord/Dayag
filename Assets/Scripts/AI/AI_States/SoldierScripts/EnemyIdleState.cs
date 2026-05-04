@@ -10,8 +10,13 @@ public class EnemyIdleState : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer = 0;
+        
         aiController = animator.GetComponent<AIController>();
-        animator.gameObject.GetComponent<Renderer>().material = animator.gameObject.GetComponent<AIController>().idleMaterial;
+
+        if (aiController.allowMaterialDebug && aiController.idleMaterial != null)
+        {
+              animator.gameObject.GetComponent<Renderer>().material = animator.gameObject.GetComponent<AIController>().idleMaterial;      
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

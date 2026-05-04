@@ -14,8 +14,13 @@ public class EnemyPatrolState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.gameObject.GetComponent<Renderer>().material = animator.gameObject.GetComponent<AIController>().patrolMaterial;
         aiController = animator.GetComponent<AIController>();
+
+        if (aiController.allowMaterialDebug && aiController.patrolMaterial != null)
+        {
+                    animator.gameObject.GetComponent<Renderer>().material = animator.gameObject.GetComponent<AIController>().patrolMaterial;
+
+        }
         // waypoints = aiController.waypoints;
 
         // timer = 0;

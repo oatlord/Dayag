@@ -15,7 +15,11 @@ public class EnemyAlertState : StateMachineBehaviour
         aiController = animator.gameObject.GetComponent<AIController>();
         go = animator.gameObject;
 
-        go.GetComponent<Renderer>().material = aiController.alertMaterial;
+        if (aiController.allowMaterialDebug && aiController.alertMaterial != null)
+        {
+            go.GetComponent<Renderer>().material = aiController.alertMaterial;        
+        }
+
         navMeshAgent = animator.gameObject.GetComponent<NavMeshAgent>();
 
         if (navMeshAgent.isStopped == false)
