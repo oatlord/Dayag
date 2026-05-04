@@ -37,6 +37,7 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Player is sprinting: " + IsSprinting);
     }
 
     public static InputManager GetInstance()
