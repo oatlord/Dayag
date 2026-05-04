@@ -1,7 +1,7 @@
 -> main
 
 === main ===
-Hello, world!
+Hello, world! #speaker:TestNPC
 
 This is line 2.
 *[Seriously?]
@@ -11,8 +11,12 @@ This is line 2.
 
 === choice1 ===
 Yep.
+
+Loser. #speaker:MC
 -> END
 
 === choice2 ===
 Aw.
+
+Loser. #speaker:MC
 -> END
