@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     private Vector3 moveDirection;
 
-    public PlayerInput playerInput;
-    public InputAction movement;
+    // public PlayerInput playerInput;
+    // public InputAction movement;
     private CharacterController characterController;
     private Animator animator;
 
