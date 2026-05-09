@@ -7,6 +7,7 @@ public class CheckpointTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject visualCue;
     [SerializeField] private GameObject savingStatusText; 
+    // [SerializeField] private Transform checkpointPositionChild;
     private bool playerInRange;
 
     private void Awake()
@@ -22,7 +23,9 @@ public class CheckpointTrigger : MonoBehaviour
             bool interactPressed = InputManager.GetInstance().GetInteractPressed();
             if (interactPressed)
             {
+                // Debug.Log("Player checkpoint set to: " + checkpointPositionChild.name);
                 savingStatusText.SetActive(true);
+                // GameManager.instance.SetPlayerCheckpoint(checkpointPositionChild.position);
                 DataPersistenceManager.instance.SaveGame();
             }
         }

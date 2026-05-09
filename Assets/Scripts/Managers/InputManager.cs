@@ -16,11 +16,11 @@ public class InputManager : MonoBehaviour
 
     private static InputManager instance;
     [SerializeField] private GameObject player;
-    [SerializeField] private Animator animator;
+    // [SerializeField] private Animator animator;
     [SerializeField] private PlayerInput playerInput;
 
-    private bool wasInteractPressed = false;
-    private bool wasSubmitPressed = false;
+    // private bool wasInteractPressed = false;
+    // private bool wasSubmitPressed = false;
 
     void Awake()
     {
@@ -37,7 +37,6 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Player is sprinting: " + IsSprinting);
     }
 
     public static InputManager GetInstance()
@@ -51,15 +50,15 @@ public class InputManager : MonoBehaviour
 
         if (context.performed)
         {
-            animator.SetBool("IsMoving", true);
-            animator.SetBool("IsIdle", false);
+            // animator.SetBool("IsMoving", true);
+            // animator.SetBool("IsIdle", false);
             IsMoving = true;
             IsIdle = false;
         }
         else if (context.canceled)
         {
-            animator.SetBool("IsMoving", false);
-            animator.SetBool("IsIdle", true);
+            // animator.SetBool("IsMoving", false);
+            // animator.SetBool("IsIdle", true);
             IsMoving = false;
             IsIdle = true;
         }
@@ -71,14 +70,14 @@ public class InputManager : MonoBehaviour
         {
             // moveSpeed = sprintSpeed;
             IsSprinting = true;
-            animator.SetBool("IsSprinting", true);
+            // animator.SetBool("IsSprinting", true);
 
         }
         else if (context.canceled)
         {
             // moveSpeed = defaultMoveSpeed;
             IsSprinting = false;
-            animator.SetBool("IsSprinting", false);
+            // animator.SetBool("IsSprinting", false);
         }
     }
 
@@ -88,13 +87,13 @@ public class InputManager : MonoBehaviour
         {
             IsCrouching = true;
             // moveSpeed = crouchSpeed;
-            animator.SetBool("IsCrouching", true);
+            // animator.SetBool("IsCrouching", true);
         }
         else if (context.canceled)
         {
             IsCrouching = false;
             // moveSpeed = defaultMoveSpeed;
-            animator.SetBool("IsCrouching", false);
+            // animator.SetBool("IsCrouching", false);
         }
     }
 
