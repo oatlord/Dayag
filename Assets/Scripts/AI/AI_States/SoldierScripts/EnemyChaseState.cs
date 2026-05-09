@@ -26,9 +26,11 @@ public class EnemyChaseState : StateMachineBehaviour
     {
         navMeshAgent.SetDestination(player.position);
 
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        if (navMeshAgent.remainingDistance <= aiController.hitRange)
         {
-            aiController.StopChase();
+            aiController.enemyReachedPlayer = true;
+            // aiController.StopChase();
+            GameManager.instance.KillPlayer();
             Debug.Log("Player caught");
         }
     }

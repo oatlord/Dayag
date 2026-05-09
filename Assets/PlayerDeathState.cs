@@ -2,38 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyIdleState : StateMachineBehaviour
+public class PlayerDeathState : StateMachineBehaviour
 {
-    float timer;
-    AIController aiController;
+    private PlayerController playerController;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timer = 0;
-        
-        aiController = animator.GetComponent<AIController>();
-
-        if (aiController.allowMaterialDebug && aiController.idleMaterial != null)
-        {
-              animator.gameObject.GetComponent<Renderer>().material = animator.gameObject.GetComponent<AIController>().idleMaterial;      
-        }
+       playerController = animator.GetComponent<PlayerController>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        timer += Time.deltaTime;
-        if (timer >= aiController.waitAtWaypointTime)
-        {
-            animator.SetBool("IsPatrolling", true);
-            Debug.Log("Timer has hit wait time. Switching to next state.");
-        }
-    }
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        playerController.playerHasDied = false;
+        playerController.deathAnimHasPlayed = false;
+        GameManager.instance.RevivePlayer();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

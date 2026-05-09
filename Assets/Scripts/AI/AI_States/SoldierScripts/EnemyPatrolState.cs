@@ -18,7 +18,7 @@ public class EnemyPatrolState : StateMachineBehaviour
 
         if (aiController.allowMaterialDebug && aiController.patrolMaterial != null)
         {
-                    animator.gameObject.GetComponent<Renderer>().material = animator.gameObject.GetComponent<AIController>().patrolMaterial;
+            animator.gameObject.GetComponent<Renderer>().material = animator.gameObject.GetComponent<AIController>().patrolMaterial;
 
         }
         // waypoints = aiController.waypoints;

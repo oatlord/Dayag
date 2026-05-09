@@ -1,39 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnemyIdleState : StateMachineBehaviour
+public class EnemyHitState : StateMachineBehaviour
 {
-    float timer;
-    AIController aiController;
+    private NavMeshAgent navMeshAgent;
+    private AIController aiController;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timer = 0;
-        
+        navMeshAgent = animator.GetComponent<NavMeshAgent>();
         aiController = animator.GetComponent<AIController>();
-
-        if (aiController.allowMaterialDebug && aiController.idleMaterial != null)
-        {
-              animator.gameObject.GetComponent<Renderer>().material = animator.gameObject.GetComponent<AIController>().idleMaterial;      
-        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        timer += Time.deltaTime;
-        if (timer >= aiController.waitAtWaypointTime)
-        {
-            animator.SetBool("IsPatrolling", true);
-            Debug.Log("Timer has hit wait time. Switching to next state.");
-        }
-    }
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Debug.Log("Hit state ended");
+        // navMeshAgent.SetDestination(aiController.m_currentWaypoint.position);
+        // Debug.Log("Current waypoint set.");
 
+        aiController.enemyReachedPlayer = false;
+                        // enemyReachedPlayer = false;
+        aiController.enemyHasHitPlayer = false;
+
+        animator.SetBool("IsPatrolling", true);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -33,6 +33,8 @@ public class AIController : MonoBehaviour
     public float alertRadius = 3;
     [Tooltip("Time in seconds before the enemy starts chasing the player after seeing them")]
     public float timeToSeePlayer = 5;
+    [Tooltip("Range of soldier's hit, i.e. the range that the soldier needs to kill the player.")]
+    public float hitRange = 2;
 
     [Header("Enemy Multipler Settings")]
     [Tooltip("AI's alert radius rises to this amount when the player is running.")]
@@ -46,16 +48,30 @@ public class AIController : MonoBehaviour
 
     private Vector3 playerPosition;
     private bool enemySeesPlayer;
+    public bool enemyReachedPlayer = false;
     private float m_timer = 0;
+
+    // RESET AI STATE POST-PLAYER DEATH
+    [Header("Post-Chase AI Reset Settings")]
+    public bool enemyHasHitPlayer = false;
+    public bool enemyHitStateActive = false;
+    private float m_ResetStateTimer = 0;
+    [Tooltip("Time till AI state reset. Must match player script's death sequence length.")]
+    [SerializeField] private float ResetStateTimer = 6f;
 
     // ENEMY COMPONENT REFERENCES
     private Animator animController;
     private SphereCollider sphereCollider;
+    private NavMeshAgent navMeshAgent;
+
+    // ENEMY ANIMATION SETTINGS
+    private bool hasHitAnimPlayed = false;
 
     void Awake()
     {
         animController = GetComponent<Animator>();
         sphereCollider = GetComponent<SphereCollider>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
         sphereCollider.radius = alertRadius;
 
         if (waypoints.Count == 0)
@@ -72,6 +88,51 @@ public class AIController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Enemy has reached player: " + enemyReachedPlayer);
+        Debug.Log("Currenct waypoint: " + m_currentWaypoint);
+
+        // if (enemyHasHitPlayer)
+        // {
+        //     m_ResetStateTimer += Time.deltaTime;
+        //     if (m_ResetStateTimer >= ResetStateTimer)
+        //     {
+        //         Debug.Log("Resetting enemy state.");
+        //         enemyReachedPlayer = false;
+        //         enemyHasHitPlayer = false;
+        //         animController.SetBool("IsPatrolling", true);
+        //     }
+        // }
+
+        // if (enemyHasHitPlayer)
+        // {
+            
+        // }
+
+        if (enemyReachedPlayer)
+        {
+            if (!hasHitAnimPlayed)
+            {
+                animController.SetTrigger("Hit");
+                hasHitAnimPlayed = true;
+                enemyHasHitPlayer = true;
+            }
+            animController.SetBool("IsSeeingPlayer", false);
+            animController.SetBool("IsChasing", false);
+            animController.SetBool("IsPatrolling", false);
+            animController.SetBool("IsAlert", false);
+            return;
+        }
+
+        
+
+        // if (navMeshAgent.remainingDistance <= hitRange)
+        // {
+        //     enemyReachedPlayer = true;
+        //     // aiController.StopChase();
+        //     GameManager.instance.KillPlayer();
+        //     Debug.Log("Player caught");
+        // }
+
         enemySeesPlayer = CanSeePlayer();
         // if (Physics.SphereCast(playerHead.position, viewRadius, playerHead.forward, out RaycastHit hit, viewDistance))
         // {
@@ -129,17 +190,17 @@ public class AIController : MonoBehaviour
         }
     }
 
-    public void ForceChase() 
-    {
-        Debug.Log("Chase forced.");
+    // public void ForceChase() 
+    // {
+    //     Debug.Log("Chase forced.");
 
-        animController.SetBool("IsSeeingPlayer", true);
-        animController.SetBool("IsChasing", true);
-    }
+    //     animController.SetBool("IsSeeingPlayer", true);
+    //     animController.SetBool("IsChasing", true);
+    // }
 
     private bool CanSeePlayer()
     {
-        if (player == null)
+        if (player == null || enemyReachedPlayer)
         {
             return false;
         }
