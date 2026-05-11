@@ -241,7 +241,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6d9524a512b86af498f5591da579c20e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 108.17
+      value: 106.32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d9524a512b86af498f5591da579c20e,
         type: 3}
@@ -251,7 +251,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6d9524a512b86af498f5591da579c20e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.13
+      value: 3.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6d9524a512b86af498f5591da579c20e,
         type: 3}
@@ -1380,16 +1380,9 @@ MonoBehaviour:
   sprintSpeed: 4
   crouchSpeed: 1
   turnSpeed: 5
-  playerInput: {fileID: 0}
-  movement:
-    m_Name: Movement
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 661205dd-ded4-42ab-bd99-272c94362695
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+  deathSequenceTime: 6
+  deathAnimHasPlayed: 0
+  playerHasDied: 0
 --- !u!143 &1576073913
 CharacterController:
   m_ObjectHideFlags: 0
