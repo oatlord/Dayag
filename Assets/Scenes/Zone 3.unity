@@ -1724,16 +1724,9 @@ MonoBehaviour:
   sprintSpeed: 4
   crouchSpeed: 1
   turnSpeed: 5
-  playerInput: {fileID: 0}
-  movement:
-    m_Name: Movement
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 661205dd-ded4-42ab-bd99-272c94362695
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+  deathSequenceTime: 6
+  deathAnimHasPlayed: 0
+  playerHasDied: 0
 --- !u!143 &1352054147
 CharacterController:
   m_ObjectHideFlags: 0
