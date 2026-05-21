@@ -11,13 +11,15 @@ public class PauseManager : MonoBehaviour
     private string mainMenuSceneName = "MainMenu";
 
     private void Awake()
-    {
-        if (pausePanel != null)
-            pausePanel.SetActive(false);
-        
-        if (optionsPanel != null)
-            optionsPanel.SetActive(false);
-    }
+{
+    DontDestroyOnLoad(gameObject);
+
+    if (pausePanel != null)
+        pausePanel.SetActive(false);
+
+    if (optionsPanel != null)
+        optionsPanel.SetActive(false);
+}
 
     private void Update()
     {
