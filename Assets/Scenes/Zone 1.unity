@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.045
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: 0.5
+  m_HaloStrength: 0.9
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -544,6 +544,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78026044}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &97114281
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.103719994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 43.69468
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.311791
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.72185814
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6920411
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -87.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &97114282 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 97114281}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &120723650
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +706,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120723650}
   m_Mesh: {fileID: -5495902117074765545, guid: c8bba0e7c27b20b46bcd95230a39585e, type: 3}
+--- !u!1001 &130053422
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.581646
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.25163388
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.69175637
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7221311
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -92.461
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (19)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &130053423 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 130053422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &132138087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1493,11 +1646,238 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178447666}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &179309175
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.103719994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 63.724678
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.161791
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.72185814
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6920411
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -87.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &179309176 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 179309175}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &184369575
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30.056751
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0716393
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7079153
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7062974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.869
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &184369576 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 184369575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &205443308 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1665603774894836903, guid: 14061fd3800d4b44cbb08f7ee2f8d123,
     type: 3}
   m_PrefabInstance: {fileID: 1353824820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &235941075
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30.049362
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.1435814
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7079153
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7062974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.869
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (14)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &235941076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 235941075}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &242423023
 GameObject:
@@ -2990,6 +3370,69 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f9ac39d61fa0b545a953d96c31b5683, type: 3}
+--- !u!1 &368932600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368932601}
+  m_Layer: 0
+  m_Name: Skid Mark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &368932601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368932600}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -59.06468, y: 0.54, z: 2.871791}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 836538874}
+  - {fileID: 954613718}
+  - {fileID: 1582042815}
+  - {fileID: 1420121584}
+  - {fileID: 526572091}
+  - {fileID: 821745365}
+  - {fileID: 179309176}
+  - {fileID: 97114282}
+  - {fileID: 1708744141}
+  - {fileID: 1226735049}
+  - {fileID: 235941076}
+  - {fileID: 184369576}
+  - {fileID: 1270672102}
+  - {fileID: 1602423121}
+  - {fileID: 130053423}
+  - {fileID: 1104153096}
+  - {fileID: 792159127}
+  - {fileID: 2145714162}
+  - {fileID: 526070195}
+  - {fileID: 1696687363}
+  - {fileID: 1313064972}
+  - {fileID: 919257787}
+  - {fileID: 1271277789}
+  - {fileID: 731913533}
+  - {fileID: 920245526}
+  - {fileID: 1927406109}
+  - {fileID: 1572316707}
+  - {fileID: 775318105}
+  - {fileID: 1112593793}
+  - {fileID: 1841841727}
+  - {fileID: 602542872}
+  - {fileID: 1453802928}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &380368828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4087,6 +4530,164 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1671388577}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &526070194
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.10372001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -69.83531
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.771791
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6956752
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7183565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -91.838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (28)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &526070195 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 526070194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &526572090
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.103719994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 53.724678
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.7417908
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.72185814
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6920411
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -87.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &526572091 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 526572090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &560840687
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,6 +5104,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2303517018114962616, guid: aae6ebabea6dec5458f25ca6618011a9,
     type: 3}
   m_PrefabInstance: {fileID: 575020530}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &602542871
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0074005127
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.0719428
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7079153
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7062974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.869
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (13)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &602542872 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 602542871}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &606362106
 GameObject:
@@ -6051,6 +6726,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724604259}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &731913532
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.10372001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -47.349712
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.1077323
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6956752
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7183565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -91.838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (26)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &731913533 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 731913532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &737433717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6691,6 +7445,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769140505}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &775318104
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.10372001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -79.8389
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0947485
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6956752
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7183565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -91.838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (31)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &775318105 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 775318104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &779839830
 GameObject:
   m_ObjectHideFlags: 0
@@ -6984,6 +7817,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790969656}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &792159126
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.91798
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.29223728
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7131708
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7009904
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (23)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &792159127 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 792159126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &792674746
 GameObject:
   m_ObjectHideFlags: 0
@@ -7095,6 +8002,85 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1023262090}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &821745364
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.103719994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 33.69468
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.8917909
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.72185814
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6920411
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -87.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &821745365 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 821745364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &822654484
 GameObject:
   m_ObjectHideFlags: 0
@@ -7200,6 +8186,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822654484}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &836538873
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.103719994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 53.81468
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.6717908
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.72185814
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6920411
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -87.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &836538874 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 836538873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &841595320
 GameObject:
   m_ObjectHideFlags: 0
@@ -8017,6 +9082,164 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915696099}
   m_Mesh: {fileID: -5495902117074765545, guid: c8bba0e7c27b20b46bcd95230a39585e, type: 3}
+--- !u!1001 &919257786
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.10372001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -69.7715
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.842763
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6956752
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7183565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -91.838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (29)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &919257787 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 919257786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &920245525
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.10372001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -79.775085
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.165721
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6956752
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7183565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -91.838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (30)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &920245526 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 920245525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &923203887
 GameObject:
   m_ObjectHideFlags: 0
@@ -8205,6 +9428,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934233260}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &935523539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 935523541}
+  - component: {fileID: 935523540}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &935523540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935523539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 15909c89ff38db04487f809e28f6de6a, type: 2}
+--- !u!4 &935523541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935523539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.16, y: 6.92021, z: 0.50815505}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &941646093
 GameObject:
   m_ObjectHideFlags: 0
@@ -8288,6 +9560,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941646093}
   m_Mesh: {fileID: -5495902117074765545, guid: c8bba0e7c27b20b46bcd95230a39585e, type: 3}
+--- !u!1001 &954613717
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.103719994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 33.78468
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.82179093
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.72185814
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6920411
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -87.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &954613718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 954613717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &981603269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10659,6 +12010,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102584886}
   m_Mesh: {fileID: -5495902117074765545, guid: c8bba0e7c27b20b46bcd95230a39585e, type: 3}
+--- !u!1001 &1104153095
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.49532
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.321791
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.69175637
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7221311
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -92.461
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (18)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1104153096 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1104153095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1104430800
 GameObject:
   m_ObjectHideFlags: 0
@@ -10742,6 +12167,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104430800}
   m_Mesh: {fileID: -5495902117074765545, guid: c8bba0e7c27b20b46bcd95230a39585e, type: 3}
+--- !u!1001 &1112593792
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.495846
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.8899939
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.69175637
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7221311
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -92.461
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (17)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1112593793 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1112593792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1116378205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11262,6 +12761,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155925811}
   m_Mesh: {fileID: -5495902117074765545, guid: c8bba0e7c27b20b46bcd95230a39585e, type: 3}
+--- !u!1001 &1226735048
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.040565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.1226337
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7079153
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7062974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.869
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (12)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1226735049 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1226735048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1234871992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11767,6 +13340,154 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263817391}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1270672101
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.008797
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.020947456
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7079153
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7062974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.869
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1270672102 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1270672101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1271277788
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -27.963642
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.193392
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7131708
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7009904
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (21)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1271277789 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1271277788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1274946936
 GameObject:
   m_ObjectHideFlags: 0
@@ -12300,6 +14021,85 @@ Terrain:
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
+--- !u!1001 &1313064971
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.10372001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -37.346127
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.7847744
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6956752
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7183565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -91.838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (25)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1313064972 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1313064971}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1332219397
 GameObject:
   m_ObjectHideFlags: 0
@@ -13088,6 +14888,85 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1671388577}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1420121583
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.103719994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 43.78468
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2417909
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.72185814
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6920411
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -87.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1420121584 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1420121583}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1431947616 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d42e101157e5ec941bae70137536abce,
@@ -13211,7 +15090,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -13360,6 +15239,80 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6204557408482259442, guid: 0408c45eb369edc49acac10e8a340424,
     type: 3}
   m_PrefabInstance: {fileID: 630623713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1453802927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7079153
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7062974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.869
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1453802928 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1453802927}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1460786451
 GameObject:
@@ -13996,6 +15949,164 @@ Transform:
   m_Children: []
   m_Father: {fileID: 858691848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1572316706
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.10372001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -47.413525
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.036759853
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6956752
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7183565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -91.838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (27)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1572316707 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1572316706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1582042814
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.103719994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 63.81468
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.0917907
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.72185814
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6920411
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -87.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1582042815 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1582042814}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1585951993
 GameObject:
   m_ObjectHideFlags: 0
@@ -14419,6 +16530,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595667159}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1602423120
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.0014
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.09289
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7079153
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7062974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.869
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (15)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1602423121 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1602423120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1615320643
 GameObject:
   m_ObjectHideFlags: 0
@@ -15486,6 +17671,154 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fa2a3db249d6df4c97939b57915cbd9, type: 3}
+--- !u!1001 &1696687362
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.95631
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.3638384
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7131708
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7009904
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (22)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1696687363 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1696687362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1708744140
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.047958
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.05069089
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7079153
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7062974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.869
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1708744141 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1708744140}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1741681018
 GameObject:
   m_ObjectHideFlags: 0
@@ -16240,6 +18573,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839708807}
   m_Mesh: {fileID: -5495902117074765545, guid: c8bba0e7c27b20b46bcd95230a39585e, type: 3}
+--- !u!1001 &1841841726
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.582165
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.18016267
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.69175637
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7221311
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -92.461
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (16)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1841841727 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1841841726}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1842081392
 GameObject:
   m_ObjectHideFlags: 0
@@ -16817,6 +19224,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888072725}
   m_Mesh: {fileID: -5495902117074765545, guid: c8bba0e7c27b20b46bcd95230a39585e, type: 3}
+--- !u!1001 &1927406108
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -27.92532
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.121790886
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7131708
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7009904
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (20)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &1927406109 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927406108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1937701654
 GameObject:
   m_ObjectHideFlags: 0
@@ -21248,6 +23729,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137684791}
   m_Mesh: {fileID: -5495902117074765545, guid: c8bba0e7c27b20b46bcd95230a39585e, type: 3}
+--- !u!1001 &2145714161
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 368932601}
+    m_Modifications:
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.10372001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -37.40994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.28619766
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6956752
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7183565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -91.838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461299491389576955, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+        type: 3}
+      propertyPath: m_Name
+      value: Truck Skid Mark (24)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 217a2979ba55c3946aa5ddea04c9ee85, type: 3}
+--- !u!4 &2145714162 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1594722548090780482, guid: 217a2979ba55c3946aa5ddea04c9ee85,
+    type: 3}
+  m_PrefabInstance: {fileID: 2145714161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5311521801387737297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21569,3 +24129,5 @@ SceneRoots:
   - {fileID: 737433717}
   - {fileID: 1688491129}
   - {fileID: 1092216831}
+  - {fileID: 368932601}
+  - {fileID: 935523541}
