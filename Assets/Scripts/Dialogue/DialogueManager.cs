@@ -4,9 +4,13 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using Ink.UnityIntegration;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Globals Ink File")]
+    [SerializeField] private InkFile globalsInkFile;
+
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
@@ -20,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     public bool dialogueIsPlaying { get; private set; }
 
     private static DialogueManager instance;
+    private DialogueVariables dialogueVariables;
 
     private const string SPEAKER_TAG = "speaker";
 
@@ -32,6 +37,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             instance = this;
+            dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
             // animator = player.GetComponent<Animator>();
         }
     }
@@ -69,6 +75,8 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
+        dialogueVariables.StartListening(currentStory);
+
         if (InputManager.GetInstance().GetCurrentlyActiveMap() != "UI_Input")
         {
             InputManager.GetInstance().SwitchToUIMap();
@@ -82,6 +90,8 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+
+        dialogueVariables.StopListening(currentStory);
 
         if (InputManager.GetInstance().GetCurrentlyActiveMap() != "PlayerControls")
         {
@@ -171,6 +181,17 @@ public class DialogueManager : MonoBehaviour
     {
         currentStory.ChooseChoiceIndex(choiceIndex);
         // ContinueStory();
+    }
+
+    public Ink.Runtime.Object GetVariableState(string variableName)
+    {
+        Ink.Runtime.Object variableValue = null;
+        dialogueVariables.variables.TryGetValue(variableName, out variableValue);
+        if (variableValue == null)
+        {
+            Debug.LogError("Variable requested but not found: " + variableName);
+        }
+        return variableValue;
     }
 
     public static DialogueManager GetInstance()
