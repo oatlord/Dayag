@@ -12,11 +12,11 @@ This is line 2.
 === choice1 ===
 Yep.
 
-Loser. #speaker:MC
+Choice 1 picked!. #speaker:MC
 -> END
 
 === choice2 ===
 Aw.
 
-Loser. #speaker:MC
+Choice 2 picked!. #speaker:MC
 -> END
