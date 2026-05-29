@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    [SerializeField] private string NPCName;
     [SerializeField] private GameObject visualCue;
 
     [SerializeField] private TextAsset inkJSON;
@@ -14,12 +15,12 @@ public class DialogueTrigger : MonoBehaviour
     private void Awake()
     {
         // visualCue.SetActive(false);
-        playerInRange = false;
+        // playerInRange = false;
     }
 
     private void Update()
     {
-        // Debug.Log($"DialogueTrigger Update - playerInRange: {playerInRange}, dialoguePlaying: {DialogueManager.GetInstance().dialogueIsPlaying}");
+        Debug.Log($"DialogueTrigger Update: {NPCName} - playerInRange: {playerInRange}, dialoguePlaying: {DialogueManager.GetInstance().dialogueIsPlaying}");
         
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
@@ -36,6 +37,12 @@ public class DialogueTrigger : MonoBehaviour
         {
             visualCue.SetActive(false);
         }
+
+        // if (!playerInRange || DialogueManager.GetInstance().dialogueIsPlaying)
+        // {
+        //     visualCue.SetActive(false);
+        // }
+
     }
 
     void OnTriggerEnter(Collider other)
