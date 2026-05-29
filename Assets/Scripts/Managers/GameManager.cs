@@ -1,13 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ink.Runtime;
 
 public class GameManager : MonoBehaviour, IDataPersistence
 {
     public static GameManager instance;
+
+    // Player State
     public bool PlayerIsAlive { get; private set; } = true;
+
+    // Player Checkpoint System
     public Vector3 PlayerCheckpoint { get; private set; } = Vector3.zero;
     public bool HasPlayerCheckpoint { get; private set; } = false;
+
+    // Player Variables
+    public bool HasHelped;
+    public bool HasLetter;
+    public string NameOfChoice;
 
     [Header("References")]
     [SerializeField] private GameObject player;
@@ -20,12 +30,20 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         data.playerCheckpointPosition = PlayerCheckpoint;
         data.hasPlayerCheckpoint = HasPlayerCheckpoint;
+
+        // data.HasHelped = ReturnHasPlayerHelped();
+        // data.HasLetter = ReturnDoesPlayerHaveLetter();
+        // data.NameOfChoice = ReturnNameOfChoice();
     }
 
     public void LoadData(GameData data)
     {
         PlayerCheckpoint = data.playerCheckpointPosition;
         HasPlayerCheckpoint = data.hasPlayerCheckpoint;
+
+        // HasHelped = data.HasHelped;
+        // HasLetter = data.HasLetter;
+        // NameOfChoice = data.NameOfChoice;
     }
 
     void Update()
@@ -46,6 +64,21 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
         // playerController = player.GetComponent<PlayerController>();
     }
+
+    // private bool ReturnHasPlayerHelped()
+    // {
+    //     return ((Ink.Runtime.BoolValue) DialogueManager.GetInstance().GetVariableState("HasHelped")).value;
+    // }
+
+    // private bool ReturnDoesPlayerHaveLetter()
+    // {
+    //     return ((Ink.Runtime.BoolValue) DialogueManager.GetInstance().GetVariableState("HasLetter")).value;
+    // }
+
+    // private string ReturnNameOfChoice()
+    // {
+    //     return ((Ink.Runtime.StringValue) DialogueManager.GetInstance().GetVariableState("NameOfChoice")).value;
+    // }
 
     public void KillPlayer()
     {

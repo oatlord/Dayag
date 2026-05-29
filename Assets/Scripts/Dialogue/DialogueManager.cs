@@ -5,7 +5,7 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour, IDataPersistence
 {
     [Header("Load Globals JSON")]
     [SerializeField] private TextAsset loadGlobalsJSON;
@@ -65,6 +65,19 @@ public class DialogueManager : MonoBehaviour
         if (currentStory.currentChoices.Count == 0 && InputManager.GetInstance().GetSubmitPressed())
         {
             ContinueStory();
+        }
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.savedStoryJson = dialogueVariables.GetSaveStateJson();
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (!string.IsNullOrEmpty(data.savedStoryJson))
+        {
+            dialogueVariables.LoadStateJson(data.savedStoryJson);
         }
     }
 
@@ -197,5 +210,10 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager GetInstance()
     {
         return instance;
+    }
+
+    public void OnApplicationQuit()
+    {
+        // dialogueVariables.SaveVariables();
     }
 }
