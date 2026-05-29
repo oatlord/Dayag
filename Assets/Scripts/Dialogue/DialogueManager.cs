@@ -5,8 +5,11 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour, IDataPersistence
 {
+    [Header("Load Globals JSON")]
+    [SerializeField] private TextAsset loadGlobalsJSON;
+
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
@@ -20,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     public bool dialogueIsPlaying { get; private set; }
 
     private static DialogueManager instance;
+    private DialogueVariables dialogueVariables;
 
     private const string SPEAKER_TAG = "speaker";
 
@@ -32,6 +36,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             instance = this;
+            dialogueVariables = new DialogueVariables(loadGlobalsJSON);
             // animator = player.GetComponent<Animator>();
         }
     }
@@ -57,9 +62,22 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (InputManager.GetInstance().GetSubmitPressed())
+        if (currentStory.currentChoices.Count == 0 && InputManager.GetInstance().GetSubmitPressed())
         {
             ContinueStory();
+        }
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.savedStoryJson = dialogueVariables.GetSaveStateJson();
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (!string.IsNullOrEmpty(data.savedStoryJson))
+        {
+            dialogueVariables.LoadStateJson(data.savedStoryJson);
         }
     }
 
@@ -68,6 +86,8 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+
+        dialogueVariables.StartListening(currentStory);
 
         if (InputManager.GetInstance().GetCurrentlyActiveMap() != "UI_Input")
         {
@@ -82,6 +102,8 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+
+        dialogueVariables.StopListening(currentStory);
 
         if (InputManager.GetInstance().GetCurrentlyActiveMap() != "PlayerControls")
         {
@@ -170,11 +192,28 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int choiceIndex)
     {
         currentStory.ChooseChoiceIndex(choiceIndex);
-        // ContinueStory();
+        InputManager.GetInstance().RegisterSubmitPressed();
+        ContinueStory();
+    }
+
+    public Ink.Runtime.Object GetVariableState(string variableName)
+    {
+        Ink.Runtime.Object variableValue = null;
+        dialogueVariables.variables.TryGetValue(variableName, out variableValue);
+        if (variableValue == null)
+        {
+            Debug.LogError("Variable requested but not found: " + variableName);
+        }
+        return variableValue;
     }
 
     public static DialogueManager GetInstance()
     {
         return instance;
+    }
+
+    public void OnApplicationQuit()
+    {
+        // dialogueVariables.SaveVariables();
     }
 }
