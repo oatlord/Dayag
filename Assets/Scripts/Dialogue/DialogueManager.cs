@@ -63,7 +63,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (InputManager.GetInstance().GetSubmitPressed())
+        if (currentStory.currentChoices.Count == 0 && InputManager.GetInstance().GetSubmitPressed())
         {
             ContinueStory();
         }
@@ -180,7 +180,8 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int choiceIndex)
     {
         currentStory.ChooseChoiceIndex(choiceIndex);
-        // ContinueStory();
+        InputManager.GetInstance().RegisterSubmitPressed();
+        ContinueStory();
     }
 
     public Ink.Runtime.Object GetVariableState(string variableName)
