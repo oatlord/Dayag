@@ -32,7 +32,7 @@ public class SaveSlotsMenu : Menu
             // Debug.Log("New game created.");
         }
 
-        SceneManager.LoadSceneAsync("SampleScene");
+        SceneManager.LoadSceneAsync("Zone 1");
     }
 
     public void OnBackClicked()
