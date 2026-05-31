@@ -71,13 +71,10 @@ public class SpriteAnimationVignette : MonoBehaviour
     // This runs automatically in the Unity Editor whenever you change a value in the Inspector
     private void OnValidate()
     {
-        // Grab the Image component if we don't have it yet
         if (uiImage == null)
         {
             uiImage = GetComponent<Image>();
         }
-
-        // Apply the color instantly so you can preview it without pressing Play
         if (uiImage != null)
         {
             uiImage.color = vignetteColor;

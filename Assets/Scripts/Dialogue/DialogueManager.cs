@@ -212,6 +212,12 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
         return instance;
     }
 
+    private void OnDisable()
+{
+    Debug.LogError($"[CATCHER] DialogueManager was just UNCHECKED/DISABLED!", this);
+    Debug.Log(System.Environment.StackTrace);
+}
+
     public void OnApplicationQuit()
     {
         // dialogueVariables.SaveVariables();

@@ -211,7 +211,9 @@ PrefabInstance:
       value: Tanaka
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: 21a5fcbfa1da42246afb438b8fe27b1a, type: 3}
+    - {fileID: -8700617353114198275, guid: 21a5fcbfa1da42246afb438b8fe27b1a, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 21a5fcbfa1da42246afb438b8fe27b1a,
         type: 3}
@@ -976,12 +978,12 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &731748050
+--- !u!1 &731748050 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6086545983296191001, guid: 0408c45eb369edc49acac10e8a340424,
     type: 3}
@@ -1194,7 +1196,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1286,17 +1288,17 @@ PrefabInstance:
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.40375
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.40375
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.40375
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
@@ -1341,7 +1343,7 @@ PrefabInstance:
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 52.487503
+      value: 214
       objectReference: {fileID: 0}
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
@@ -1357,6 +1359,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4684,7 +4691,7 @@ PrefabInstance:
     - target: {fileID: 2255619973713257754, guid: 8ff57a03850c3254bad8732fc7222343,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.138705
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2255619973713257754, guid: 8ff57a03850c3254bad8732fc7222343,
         type: 3}
@@ -4694,7 +4701,7 @@ PrefabInstance:
     - target: {fileID: 2255619973713257754, guid: 8ff57a03850c3254bad8732fc7222343,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.11537
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2255619973713257754, guid: 8ff57a03850c3254bad8732fc7222343,
         type: 3}

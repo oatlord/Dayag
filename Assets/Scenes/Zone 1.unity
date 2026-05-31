@@ -4239,15 +4239,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4436089584454788, guid: 78619024aa8ea134aad7e42921d39694, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.786
+      value: -22.436
       objectReference: {fileID: 0}
     - target: {fileID: 4436089584454788, guid: 78619024aa8ea134aad7e42921d39694, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.40856487
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: 4436089584454788, guid: 78619024aa8ea134aad7e42921d39694, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.8203664
+      value: -5.701
       objectReference: {fileID: 0}
     - target: {fileID: 4436089584454788, guid: 78619024aa8ea134aad7e42921d39694, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12873,7 +12873,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 19b087de85298f24692c0c8dd3ddaa1f, type: 3}
   - {fileID: 21300000, guid: 04692d6ff355b9a459e23a1c961c025d, type: 3}
   - {fileID: 21300000, guid: 19b087de85298f24692c0c8dd3ddaa1f, type: 3}
-  framesPerSecond: 50
+  framesPerSecond: 5
   loop: 1
   vignetteColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
 --- !u!114 &1193819939
@@ -20313,6 +20313,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3311315582378447424, guid: 2bf5b9c2a4f108343bca5cd594385579,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21256,7 +21261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2082236044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21335,8 +21340,8 @@ RectTransform:
   - {fileID: 1451979694}
   - {fileID: 819757244}
   - {fileID: 2003062489}
-  - {fileID: 1015592947}
   - {fileID: 1395335180}
+  - {fileID: 1015592947}
   - {fileID: 1420046828}
   - {fileID: 1844708717}
   m_Father: {fileID: 0}
@@ -21555,7 +21560,7 @@ PrefabInstance:
     - target: {fileID: 7789545225162280932, guid: 811a4326a54ebcd4fadabf8f017ee4b5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8855393115600179021, guid: 811a4326a54ebcd4fadabf8f017ee4b5,
         type: 3}
@@ -24139,6 +24144,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 5520188002789166654, guid: 75ef62fa850818948a268479723ccd31,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5840205754456854646, guid: 75ef62fa850818948a268479723ccd31,
         type: 3}
       propertyPath: visualCue
@@ -24170,7 +24180,7 @@ PrefabInstance:
     - target: {fileID: 5447061660485388173, guid: 8fa2a3db249d6df4c97939b57915cbd9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.87
+      value: -30.69
       objectReference: {fileID: 0}
     - target: {fileID: 5447061660485388173, guid: 8fa2a3db249d6df4c97939b57915cbd9,
         type: 3}
@@ -24180,7 +24190,7 @@ PrefabInstance:
     - target: {fileID: 5447061660485388173, guid: 8fa2a3db249d6df4c97939b57915cbd9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.45
+      value: 14.52
       objectReference: {fileID: 0}
     - target: {fileID: 5447061660485388173, guid: 8fa2a3db249d6df4c97939b57915cbd9,
         type: 3}
