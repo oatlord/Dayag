@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         Debug.Log("PlayerHasDied bool: " + playerHasDied);
         Debug.Log("Death Anim Has Played: " + deathAnimHasPlayed);
 
-        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        if (DialogueManager.GetInstance().dialogueIsPlaying || GameSceneManager.instance.SceneIsLoading)
         {
             return;
         }
