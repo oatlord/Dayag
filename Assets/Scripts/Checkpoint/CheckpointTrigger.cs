@@ -23,7 +23,7 @@ public class CheckpointTrigger : MonoBehaviour
             bool interactPressed = InputManager.GetInstance().GetInteractPressed();
             if (interactPressed)
             {
-                // Debug.Log("Player checkpoint set to: " + checkpointPositionChild.name);
+                Debug.Log("Player checkpoint set.");
                 savingStatusText.SetActive(true);
                 // GameManager.instance.SetPlayerCheckpoint(checkpointPositionChild.position);
                 DataPersistenceManager.instance.SaveGame();
