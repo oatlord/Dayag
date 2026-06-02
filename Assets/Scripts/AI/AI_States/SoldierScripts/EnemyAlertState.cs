@@ -26,6 +26,8 @@ public class EnemyAlertState : StateMachineBehaviour
         {
             navMeshAgent.isStopped = true;
         }
+
+        aiController.PlayAlertAudio();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

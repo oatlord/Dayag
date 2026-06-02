@@ -46,6 +46,9 @@ public class AIController : MonoBehaviour
     public float enemyChaseSpeed;
     public float enemyWalkSpeed;
 
+    [Header("Enemy Audio Settings")]
+    [SerializeField] private AudioSource alertAudioSource = null;
+
     private Vector3 playerPosition;
     private bool enemySeesPlayer;
     public bool enemyReachedPlayer = false;
@@ -187,6 +190,15 @@ public class AIController : MonoBehaviour
         else
         {
             sphereCollider.radius = alertRadius;
+        }
+    }
+
+    public void PlayAlertAudio()
+    {
+        if (alertAudioSource != null && !alertAudioSource.isPlaying)
+        {
+            Debug.Log("Playing alert audio");
+            alertAudioSource.Play();
         }
     }
 
