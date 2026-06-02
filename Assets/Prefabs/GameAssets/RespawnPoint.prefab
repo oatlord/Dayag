@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RespawnPointSetText: {fileID: 1036661476292001914}
-  visualCue: {fileID: 0}
+  visualCue: {fileID: 222076239011439211}
   RespawnPositionChild: {fileID: 7190522741221858680}
 --- !u!1001 &1951936462609034276
 PrefabInstance:
@@ -418,7 +418,7 @@ PrefabInstance:
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -68.71405
+      value: -39.46
       objectReference: {fileID: 0}
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
@@ -445,6 +445,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ae40458d91dc848ac1dde0184464fe, type: 3}
+--- !u!1 &222076239011439211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1730036429261983311, guid: b5ae40458d91dc848ac1dde0184464fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 1951936462609034276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2950037851080885410 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
