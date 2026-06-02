@@ -172,18 +172,7 @@
                 {
                     "name": "",
                     "id": "a86a7bc9-d7b4-41eb-b5cb-ea7b74fd9d57",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7950092a-cf27-4f4e-9f3c-e88770a53159",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
