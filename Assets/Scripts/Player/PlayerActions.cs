@@ -252,6 +252,24 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""567afcc0-f2f6-4502-b09d-26391dddc871"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""1134f48b-1ccd-49c9-8362-f059fb3fb86d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -320,6 +338,28 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76a65dd3-5399-4b83-844d-9aa723f84469"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""913e888b-6a40-41b3-a42a-b0c77c78032f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -336,6 +376,8 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_UI_Input = asset.FindActionMap("UI_Input", throwIfNotFound: true);
         m_UI_Input_Submit = m_UI_Input.FindAction("Submit", throwIfNotFound: true);
         m_UI_Input_Navigate = m_UI_Input.FindAction("Navigate", throwIfNotFound: true);
+        m_UI_Input_Point = m_UI_Input.FindAction("Point", throwIfNotFound: true);
+        m_UI_Input_LeftClick = m_UI_Input.FindAction("LeftClick", throwIfNotFound: true);
     }
 
     ~@PlayerActions()
@@ -548,6 +590,8 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private List<IUI_InputActions> m_UI_InputActionsCallbackInterfaces = new List<IUI_InputActions>();
     private readonly InputAction m_UI_Input_Submit;
     private readonly InputAction m_UI_Input_Navigate;
+    private readonly InputAction m_UI_Input_Point;
+    private readonly InputAction m_UI_Input_LeftClick;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI_Input".
     /// </summary>
@@ -567,6 +611,14 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI_Input/Navigate".
         /// </summary>
         public InputAction @Navigate => m_Wrapper.m_UI_Input_Navigate;
+        /// <summary>
+        /// Provides access to the underlying input action "UI_Input/Point".
+        /// </summary>
+        public InputAction @Point => m_Wrapper.m_UI_Input_Point;
+        /// <summary>
+        /// Provides access to the underlying input action "UI_Input/LeftClick".
+        /// </summary>
+        public InputAction @LeftClick => m_Wrapper.m_UI_Input_LeftClick;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -599,6 +651,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Navigate.started += instance.OnNavigate;
             @Navigate.performed += instance.OnNavigate;
             @Navigate.canceled += instance.OnNavigate;
+            @Point.started += instance.OnPoint;
+            @Point.performed += instance.OnPoint;
+            @Point.canceled += instance.OnPoint;
+            @LeftClick.started += instance.OnLeftClick;
+            @LeftClick.performed += instance.OnLeftClick;
+            @LeftClick.canceled += instance.OnLeftClick;
         }
 
         /// <summary>
@@ -616,6 +674,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Navigate.started -= instance.OnNavigate;
             @Navigate.performed -= instance.OnNavigate;
             @Navigate.canceled -= instance.OnNavigate;
+            @Point.started -= instance.OnPoint;
+            @Point.performed -= instance.OnPoint;
+            @Point.canceled -= instance.OnPoint;
+            @LeftClick.started -= instance.OnLeftClick;
+            @LeftClick.performed -= instance.OnLeftClick;
+            @LeftClick.canceled -= instance.OnLeftClick;
         }
 
         /// <summary>
@@ -706,5 +770,19 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNavigate(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Point" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPoint(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "LeftClick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLeftClick(InputAction.CallbackContext context);
     }
 }
