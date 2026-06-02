@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource ambienceMusicSource = null;
     [Tooltip("Source for player footstep sounds. Can be null if none.")]
     [SerializeField] private AudioSource playerFootstepSource = null;
+    [Tooltip("Source for player running footstep sounds. Can be null if none.")]
+    [SerializeField] private AudioSource playerRunFootstepSource = null;
     [Tooltip("Source for player heartbeat sounds. Can be null if none.")]
     [SerializeField] private AudioSource playerHeartbeatSource = null;
 
@@ -28,15 +30,27 @@ public class AudioManager : MonoBehaviour
             }
 
             if (playerFootstepSource.clip != null && !playerFootstepSource.isPlaying
-            && InputManager.GetInstance().IsMoving)
+            && InputManager.GetInstance().IsMoving && !InputManager.GetInstance().IsSprinting)
             {
                 Debug.Log("Playing footstep sound");
                 playerFootstepSource.Play();
             }
-            else if (playerFootstepSource.isPlaying && !InputManager.GetInstance().IsMoving)
+            else if (playerFootstepSource.isPlaying && (InputManager.GetInstance().IsSprinting || !InputManager.GetInstance().IsMoving))
             {
                 Debug.Log("Stopping footstep sound");
                 playerFootstepSource.Stop();
+            }
+
+            if (playerRunFootstepSource.clip != null && !playerRunFootstepSource.isPlaying &&
+            InputManager.GetInstance().IsSprinting)
+            {
+                Debug.Log("Playing running footstep sound");
+                playerRunFootstepSource.Play();
+            }
+            else if (playerRunFootstepSource.isPlaying && !InputManager.GetInstance().IsSprinting)
+            {
+                Debug.Log("Stopping running footstep sound");
+                playerRunFootstepSource.Stop();
             }
 
             if (playerHeartbeatSource.clip != null && !playerHeartbeatSource.isPlaying
