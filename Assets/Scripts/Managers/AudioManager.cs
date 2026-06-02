@@ -3,10 +3,15 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [Header("Audio Settings")]
+    [Tooltip("Toggle to allow music and sound effects.")]
     [SerializeField] bool PlayMusic;
+    [Tooltip("Source for background music. Can be null if none.")]
     [SerializeField] private AudioSource backgroundMusicSource = null;
+    [Tooltip("Source for ambience music. Can be null if none.")]
     [SerializeField] private AudioSource ambienceMusicSource = null;
+    [Tooltip("Source for player footstep sounds. Can be null if none.")]
     [SerializeField] private AudioSource playerFootstepSource = null;
+    [Tooltip("Source for player heartbeat sounds. Can be null if none.")]
     [SerializeField] private AudioSource playerHeartbeatSource = null;
 
     void Update()
