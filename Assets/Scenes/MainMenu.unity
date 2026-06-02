@@ -928,7 +928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b07475c0acf6841979cbf2f4cf90b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSelected: {fileID: 1082803691}
+  firstSelected: {fileID: 0}
   saveSlotsMenu: {fileID: 1099014574}
   newGameButton: {fileID: 1082803693}
   loadGameButton: {fileID: 1724678993}
@@ -2749,13 +2749,12 @@ MonoBehaviour:
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: e11bfb84e24f7fd46bf59fc0db335046,
     type: 3}
-  m_PointAction: {fileID: 0}
-  m_MoveAction: {fileID: 1348284426456097492, guid: e11bfb84e24f7fd46bf59fc0db335046,
+  m_PointAction: {fileID: 389671285480834203, guid: e11bfb84e24f7fd46bf59fc0db335046,
     type: 3}
-  m_SubmitAction: {fileID: -1415160774500086508, guid: e11bfb84e24f7fd46bf59fc0db335046,
-    type: 3}
+  m_MoveAction: {fileID: 0}
+  m_SubmitAction: {fileID: 0}
   m_CancelAction: {fileID: 0}
-  m_LeftClickAction: {fileID: -1415160774500086508, guid: e11bfb84e24f7fd46bf59fc0db335046,
+  m_LeftClickAction: {fileID: 5173756653811301851, guid: e11bfb84e24f7fd46bf59fc0db335046,
     type: 3}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
@@ -2778,7 +2777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 1082803691}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1287631972

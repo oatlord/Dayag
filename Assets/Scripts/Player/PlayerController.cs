@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour, IDataPersistence
     public bool deathAnimHasPlayed = false;
     public bool playerHasDied = false;
 
+    [Header("Gravity Configurations")]
+    [SerializeField] private float gravityVelocity = -9.81f;
+    private float verticalVelocity;
+
     private Vector3 moveDirection;
     // public PlayerInput playerInput;
     // public InputAction movement;
@@ -79,48 +83,60 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsSprinting", false);
             animator.SetBool("IsCrouching", false);
-        }
-
-        // if (playerHasDied)
-        // {
-        //     Debug.Log("Player has died. Initiating death and revival sequence.");
-        //     m_deathCooldownTimer += Time.deltaTime;
-        //     if (m_deathCooldownTimer >= deathSequenceTime)
-        //     {
-        //         GameManager.instance.RevivePlayer();
-        //         animator.SetBool("IsIdle", true);
-        //         deathAnimHasPlayed = false;
-        //         playerHasDied = false;
-        //         m_deathCooldownTimer = 0;
-        //     }
-        //     return;
-        // }
-
-        if (!InputManager.GetInstance().IsSprinting && !InputManager.GetInstance().IsCrouching)
-        {
-            moveSpeed = defaultMoveSpeed;
-        }
-        else if (InputManager.GetInstance().IsSprinting)
-        {
-            moveSpeed = sprintSpeed;
-        }
-        else if (InputManager.GetInstance().IsCrouching)
-        {
-            moveSpeed = crouchSpeed;
+            return;
         }
 
         moveDirection = InputManager.GetInstance().GetMoveDirection();
-        characterController.Move(InputManager.GetInstance().GetMoveDirection() * Time.deltaTime * moveSpeed);
+        float inputMagnitude = moveDirection.sqrMagnitude;
+        bool isMoving = inputMagnitude > 0.01f;
+        bool isCrouching = InputManager.GetInstance().IsCrouching;
+        bool isSprinting = isMoving && !isCrouching && InputManager.GetInstance().IsSprinting; 
 
-        if (moveDirection.sqrMagnitude > 0.01f)
+        if (!isMoving)
         {
-            gameObject.transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, Quaternion.LookRotation(moveDirection), Time.deltaTime * turnSpeed);
+            moveSpeed = 0f;
+        }
+        else if (isCrouching)
+        {
+            moveSpeed = crouchSpeed;
+        }
+        else if (isSprinting)
+        {
+            moveSpeed = sprintSpeed;
+        }
+        else
+        {
+            moveSpeed = defaultMoveSpeed;
         }
 
-        animator.SetBool("IsMoving", InputManager.GetInstance().IsMoving);
-        animator.SetBool("IsIdle", InputManager.GetInstance().IsIdle);
-        animator.SetBool("IsSprinting", InputManager.GetInstance().IsSprinting);
-        animator.SetBool("IsCrouching", InputManager.GetInstance().IsCrouching);
+        Vector3 finalMovement = moveDirection * moveSpeed;
+
+        if (characterController.isGrounded)
+        {
+            verticalVelocity = -2f; 
+        }
+        else
+        {
+            verticalVelocity += gravityVelocity * Time.deltaTime;
+        }
+
+        finalMovement.y = verticalVelocity;
+
+        characterController.Move(finalMovement * Time.deltaTime);
+
+        if (isMoving)
+        {
+            gameObject.transform.rotation = Quaternion.Lerp(
+                gameObject.transform.rotation, 
+                Quaternion.LookRotation(moveDirection), 
+                Time.deltaTime * turnSpeed
+            );
+        }
+
+        animator.SetBool("IsMoving", isMoving);
+        animator.SetBool("IsIdle", !isMoving);
+        animator.SetBool("IsSprinting", isSprinting);
+        animator.SetBool("IsCrouching", isCrouching);
     }
 
     // public void RevivePlayer()
