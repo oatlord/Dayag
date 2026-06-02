@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     // Player State
     public bool PlayerIsAlive { get; private set; } = true;
+    public bool PlayerIsBeingChased { get; private set; } = false;
 
     // Player Checkpoint System
     public Vector3 PlayerCheckpoint { get; private set; } = Vector3.zero;
@@ -84,6 +85,11 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         PlayerIsAlive = false;
         blackoutScreen.SetActive(true);
+    }
+
+    public void SetChasePlayerState(bool isBeingChased)
+    {
+        PlayerIsBeingChased = isBeingChased;
     }
 
     public void SetPlayerCheckpoint(Vector3 checkpointPosition)

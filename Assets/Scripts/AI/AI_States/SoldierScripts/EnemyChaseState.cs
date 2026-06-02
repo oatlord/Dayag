@@ -19,6 +19,8 @@ public class EnemyChaseState : StateMachineBehaviour
         }
 
         navMeshAgent.speed = aiController.enemyChaseSpeed;
+
+        GameManager.instance.SetChasePlayerState(true);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -39,6 +41,7 @@ public class EnemyChaseState : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         navMeshAgent.speed = aiController.enemyWalkSpeed;
+        GameManager.instance.SetChasePlayerState(false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
