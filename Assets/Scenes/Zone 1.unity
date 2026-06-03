@@ -1719,6 +1719,89 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 184369575}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &204749784
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 78944956157746880, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: NPCName
+      value: Mr. Wataru
+      objectReference: {fileID: 0}
+    - target: {fileID: 78944956157746880, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: inkJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: 37f8c1a79d263664d9218f5f488c8537, type: 3}
+    - target: {fileID: 2620747629239818531, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -85.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.47050428
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.01632146
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.88215834
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.012489646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 2.143
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 123.871
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.977
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113186877264464688, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_Name
+      value: MrWataruNPC
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a0ef5620c36d825458f7c280166270e7, type: 3}
 --- !u!1001 &235941075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22785,14 +22868,34 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 924300823979337302, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
         type: 3}
+      propertyPath: NPCName
+      value: Lola Siang
+      objectReference: {fileID: 0}
+    - target: {fileID: 924300823979337302, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
+        type: 3}
+      propertyPath: inkJSON
+      value: 
+      objectReference: {fileID: 4900000, guid: 93337e5ec1e54694eb05f41518f3ad29, type: 3}
+    - target: {fileID: 924300823979337302, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
+        type: 3}
       propertyPath: visualCue
       value: 
       objectReference: {fileID: 1612110384}
     - target: {fileID: 1962611930130846446, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
         type: 3}
       propertyPath: m_Name
-      value: WomanNPC
+      value: LolaSiangNPC
       objectReference: {fileID: 0}
+    - target: {fileID: 2978861597404905096, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 74ab60bb13530734e8fb505f0336100b, type: 2}
+    - target: {fileID: 4107052891824365120, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a77fc5d3f5d60e345993b2084fa5d5c2, type: 2}
     - target: {fileID: 6447298424086667190, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22842,6 +22945,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7241726102620646356, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e38abb5cd4650244a8e5f4b7258ad7a, type: 2}
+    - target: {fileID: 7507585819039300170, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22989,74 +23102,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fa2a3db249d6df4c97939b57915cbd9, type: 3}
---- !u!1001 &5570380411090454546
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103141253269291503, guid: a0ef5620c36d825458f7c280166270e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4113186877264464688, guid: a0ef5620c36d825458f7c280166270e7,
-        type: 3}
-      propertyPath: m_Name
-      value: ManNPC
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a0ef5620c36d825458f7c280166270e7, type: 3}
 --- !u!1001 &5661118104651532138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23304,8 +23349,8 @@ SceneRoots:
   - {fileID: 1055059030}
   - {fileID: 965943478}
   - {fileID: 361727461}
-  - {fileID: 5570380411090454546}
   - {fileID: 2896873393174402284}
+  - {fileID: 204749784}
   - {fileID: 5311521801387737297}
   - {fileID: 1312090069}
   - {fileID: 1560677433023243980}
