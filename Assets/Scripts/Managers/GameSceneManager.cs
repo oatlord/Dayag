@@ -3,11 +3,22 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GameSceneManager : MonoBehaviour
+public class GameSceneManager : MonoBehaviour, IDataPersistence
 {
     public static GameSceneManager instance;
     [SerializeField] private GameObject loadingScreen;
     public bool SceneIsLoading { get; private set; } = false;
+
+    public void SaveData(GameData data)
+    {
+        data.currentSceneName = SceneManager.GetActiveScene().name;
+        Debug.Log("Saving current scene name: " + data.currentSceneName);
+    }
+
+    public void LoadData(GameData data)
+    {
+        // Do nothing since we want to load the current scene, not move to a different scene.
+    }
 
     private void Awake()
     {

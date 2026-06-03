@@ -14,6 +14,7 @@ public class SaveSlot : MonoBehaviour
     [SerializeField] private GameObject hasDataContent;
     [SerializeField] private TextMeshProUGUI zoneText;
     private Button saveSlotButton;
+    private string toLoadSceneName;
 
     private void Awake() {
         saveSlotButton = this.GetComponent<Button>();
@@ -28,8 +29,13 @@ public class SaveSlot : MonoBehaviour
             hasDataContent.SetActive(true);
 
             zoneText.text = data.currentZone;
+            toLoadSceneName = data.currentSceneName;
         }
     } 
+
+    public string GetSceneToLoad() {
+        return toLoadSceneName;
+    }
 
     public string GetProfileId() {
         return this.profileId;

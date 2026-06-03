@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 
@@ -11,6 +12,7 @@ public class GameData
     public Vector3 playerCheckpointPosition;
     public bool hasPlayerCheckpoint;
     public string currentZone;
+    public string currentSceneName;
 
     // STORY DIALOGUE FLAGS
     // public bool HasHelped;
@@ -25,7 +27,8 @@ public class GameData
         playerPosition = Vector3.zero;
         playerCheckpointPosition = Vector3.zero;
         hasPlayerCheckpoint = false;
-        currentZone = "Test";
+        currentZone = "Wrecked Hometown";
+        currentSceneName = "Zone 1";
 
         // HasHelped = false;
         // HasLetter = false;
