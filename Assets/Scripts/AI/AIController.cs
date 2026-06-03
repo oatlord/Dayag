@@ -238,9 +238,10 @@ public class AIController : MonoBehaviour
         {
             Debug.Log("within field of view");
 
-            if (Physics.Raycast(transform.position, normalizedDirection, out hit, viewDistance))
+            if (Physics.SphereCast(transform.position, viewRadius, normalizedDirection, out hit, viewDistance))
             {
-                if (hit.collider.gameObject == player)
+                Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
+                if (hit.collider.gameObject.CompareTag("Player"))
                 {
                     Debug.Log("Can see player");
                     return true;
@@ -326,6 +327,20 @@ public class AIController : MonoBehaviour
         Gizmos.DrawRay(transform.position, leftDir * viewDistance);
         Gizmos.DrawRay(transform.position, rightDir * viewDistance);
 
+        // Draw the spherecast path used by CanSeePlayer()
+        Vector3 spherecastEnd = transform.position + normalizedDirection * viewDistance;
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine(transform.position, spherecastEnd);
+        Gizmos.DrawWireSphere(transform.position, viewRadius);
+        Gizmos.DrawWireSphere(spherecastEnd, viewRadius);
+
+        int sphereSteps = 4;
+        for (int i = 1; i < sphereSteps; i++)
+        {
+            Vector3 stepPos = transform.position + normalizedDirection * (viewDistance * i / (float)(sphereSteps - 1));
+            Gizmos.DrawWireSphere(stepPos, viewRadius);
+        }
+
         // Draw ray to player in the same color as detection logic
         bool canSee = distanceToPlayer <= alertRadius ||
             (distanceToPlayer <= viewDistance && angleToPlayer <= halfAngle);
@@ -336,5 +351,6 @@ public class AIController : MonoBehaviour
         Gizmos.color = Color.magenta;
         Gizmos.DrawLine(transform.position, transform.position + leftDir * viewDistance * 0.2f);
         Gizmos.DrawLine(transform.position, transform.position + rightDir * viewDistance * 0.2f);
+
     }
 }
