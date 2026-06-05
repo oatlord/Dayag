@@ -139,8 +139,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8356848513956891467}
   - {fileID: 8017258860386152004}
+  - {fileID: 5634160959518330038}
   m_Father: {fileID: 246280906776488789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915bdc853a51df5478c3fcb29aa31e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualCue: {fileID: 6349274550916623746}
+  visualCue: {fileID: 7337724338356890239}
   savingStatusText: {fileID: 193145956119228687}
 --- !u!1001 &4056764317648590634
 PrefabInstance:
@@ -420,7 +420,7 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4056764317648590634}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4620540828794053581
+--- !u!1001 &9067584020906599472
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -432,11 +432,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChatUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 1730036429261983311, guid: b5ae40458d91dc848ac1dde0184464fe,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
@@ -480,21 +475,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -531,12 +511,12 @@ PrefabInstance:
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -39.46
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 100.93
+      value: 214
       objectReference: {fileID: 0}
     - target: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
         type: 3}
@@ -558,15 +538,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ae40458d91dc848ac1dde0184464fe, type: 3}
---- !u!1 &6349274550916623746 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1730036429261983311, guid: b5ae40458d91dc848ac1dde0184464fe,
-    type: 3}
-  m_PrefabInstance: {fileID: 4620540828794053581}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &8356848513956891467 stripped
+--- !u!224 &5634160959518330038 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3739685428447651974, guid: b5ae40458d91dc848ac1dde0184464fe,
     type: 3}
-  m_PrefabInstance: {fileID: 4620540828794053581}
+  m_PrefabInstance: {fileID: 9067584020906599472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7337724338356890239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1730036429261983311, guid: b5ae40458d91dc848ac1dde0184464fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 9067584020906599472}
   m_PrefabAsset: {fileID: 0}
