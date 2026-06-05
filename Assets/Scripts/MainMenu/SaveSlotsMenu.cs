@@ -29,10 +29,13 @@ public class SaveSlotsMenu : Menu
         if (!isLoadingGame)
         {
             DataPersistenceManager.instance.NewGame();
-            // Debug.Log("New game created.");
+            SceneManager.LoadSceneAsync("SampleScene");
+            Debug.Log("New game created. DEBUGGING: Loaded SampleScene.");
+        } else
+        {
+            SceneManager.LoadSceneAsync(saveSlot.GetSceneToLoad());
+            Debug.Log("Loading game from scene: " + saveSlot.GetSceneToLoad());
         }
-
-        SceneManager.LoadSceneAsync("Zone 1");
     }
 
     public void OnBackClicked()

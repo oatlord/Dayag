@@ -338,7 +338,7 @@ Transform:
   m_GameObject: {fileID: 136521642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 2.28, z: -0.38434696}
+  m_LocalPosition: {x: -6.39, y: 2.28, z: 9.01}
   m_LocalScale: {x: 0.4775265, y: 4.1363144, z: 3.9561}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1120,6 +1120,7 @@ MonoBehaviour:
   alertRadiusLessenedAmount: 1.5
   enemyChaseSpeed: 3
   enemyWalkSpeed: 2
+  alertAudioSource: {fileID: 0}
   enemyReachedPlayer: 0
   enemyHasHitPlayer: 0
   enemyHitStateActive: 0
@@ -2280,6 +2281,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedySoldier
       objectReference: {fileID: 0}
+    - target: {fileID: 2445192876373774411, guid: 437e8870ba794794ca0696e32002d823,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3072793446002674417, guid: 437e8870ba794794ca0696e32002d823,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3101,7 +3107,7 @@ PrefabInstance:
     - target: {fileID: 6423717392912670756, guid: 8f9ac39d61fa0b545a953d96c31b5683,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.84993
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6423717392912670756, guid: 8f9ac39d61fa0b545a953d96c31b5683,
         type: 3}
