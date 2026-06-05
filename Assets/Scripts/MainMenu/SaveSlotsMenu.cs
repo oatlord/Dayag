@@ -29,8 +29,8 @@ public class SaveSlotsMenu : Menu
         if (!isLoadingGame)
         {
             DataPersistenceManager.instance.NewGame();
-            SceneManager.LoadSceneAsync("SampleScene");
-            Debug.Log("New game created. DEBUGGING: Loaded SampleScene.");
+            SceneManager.LoadSceneAsync("BeginningCutscene");
+            Debug.Log("New game created. DEBUGGING: Loaded BeginningCutscene.");
         } else
         {
             SceneManager.LoadSceneAsync(saveSlot.GetSceneToLoad());
