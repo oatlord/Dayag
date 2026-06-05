@@ -232,6 +232,149 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             ]
         },
         {
+            ""name"": ""PlayerControlsAxisConfig"",
+            ""id"": ""0df6b6df-028e-44f7-bc61-f9a6ee7b327f"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""bf356406-a077-4994-a0fa-644b948c9036"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""a64440a5-a8c0-4c62-8dba-94238ccf7e75"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""2556465c-fc28-414a-b1fc-80fbaa3108c7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""04f58fd2-ded0-4e8e-bfbf-5049fe746142"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""84bea645-177e-4c50-bea8-9f3420aa5f80"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""88ffeba9-16bb-4544-9caa-1f363b8803a0"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""ac87bac8-75eb-4d38-9e71-515bb1078634"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""eb0989be-0d92-4878-a54b-a3e35699671d"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""42f092f0-8c61-4bb9-8b32-5725380fa938"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""679b827c-44cd-463d-adf9-28804d6f2992"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91b586da-8764-4862-b6ad-6d5bdb8923d3"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b152cd2-faa2-4bd7-a5f5-3ee894964794"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f68ca714-bce8-45c0-9c1c-56f2119ae026"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""UI_Input"",
             ""id"": ""be6ec34a-f218-4508-849f-bdb059d46f4c"",
             ""actions"": [
@@ -372,6 +515,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_PlayerControls_Sprint = m_PlayerControls.FindAction("Sprint", throwIfNotFound: true);
         m_PlayerControls_Crouch = m_PlayerControls.FindAction("Crouch", throwIfNotFound: true);
         m_PlayerControls_Interact = m_PlayerControls.FindAction("Interact", throwIfNotFound: true);
+        // PlayerControlsAxisConfig
+        m_PlayerControlsAxisConfig = asset.FindActionMap("PlayerControlsAxisConfig", throwIfNotFound: true);
+        m_PlayerControlsAxisConfig_Move = m_PlayerControlsAxisConfig.FindAction("Move", throwIfNotFound: true);
+        m_PlayerControlsAxisConfig_Sprint = m_PlayerControlsAxisConfig.FindAction("Sprint", throwIfNotFound: true);
+        m_PlayerControlsAxisConfig_Crouch = m_PlayerControlsAxisConfig.FindAction("Crouch", throwIfNotFound: true);
+        m_PlayerControlsAxisConfig_Interact = m_PlayerControlsAxisConfig.FindAction("Interact", throwIfNotFound: true);
         // UI_Input
         m_UI_Input = asset.FindActionMap("UI_Input", throwIfNotFound: true);
         m_UI_Input_Submit = m_UI_Input.FindAction("Submit", throwIfNotFound: true);
@@ -383,6 +532,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     ~@PlayerActions()
     {
         UnityEngine.Debug.Assert(!m_PlayerControls.enabled, "This will cause a leak and performance issues, PlayerActions.PlayerControls.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_PlayerControlsAxisConfig.enabled, "This will cause a leak and performance issues, PlayerActions.PlayerControlsAxisConfig.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI_Input.enabled, "This will cause a leak and performance issues, PlayerActions.UI_Input.Disable() has not been called.");
     }
 
@@ -585,6 +735,135 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     /// </summary>
     public PlayerControlsActions @PlayerControls => new PlayerControlsActions(this);
 
+    // PlayerControlsAxisConfig
+    private readonly InputActionMap m_PlayerControlsAxisConfig;
+    private List<IPlayerControlsAxisConfigActions> m_PlayerControlsAxisConfigActionsCallbackInterfaces = new List<IPlayerControlsAxisConfigActions>();
+    private readonly InputAction m_PlayerControlsAxisConfig_Move;
+    private readonly InputAction m_PlayerControlsAxisConfig_Sprint;
+    private readonly InputAction m_PlayerControlsAxisConfig_Crouch;
+    private readonly InputAction m_PlayerControlsAxisConfig_Interact;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "PlayerControlsAxisConfig".
+    /// </summary>
+    public struct PlayerControlsAxisConfigActions
+    {
+        private @PlayerActions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public PlayerControlsAxisConfigActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControlsAxisConfig/Move".
+        /// </summary>
+        public InputAction @Move => m_Wrapper.m_PlayerControlsAxisConfig_Move;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControlsAxisConfig/Sprint".
+        /// </summary>
+        public InputAction @Sprint => m_Wrapper.m_PlayerControlsAxisConfig_Sprint;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControlsAxisConfig/Crouch".
+        /// </summary>
+        public InputAction @Crouch => m_Wrapper.m_PlayerControlsAxisConfig_Crouch;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControlsAxisConfig/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_PlayerControlsAxisConfig_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_PlayerControlsAxisConfig; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="PlayerControlsAxisConfigActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(PlayerControlsAxisConfigActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="PlayerControlsAxisConfigActions" />
+        public void AddCallbacks(IPlayerControlsAxisConfigActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PlayerControlsAxisConfigActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerControlsAxisConfigActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
+            @Crouch.started += instance.OnCrouch;
+            @Crouch.performed += instance.OnCrouch;
+            @Crouch.canceled += instance.OnCrouch;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="PlayerControlsAxisConfigActions" />
+        private void UnregisterCallbacks(IPlayerControlsAxisConfigActions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
+            @Crouch.started -= instance.OnCrouch;
+            @Crouch.performed -= instance.OnCrouch;
+            @Crouch.canceled -= instance.OnCrouch;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PlayerControlsAxisConfigActions.UnregisterCallbacks(IPlayerControlsAxisConfigActions)" />.
+        /// </summary>
+        /// <seealso cref="PlayerControlsAxisConfigActions.UnregisterCallbacks(IPlayerControlsAxisConfigActions)" />
+        public void RemoveCallbacks(IPlayerControlsAxisConfigActions instance)
+        {
+            if (m_Wrapper.m_PlayerControlsAxisConfigActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="PlayerControlsAxisConfigActions.AddCallbacks(IPlayerControlsAxisConfigActions)" />
+        /// <seealso cref="PlayerControlsAxisConfigActions.RemoveCallbacks(IPlayerControlsAxisConfigActions)" />
+        /// <seealso cref="PlayerControlsAxisConfigActions.UnregisterCallbacks(IPlayerControlsAxisConfigActions)" />
+        public void SetCallbacks(IPlayerControlsAxisConfigActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PlayerControlsAxisConfigActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PlayerControlsAxisConfigActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="PlayerControlsAxisConfigActions" /> instance referencing this action map.
+    /// </summary>
+    public PlayerControlsAxisConfigActions @PlayerControlsAxisConfig => new PlayerControlsAxisConfigActions(this);
+
     // UI_Input
     private readonly InputActionMap m_UI_Input;
     private List<IUI_InputActions> m_UI_InputActionsCallbackInterfaces = new List<IUI_InputActions>();
@@ -719,6 +998,42 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     /// <seealso cref="PlayerControlsActions.AddCallbacks(IPlayerControlsActions)" />
     /// <seealso cref="PlayerControlsActions.RemoveCallbacks(IPlayerControlsActions)" />
     public interface IPlayerControlsActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Sprint" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSprint(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Crouch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCrouch(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PlayerControlsAxisConfig" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="PlayerControlsAxisConfigActions.AddCallbacks(IPlayerControlsAxisConfigActions)" />
+    /// <seealso cref="PlayerControlsAxisConfigActions.RemoveCallbacks(IPlayerControlsAxisConfigActions)" />
+    public interface IPlayerControlsAxisConfigActions
     {
         /// <summary>
         /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.

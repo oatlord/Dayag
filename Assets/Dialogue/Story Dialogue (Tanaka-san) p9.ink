@@ -10,7 +10,7 @@ VAR HasLetter = false
     
     Take this, and if any guards come by and ask you why you’re here, say your parents work for the Furukawa Plantation Company. They’ll mistake you for an errand boy.
     
-    But they don’t work for the Furukawa Plantation Company, they work for Mister Ernesto…#speaker:MC
+    But they don’t work for the Furukawa Plantation Company, they work for Mister Ernesto…#speaker:You
     
     It’s all the same kid. That’s how Filipinos get your land to begin with. It’s all funded by us Davao-kuo. Furukawa, Mr. Ernesto’s; one and the same. We call it… “pakyaw”. Makes getting land a lot easier for you and me both.#speaker:Tanaka-san
     
@@ -27,17 +27,17 @@ VAR HasLetter = false
     === choice1 ===
         Good luck out there, kid.#speaker:Tanaka-san
         
-        Where are you going, Mr. Tanaka?#speaker:MC
+        Where are you going, Mr. Tanaka?#speaker:You
         
         Somewhere away from the Kempei Tai. It isn’t safe for me out here. Ha, maybe I’ll take up on that evacuation order to go to Tamugan instead!#speaker:Tanaka-san
         
-        Aren’t they Japanese too? Why wouldn’t you feel safe around them?#speaker:MC
+        Aren’t they Japanese too? Why wouldn’t you feel safe around them?#speaker:You
         
         Haha! The Kempei Tai are a different monster, kid, even if we’re both Japanese. They’re from the mainland, and I’m an Okinawan; in their eyes, we’re one and the same too. Just islanders lower in worth than them.#speaker:Tanaka-san
 
         (he looks up and realizes some guards are getting closer) Kid, I’ve gotta scram. (Tanaka looks at the kid with a look of apprehension, and he frowns) I’ll see you when I see you.
         
-        O-okay…#speaker:MC
+        O-okay…#speaker:You
         
         Good luck out there, kid. I’ll see you when I see you.#speaker:Tanaka-san   
         
@@ -48,7 +48,7 @@ VAR HasLetter = false
         
         Have it your way, kid, but lemme tell ya, the Kempei Tai are a different monster for both you and me.#speaker:Tanaka-san
         
-        O-okay…#speaker:MC
+        O-okay…#speaker:You
         
         Good luck out there, kid. I’ll see you when I see you.#speaker:Tanaka-san
         -> END

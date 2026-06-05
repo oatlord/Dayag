@@ -4,9 +4,9 @@ VAR HasHelped = false
 
 === main ===
 
-    (breathing laboriously, trying to scramble away from the MC)#speaker:Hideo
+    (breathing laboriously, trying to scramble away from the You)#speaker:Hideo
     
-    What’s wrong…?#speaker:MC
+    What’s wrong…?#speaker:You
     
     (he’s clutching the wound on his shoulder defensively, inching away from you)#speaker:Hideo
     
@@ -20,7 +20,7 @@ VAR HasHelped = false
         ->choice2
         
     === choice1 ===
-        The MC will be tasked with obtaining water and a makeshift bandage.#speaker:Narrator
+        The You will be tasked with obtaining water and a makeshift bandage.#speaker:Narrator
         
         Hideo: My tag…#speaker:Hideo
         

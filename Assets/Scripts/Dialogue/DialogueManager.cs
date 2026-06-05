@@ -19,6 +19,10 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
 
+    [Header("Player Control Maps")]
+    [SerializeField] private string playerControlMapName;
+    [SerializeField] private string uiControlMapName = "UI_Input";
+
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
 
@@ -26,6 +30,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     private DialogueVariables dialogueVariables;
 
     private const string SPEAKER_TAG = "speaker";
+    private const string SCENE_TRANSITION = "moveToScene";
 
     void Awake()
     {
@@ -89,7 +94,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
         dialogueVariables.StartListening(currentStory);
 
-        if (InputManager.GetInstance().GetCurrentlyActiveMap() != "UI_Input")
+        if (InputManager.GetInstance().GetCurrentlyActiveMap() != uiControlMapName)
         {
             InputManager.GetInstance().SwitchToUIMap();
         }
@@ -105,9 +110,9 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
         dialogueVariables.StopListening(currentStory);
 
-        if (InputManager.GetInstance().GetCurrentlyActiveMap() != "PlayerControls")
+        if (InputManager.GetInstance().GetCurrentlyActiveMap() != playerControlMapName)
         {
-            InputManager.GetInstance().SwitchToPlayerMap();
+            InputManager.GetInstance().SwitchToPlayerMap(playerControlMapName);
         }
     }
 
@@ -149,6 +154,10 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
                     {
                         displayNameText.text = tagValue;
                     }
+                    break;
+                case SCENE_TRANSITION:
+                    Debug.Log("Scene transition tag with value: " + tagValue);
+                    GameSceneManager.instance.MoveToScene(tagValue);
                     break;
                 default:
                     Debug.LogWarning("Tag came in but is not being currently handled: " + tag);
