@@ -1,11 +1,18 @@
--> main
+INCLUDE globals.ink
+
+{AskedWataruAllQuestions == true: ->askedAllQuestions | -> main}
 
 === main ===
     It’s you…! You’re safe…! #speaker:Wataru
     
-    Mr. Wataru…? What happened…? Where is Ms. Maria…? #speaker:You
+    *[What happened to your family?]
+        ->askAboutFamily
+    -> END  
     
-    My wife… they took her away… #speaker:Wataru
+    ===askAboutFamily===
+    Mr. Wataru…? What happened…? Where is Ms. Maria and Sakura? #speaker:You
+    
+    My wife and my daughter… they took them away… #speaker:Wataru
     
     They…? Is it the same people who came into our house? They took my parents away too…!#speaker:You
     
@@ -19,13 +26,44 @@
     
     That’s what we said too, but the Kempei Tai refuse to believe us. Those wretched masked men have been around eyeing us too… #speaker:Wataru
     
-    They’re called Makapilis. Funny enough, they’re Filipino. Just like you. But they’re no different from the Kempei Tai.
+    *[Who are the Masked Men?]
+    ->askAboutMaskedMen
+    
+    -> END
+    
+    ===askAboutMaskedMen===
+    They’re called Makapilis. Funny enough, they’re Filipino. Just like you. But they’re no different from the Kempei Tai. #speaker:Wataru
     
     They report anyone who is suspicious of sympathizing with the guerrilla forces.
     
-    Hukbalahap, the Americans… as long as you’re against them, they’ll take you to Little Tokyo.
+    Hukbalahap, the Americans… as long as you’re with them, they’ll take you to Little Tokyo.
     
-    Mintal isn’t the same as it used to be. It was a bustling center for business and agriculture till… well, all of this happened and now Little Tokyo has become a military base.
+    *["Little Tokyo"?]
+    ->askAboutLittleTokyo
+    
+    -> END
+    
+    ===askAboutLittleTokyo===
+    Well, you all call it Mintal, but it isn't the same as it used to be. #speaker:Wataru
+    
+    It was a bustling center for business and agriculture till… well, all of this happened.
+    
+    Now Little Tokyo has become a military base. All the resources go to them now; food and all
     
     It’s where they’ve probably taken everyone they’ve rounded up from here, too.
-    -> END  
+    
+    ~ AskedWataruAllQuestions = true
+
+-> END
+
+===askedAllQuestions===
+Stay safe, little one. #speaker:Wataru
+
+*[Mr. Wataru's Family]
+    ->askAboutFamily
+*[Masked Men]
+    ->askAboutMaskedMen
+*[Little Tokyo]
+    ->askAboutLittleTokyo
+
+-> END

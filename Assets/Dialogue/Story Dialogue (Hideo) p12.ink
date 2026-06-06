@@ -1,35 +1,34 @@
-VAR HasHelped = false
+INCLUDE globals.ink
 
 -> main
 
-=== main ===
+{TalkedToHideo == true: -> talkedToHideo | -> main}
 
-    (breathing laboriously, trying to scramble away from the You)#speaker:Hideo
+=== main ===
+    He breathes laboriously, trying to scramble away from you.#speaker:Narrator
     
     What’s wrong…?#speaker:You
     
-    (he’s clutching the wound on his shoulder defensively, inching away from you)#speaker:Hideo
+    He’s clutching the wound on his shoulder defensively.#speaker:Narrator
     
     What will you do?#speaker:Narrator
     *[Help the soldier]
-        ~ HasHelped = true
         ->choice1
         
     *[Do not help the soldier]
-        ~ HasHelped = false
         ->choice2
+    
         
-    === choice1 ===
-        The You will be tasked with obtaining water and a makeshift bandage.#speaker:Narrator
-        
-        Hideo: My tag…#speaker:Hideo
-        
-        Tag Aquired!#speaker:Narrator
-        
-        -> END
-        
-        
-    === choice2 ===
-        
-        You left.#speaker:Narrator
-        -> END
+=== choice1 ===
+~ TalkedToHideo = true
+    The man looks like he needs a drink and something to bandage his wound with. #speaker: Narrator
+    
+    -> END
+    
+=== choice2 ===
+~ TalkedToHideo = true
+    You left.#speaker:Narrator
+    -> END
+    
+=== talkedToHideo===
+    The man doesn't have much to say. He doesn't look like he has the energy to, if he had anything to say anyway. #speaker:Narrator
