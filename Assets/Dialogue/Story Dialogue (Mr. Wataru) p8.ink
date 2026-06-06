@@ -3,19 +3,19 @@
 === main ===
     It’s you…! You’re safe…! #speaker:Wataru
     
-    Mr. Wataru…? What happened…? Where is Ms. Maria…? #speaker:MC
+    Mr. Wataru…? What happened…? Where is Ms. Maria…? #speaker:You
     
     My wife… they took her away… #speaker:Wataru
     
-    They…? Is it the same people who came into our house? They took my parents away too…!#speaker:MC
+    They…? Is it the same people who came into our house? They took my parents away too…!#speaker:You
     
     Those wretched Kempei Tai… #speaker:Wataru
     
-    Why…? They’re Japanese too, aren’t they? Why would they do such a thing? We’ve never harmed them…#speaker:MC
+    Why…? They’re Japanese too, aren’t they? Why would they do such a thing? We’ve never harmed them…#speaker:You
     
     I fear I don’t quite know either… something about rounding up suspected rebels… #speaker:Wataru
     
-    Rebels? My parents would never…#speaker:MC
+    Rebels? My parents would never…#speaker:You
     
     That’s what we said too, but the Kempei Tai refuse to believe us. Those wretched masked men have been around eyeing us too… #speaker:Wataru
     

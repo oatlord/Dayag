@@ -926,6 +926,11 @@ PrefabInstance:
       propertyPath: videoPlayer
       value: 
       objectReference: {fileID: 1494705731}
+    - target: {fileID: 617549983517750026, guid: a2695898e912e6d4baf3d9a37fef9f30,
+        type: 3}
+      propertyPath: sceneToLoadAfterVideo
+      value: House
+      objectReference: {fileID: 0}
     - target: {fileID: 8192081438441498624, guid: a2695898e912e6d4baf3d9a37fef9f30,
         type: 3}
       propertyPath: m_Name

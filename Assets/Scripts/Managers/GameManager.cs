@@ -16,9 +16,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool HasPlayerCheckpoint { get; private set; } = false;
 
     // Player Variables
-    public bool HasHelped;
-    public bool HasLetter;
-    public string NameOfChoice;
+    // public bool HasHelped;
+    // public bool HasLetter;
+    // public string NameOfChoice;
 
     [Header("References")]
     [SerializeField] private GameObject player;

@@ -157,9 +157,9 @@ public class InputManager : MonoBehaviour
         playerInput.SwitchCurrentActionMap("UI_Input");
     }
 
-    public void SwitchToPlayerMap()
+    public void SwitchToPlayerMap(string controlSchemeName)
     {
-        playerInput.SwitchCurrentActionMap("PlayerControls");
+        playerInput.SwitchCurrentActionMap(controlSchemeName);
     }
 
     // public void PlayerStopMoving(InputAction.CallbackContext context)
