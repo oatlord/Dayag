@@ -109,7 +109,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             moveSpeed = defaultMoveSpeed;
         }
 
-        Vector3 finalMovement = moveDirection * moveSpeed;
+        Vector3 localMoveDirection = moveDirection.magnitude > 0 ? transform.TransformDirection(moveDirection.normalized) : Vector3.zero;
+        Vector3 finalMovement = localMoveDirection * moveSpeed;
 
         if (characterController.isGrounded)
         {
@@ -128,7 +129,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         {
             gameObject.transform.rotation = Quaternion.Lerp(
                 gameObject.transform.rotation, 
-                Quaternion.LookRotation(moveDirection), 
+                Quaternion.LookRotation(localMoveDirection), 
                 Time.deltaTime * turnSpeed
             );
         }
