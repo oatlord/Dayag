@@ -15347,6 +15347,11 @@ PrefabInstance:
       propertyPath: sceneName
       value: Zone 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6988376794721071535, guid: b42258bbffd63e748af111ed08450edf,
+        type: 3}
+      propertyPath: ExitTriggerID
+      value: 1to2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -10,9 +10,11 @@ public class ScenePersistenceManager : MonoBehaviour
     public static ScenePersistenceManager instance;
     // Obtain this every scene change. Load the player here by DEFAULT.
     [SerializeField] private Transform sceneDefaultPlayerSpawn;
+    // ID of the exit trigger last interacted with.
+    public string LastExitTriggerID;
     public GameObject player;
     [SerializeField] private GameObject playerPrefab;
-    
+
     void Awake()
     {
         if (instance != null)
@@ -37,21 +39,57 @@ public class ScenePersistenceManager : MonoBehaviour
         sceneDefaultPlayerSpawn = GameObject.Find("SceneDefaultPlayerSpawn").transform;
         playerPrefab = Resources.Load<GameObject>("Player/Player New");
 
-        if (player == null)
+        // if (player == null)
+        // {
+        //     player = Instantiate(playerPrefab, sceneDefaultPlayerSpawn.position, sceneDefaultPlayerSpawn.rotation);
+        // }
+
+        if (LastExitTriggerID != null)
         {
-            player = Instantiate(playerPrefab, sceneDefaultPlayerSpawn.position, sceneDefaultPlayerSpawn.rotation);
+            // If there is a last trigger, spawn them in the new matching scene's position.
+            MoveToScene[] moveToSceneObjs = GameObject.FindObjectsOfType<MoveToScene>();
+            foreach (MoveToScene moveToSceneObj in moveToSceneObjs)
+            {
+                // If a movetosceneObj matches the ID of the triggered one, instantiate the player there.
+                if (moveToSceneObj.ExitTriggerID == LastExitTriggerID)
+                {
+                    if (player == null)
+                    {
+                        player = Instantiate(playerPrefab, moveToSceneObj.playerSpawnPoint.position, moveToSceneObj.playerSpawnPoint.rotation);
+                        break;
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Player already exists.");
+                        break;
+                    }
+                }
+            }
+            Debug.LogWarning("No trigger with matching ID found. Spawning player in default spawn position.");
+            if (player == null)
+            {
+                player = Instantiate(playerPrefab, sceneDefaultPlayerSpawn.position, sceneDefaultPlayerSpawn.rotation);
+            }
+        }
+        else
+        {
+            // If there was no last trigger, i.e. playing from a scene, spawn the player in the default area.
+            if (player == null)
+            {
+                player = Instantiate(playerPrefab, sceneDefaultPlayerSpawn.position, sceneDefaultPlayerSpawn.rotation);
+            }
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnDisable()
