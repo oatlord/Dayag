@@ -8,6 +8,7 @@ public class GameSceneManager : MonoBehaviour, IDataPersistence
     public static GameSceneManager instance;
     [SerializeField] private GameObject loadingScreen;
     public bool SceneIsLoading { get; private set; } = false;
+    // private string lastTrigger;
 
     public void SaveData(GameData data)
     {
@@ -30,8 +31,100 @@ public class GameSceneManager : MonoBehaviour, IDataPersistence
         else
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
     }
+
+    private void Start()
+    {
+        if (loadingScreen == null)
+
+            loadingScreen = GameObject.Find("LoadingScreen");
+            Debug.LogError("Loading screen reference is not set in GameSceneManager. Please set it in the inspector.");              // Debug.LogError("Loading screen reference is not set in GameSceneManager. Please set it in the inspector.");         
+        }
+        
+    
+
+    // void OnEnable()
+    // {
+    //     SceneManager.sceneLoaded += OnSceneLoaded;
+    // }
+
+    // public void OnEnteredExitTrigger(string triggerName, string sceneToMoveTo)
+    // {
+    //     lastTrigger = triggerName;
+    //     Debug.Log("Entered trigger: " + triggerName + ", moving to scene: " + sceneToMoveTo);
+    //     MoveToScene(sceneToMoveTo);
+    // }
+
+    // void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    // {
+    //     GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+    //     // Safety check: player should exist in the newly loaded scene
+    //     if (player == null)
+    //     {
+    //         Debug.LogWarning("Player not found in newly loaded scene. Waiting for player initialization.");
+    //         return;
+    //     }
+
+    //     MoveToScene[] moveToSceneObjects = FindObjectsOfType<MoveToScene>();
+    //     foreach (MoveToScene moveToScene in moveToSceneObjects)
+    //     {
+    //         if (moveToScene.triggerName == lastTrigger)
+    //         {
+    //             CharacterController cc = player.GetComponent<CharacterController>();
+    //             if (cc != null)
+    //             {
+    //                 cc.enabled = false;
+    //             }
+    //             player.transform.position = moveToScene.spawnPoint.position;
+    //             if (cc != null)
+    //             {
+    //                 cc.enabled = true;
+    //             }
+    //             break;
+    //         }
+    //     }
+    // }
+
+//     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+// {
+//     StartCoroutine(PositionPlayerAfterLoad());
+// }
+
+// IEnumerator PositionPlayerAfterLoad()
+// {
+//     // Wait a frame for the new scene's objects to fully initialize
+//     yield return null;
+    
+//     GameObject player = GameObject.FindGameObjec
+//     loadingScreen = GameObject.Find("LoadingScreen");tWithTag("Player");
+//     if (player == null)
+//     {
+//         Debug.LogWarning("Player not found in newly loaded scene.");
+//         yield break;
+//     }
+
+//     MoveToScene[] moveToSceneObjects = FindObjectsOfType<MoveToScene>();
+//     foreach (MoveToScene moveToScene in moveToSceneObjects)
+//     {
+//         if (moveToScene.triggerName == lastTrigger)
+//         {
+//             CharacterController cc = player.GetComponent<CharacterController>();
+//             if (cc != null)
+//             {
+//                 cc.enabled = false;
+//             }
+//             player.transform.position = moveToScene.spawnPoint.position;
+//             if (cc != null)
+//             {
+//                 cc.enabled = true;
+//             }
+//             break;
+//         }
+//     }
+// }
 
     // Manager for handling moving between scenes in-game.
     public void MoveToScene(string sceneToMoveTo)

@@ -47,23 +47,32 @@ public class GameManager : MonoBehaviour, IDataPersistence
         // NameOfChoice = data.NameOfChoice;
     }
 
-    void Update()
-    {
-        Debug.Log("Player Checkpoint: " + PlayerCheckpoint);
-    }
-
     void Awake()
     {
         if (instance != null)
         {
             Debug.LogError("More than one instance found. Destroying this instance.");
             Destroy(this.gameObject);
-        } else
+        }
+        else
         {
             instance = this;
         }
 
         // playerController = player.GetComponent<PlayerController>();
+    }
+
+    void Start()
+    {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+    }
+
+    void Update()
+    {
+        Debug.Log("Player Checkpoint: " + PlayerCheckpoint);
     }
 
     // private bool ReturnHasPlayerHelped()

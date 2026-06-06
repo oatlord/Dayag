@@ -87,6 +87,11 @@ public class AIController : MonoBehaviour
     {
         gameObject.transform.position = waypoints[0].position;
         m_currentWaypoint = waypoints[0];
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     void Update()
