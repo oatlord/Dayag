@@ -37,7 +37,7 @@ public class RespawnTrigger : MonoBehaviour
             {
                 // Debug.Log("Player respawn point set to: " + RespawnPositionChild.name);
                 SetPlayerRespawnPoint();
-                RespawnPointSetText.SetActive(true);
+                // RespawnPointSetText.SetActive(true);
                 // visualCue.SetActive(true);
                 // GameManager.instance.SetPlayerCheckpoint(RespawnPositionChild.position);
                 // DataPersistenceManager.instance.SaveGame();
@@ -54,7 +54,7 @@ public class RespawnTrigger : MonoBehaviour
     {
         GameManager.instance.SetPlayerCheckpoint(RespawnPositionChild.position);
         Debug.Log("Player respawn point set to: " + RespawnPositionChild.name);
-        // RespawnPointSetText.SetActive(true);
+        RespawnPointSetText.SetActive(true);
     }
 
     void OnTriggerEnter(Collider other)
