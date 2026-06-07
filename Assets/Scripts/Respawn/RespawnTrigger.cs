@@ -52,7 +52,7 @@ public class RespawnTrigger : MonoBehaviour
 
     void SetPlayerRespawnPoint()
     {
-        GameManager.instance.SetPlayerCheckpoint(RespawnPositionChild.position);
+        GameManager.instance.SetPlayerRevivePoint(RespawnPositionChild.position);
         Debug.Log("Player respawn point set to: " + RespawnPositionChild.name);
         RespawnPointSetText.SetActive(true);
     }

@@ -11,10 +11,13 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool PlayerIsAlive { get; private set; } = true;
     public bool PlayerIsBeingChased { get; private set; } = false;
 
-    // Player Checkpoint System
-    public Vector3 PlayerCheckpoint { get; private set; } = Vector3.zero;
-    public bool HasPlayerCheckpoint { get; private set; } = false;
+    // Player Revival System
+    public Vector3 PlayerRevivePoint { get; private set; } = Vector3.zero;
+    public bool HasRevivePoint { get; private set; } = false;
 
+    // Player Checkpoint System
+    public Vector3 PlayerCheckpoint {get; private set;} = Vector3.zero;
+    public bool HasCheckpoint { get; private set; } = false;
     // Player Variables
     // public bool HasHelped;
     // public bool HasLetter;
@@ -29,8 +32,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        data.playerCheckpointPosition = PlayerCheckpoint;
-        data.hasPlayerCheckpoint = HasPlayerCheckpoint;
+        data.playerRevivePoint = PlayerRevivePoint;
+        data.hasPlayerRevivePoint = HasRevivePoint;
+
+        data.playerPosition = PlayerCheckpoint;
+        data.hasLastSavedPlayerPosition = HasCheckpoint;
+        Debug.Log("SaveData in GameManager called.");
 
         // data.HasHelped = ReturnHasPlayerHelped();
         // data.HasLetter = ReturnDoesPlayerHaveLetter();
@@ -39,8 +46,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        PlayerCheckpoint = data.playerCheckpointPosition;
-        HasPlayerCheckpoint = data.hasPlayerCheckpoint;
+        PlayerRevivePoint = data.playerRevivePoint;
+        HasRevivePoint = data.hasPlayerRevivePoint;
+
+        Debug.Log("LoadData in GameManager called.");
 
         // HasHelped = data.HasHelped;
         // HasLetter = data.HasLetter;
@@ -72,7 +81,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     void Update()
     {
-        Debug.Log("Player Checkpoint: " + PlayerCheckpoint);
+        Debug.Log("Player Revival Point: " + HasRevivePoint);
     }
 
     // private bool ReturnHasPlayerHelped()
@@ -101,22 +110,28 @@ public class GameManager : MonoBehaviour, IDataPersistence
         PlayerIsBeingChased = isBeingChased;
     }
 
+    public void SetPlayerRevivePoint(Vector3 revivePosition)
+    {
+        PlayerRevivePoint = revivePosition;
+        HasRevivePoint = true;
+    }
+
     public void SetPlayerCheckpoint(Vector3 checkpointPosition)
     {
         PlayerCheckpoint = checkpointPosition;
-        HasPlayerCheckpoint = true;
+        HasCheckpoint = true;
     }
 
     public void RevivePlayer()
     {
-        if (!HasPlayerCheckpoint)
+        if (!HasRevivePoint)
         {
-            Debug.LogWarning("No player checkpoint set. Cannot revive to checkpoint.");
+            Debug.LogWarning("No player revive point set. Cannot revive to checkpoint.");
             return;
         }
 
-        Debug.Log("Revived Player at: " + PlayerCheckpoint);
-        player.transform.position = new Vector3(PlayerCheckpoint.x, 0, PlayerCheckpoint.z);
+        Debug.Log("Revived Player at: " + PlayerRevivePoint);
+        player.transform.position = new Vector3(PlayerRevivePoint.x, 0, PlayerRevivePoint.z);
         PlayerIsAlive = true;
         // blackoutScreen.SetActive(false);
     }

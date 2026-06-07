@@ -7,6 +7,7 @@ public class CheckpointTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject visualCue;
     [SerializeField] private TextMeshProUGUI savingStatusText; 
+    [SerializeField] private Transform playerCheckpoint;
     
     private bool playerInRange;
     private Coroutine savingCoroutine;
@@ -35,7 +36,7 @@ public class CheckpointTrigger : MonoBehaviour
                 savingCoroutine = StartCoroutine(SavingAnimation());
                 
                 // Save the game
-                // GameManager.instance.SetPlayerCheckpoint(...);
+                SetPlayerCheckpoint();
                 DataPersistenceManager.instance.SaveGame();
             }
         }
@@ -43,6 +44,11 @@ public class CheckpointTrigger : MonoBehaviour
         {
             visualCue.SetActive(false);
         }
+    }
+
+    private void SetPlayerCheckpoint()
+    {
+        GameManager.instance.SetPlayerCheckpoint(playerCheckpoint.position);
     }
 
     private IEnumerator SavingAnimation()
