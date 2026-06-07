@@ -37,6 +37,7 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Active Map: " + playerInput.currentActionMap.name);
     }
 
     public static InputManager GetInstance()

@@ -10,6 +10,8 @@ public class ScenePersistenceManager : MonoBehaviour
     public static ScenePersistenceManager instance;
     // Obtain this every scene change. Load the player here by DEFAULT.
     [SerializeField] private Transform sceneDefaultPlayerSpawn;
+    // Private reference to the spawn point that is to be used. Referenced for getting its current rotation and setting input maps.
+    private Transform spawnPointToUse;
     // ID of the exit trigger last interacted with.
     public string LastExitTriggerID;
     public GameObject player;
@@ -48,6 +50,7 @@ public class ScenePersistenceManager : MonoBehaviour
         {
             // If there is a last trigger, spawn them in the new matching scene's position.
             MoveToScene[] moveToSceneObjs = GameObject.FindObjectsOfType<MoveToScene>();
+            bool foundMatchingExit = false;
             foreach (MoveToScene moveToSceneObj in moveToSceneObjs)
             {
                 // If a movetosceneObj matches the ID of the triggered one, instantiate the player there.
@@ -55,20 +58,27 @@ public class ScenePersistenceManager : MonoBehaviour
                 {
                     if (player == null)
                     {
-                        player = Instantiate(playerPrefab, moveToSceneObj.playerSpawnPoint.position, moveToSceneObj.playerSpawnPoint.rotation);
+                        spawnPointToUse = moveToSceneObj.playerSpawnPoint;
+                        player = Instantiate(playerPrefab, spawnPointToUse.position, spawnPointToUse.rotation);
+                        foundMatchingExit = true;
                         break;
                     }
                     else
                     {
                         Debug.LogWarning("Player already exists.");
+                        foundMatchingExit = true;
                         break;
                     }
                 }
             }
-            Debug.LogWarning("No trigger with matching ID found. Spawning player in default spawn position.");
-            if (player == null)
+            if (!foundMatchingExit)
             {
-                player = Instantiate(playerPrefab, sceneDefaultPlayerSpawn.position, sceneDefaultPlayerSpawn.rotation);
+                Debug.LogWarning("No trigger with matching ID found. Spawning player in default spawn position.");
+                if (player == null)
+                {
+                    spawnPointToUse = sceneDefaultPlayerSpawn;
+                    player = Instantiate(playerPrefab, spawnPointToUse.position, spawnPointToUse.rotation);
+                }
             }
         }
         else
@@ -76,8 +86,31 @@ public class ScenePersistenceManager : MonoBehaviour
             // If there was no last trigger, i.e. playing from a scene, spawn the player in the default area.
             if (player == null)
             {
-                player = Instantiate(playerPrefab, sceneDefaultPlayerSpawn.position, sceneDefaultPlayerSpawn.rotation);
+                spawnPointToUse = sceneDefaultPlayerSpawn;
+                player = Instantiate(playerPrefab, spawnPointToUse.position, spawnPointToUse.rotation);
+                // player = Instantiate(playerPrefab, sceneDefaultPlayerSpawn.position, sceneDefaultPlayerSpawn.rotation);
             }
+        }
+
+        // `rotation` is a Quaternion; its components are NOT Euler degrees. Use `eulerAngles.y`
+        // and compare using DeltaAngle to tolerate floating-point and wrap-around differences.
+        float yAngle = spawnPointToUse.eulerAngles.y;
+        if (Mathf.Abs(Mathf.DeltaAngle(yAngle, 90f)) < 1f)
+        {
+            InputManager.GetInstance().SwitchToPlayerMap("PlayerControlsY90");
+        }
+        else if (Mathf.Abs(Mathf.DeltaAngle(yAngle, -90f)) < 1f)
+        {
+            InputManager.GetInstance().SwitchToPlayerMap("PlayerControls");
+        }
+        else if (Mathf.Abs(Mathf.DeltaAngle(yAngle, 0f)) < 1f)
+        {
+            InputManager.GetInstance().SwitchToPlayerMap("PlayerControlsAxisConfig");
+        }
+        else
+        {
+            Debug.LogWarning("Error when reading current spawn point to use's Y rotation.");
+            InputManager.GetInstance().SwitchToPlayerMap("PlayerControlsAxisConfig");
         }
     }
     // Start is called before the first frame update
