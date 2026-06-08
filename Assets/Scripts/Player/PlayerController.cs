@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         if (!isMoving)
         {
             moveSpeed = 0f;
+            isSprinting = false;
         }
         else if (isCrouching)
         {
@@ -138,9 +139,19 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         }
 
         animator.SetBool("IsMoving", isMoving);
-        animator.SetBool("IsIdle", !isMoving);
-        animator.SetBool("IsSprinting", isSprinting);
-        animator.SetBool("IsCrouching", isCrouching);
+
+        if (!isMoving)
+        {
+            animator.SetBool("IsSprinting", false);
+            animator.SetBool("IsCrouching", false);
+            animator.SetBool("IsIdle", true);
+        }
+        else
+        {
+            animator.SetBool("IsIdle", false);
+            animator.SetBool("IsSprinting", isSprinting);
+            animator.SetBool("IsCrouching", isCrouching);
+        }
     }
 
     // public void RevivePlayer()

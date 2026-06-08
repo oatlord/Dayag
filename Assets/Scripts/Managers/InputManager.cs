@@ -47,19 +47,19 @@ public class InputManager : MonoBehaviour
 
     public void MovePressed(InputAction.CallbackContext context)
     {
-        moveDirection = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
-
         if (context.performed)
         {
-            // animator.SetBool("IsMoving", true);
-            // animator.SetBool("IsIdle", false);
-            IsMoving = true;
-            IsIdle = false;
+            Vector2 raw = context.ReadValue<Vector2>();
+            if (raw.sqrMagnitude > 0.01f)
+            {
+                moveDirection = new Vector3(raw.x, 0, raw.y);
+                IsMoving = true;
+                IsIdle = false;
+            }
         }
         else if (context.canceled)
         {
-            // animator.SetBool("IsMoving", false);
-            // animator.SetBool("IsIdle", true);
+            moveDirection = Vector3.zero;
             IsMoving = false;
             IsIdle = true;
         }
