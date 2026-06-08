@@ -23,11 +23,11 @@ INCLUDE globals.ink
     But— who am I kidding- that ain’t any of your concern. Just take the note or don’t.
     
     *[Take the note]
-        ~ HasLetter = true
+        ~ HasLetterFromTanaka = true
         ->choice1
         
     *[Refuse the note]
-        ~ HasLetter = false
+        ~ HasLetterFromTanaka = false
         ->choice2
         
         

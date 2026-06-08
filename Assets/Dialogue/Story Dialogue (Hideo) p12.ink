@@ -32,3 +32,5 @@ INCLUDE globals.ink
     
 === talkedToHideo===
     The man doesn't have much to say. He doesn't look like he has the energy to, if he had anything to say anyway. #speaker:Narrator
+
+    -> END
