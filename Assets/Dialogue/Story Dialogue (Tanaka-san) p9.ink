@@ -1,6 +1,6 @@
-VAR HasLetter = false
+INCLUDE globals.ink
 
--> main
+{TalkedToTanaka == true: -> talkedToTanaka | -> main}
 
 === main ===
 
@@ -8,13 +8,20 @@ VAR HasLetter = false
     
     I don’t have a lot of time, but if you take this with you, the guards won’t question where you’re goin’, okay?
     
-    Take this, and if any guards come by and ask you why you’re here, say your parents work for the Furukawa Plantation Company. They’ll mistake you for an errand boy.
+    Take this, and if any guards come by and ask you why you’re here, say your parents work for the Furukawa Plantation Company. 
+    
+    They’ll mistake you for an errand boy.
     
     But they don’t work for the Furukawa Plantation Company, they work for Mister Ernesto…#speaker:You
     
-    It’s all the same kid. That’s how Filipinos get your land to begin with. It’s all funded by us Davao-kuo. Furukawa, Mr. Ernesto’s; one and the same. We call it… “pakyaw”. Makes getting land a lot easier for you and me both.#speaker:Tanaka-san
+    It’s all the same kid. #speaker:Tanaka-san
+    
+    That’s how Filipinos get your land to begin with. It’s all funded by us Davao-kuo. 
+    
+    Furukawa, Mr. Ernesto’s; one and the same. We call it… “pakyaw”. Makes getting land a lot easier for you and me both.
     
     But— who am I kidding- that ain’t any of your concern. Just take the note or don’t.
+    
     *[Take the note]
         ~ HasLetter = true
         ->choice1
@@ -33,13 +40,19 @@ VAR HasLetter = false
         
         Aren’t they Japanese too? Why wouldn’t you feel safe around them?#speaker:You
         
-        Haha! The Kempei Tai are a different monster, kid, even if we’re both Japanese. They’re from the mainland, and I’m an Okinawan; in their eyes, we’re one and the same too. Just islanders lower in worth than them.#speaker:Tanaka-san
+        Haha! The Kempei Tai are a different monster, kid, even if we’re both Japanese. #speaker:Tanaka-san
+        
+        They’re from the mainland, and I’m an Okinawan; in their eyes, we’re one and the same too. Just islanders lower in worth than them.#speaker:Tanaka-san
 
-        (he looks up and realizes some guards are getting closer) Kid, I’ve gotta scram. (Tanaka looks at the kid with a look of apprehension, and he frowns) I’ll see you when I see you.
+        (he looks up and realizes some guards are getting closer) Kid, I’ve gotta scram. 
+        
+        (Tanaka looks at you with a look of apprehension, and he frowns) I’ll see you when I see you.
         
         O-okay…#speaker:You
         
-        Good luck out there, kid. I’ll see you when I see you.#speaker:Tanaka-san   
+        Good luck out there, kid. I’ll see you when I see you.#speaker:Tanaka-san 
+        
+        ~ TalkedToTanaka = true
         
         -> END
         
@@ -51,7 +64,14 @@ VAR HasLetter = false
         O-okay…#speaker:You
         
         Good luck out there, kid. I’ll see you when I see you.#speaker:Tanaka-san
+        
+        ~ TalkedToTanaka = true
         -> END
+        
+===talkedToTanaka===
+Shoo, kid! I gotta scram! #speaker:Tanaka-san
+
+-> END
         
         
         
