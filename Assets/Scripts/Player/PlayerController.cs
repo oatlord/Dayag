@@ -45,12 +45,14 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        this.transform.position = data.playerPosition;
+        // this.transform.position = data.playerPosition;
     }
 
     public void SaveData(GameData data)
     {
-        data.playerPosition = this.transform.position;
+        // data.playerPosition = this.transform.position;
+        // data.hasLastSavedPlayerPosition = true;
+        // Debug.Log("SaveData in PlayerController called.");
     }
 
     void OnEnable()
@@ -109,6 +111,8 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             moveSpeed = defaultMoveSpeed;
         }
 
+        // Vector3 localMoveDirection = moveDirection.magnitude > 0 ? transform.TransformDirection(moveDirection.normalized) : Vector3.zero;
+        // Vector3 finalMovement = localMoveDirection * moveSpeed;
         Vector3 finalMovement = moveDirection * moveSpeed;
 
         if (characterController.isGrounded)

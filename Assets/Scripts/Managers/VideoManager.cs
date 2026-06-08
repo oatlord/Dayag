@@ -23,6 +23,22 @@ public class VideoManager : MonoBehaviour
         videoPlayer.loopPointReached += OnLoopPointReached;
     }
 
+    private void Update()
+    {
+        // ONLY FOR DEBUGGING PURPOSES
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            SkipVideo();
+        }
+    }
+
+    void SkipVideo()
+    {
+        Debug.Log("Skipping video.");
+        videoPlayer.Stop();
+        GameSceneManager.instance.MoveToScene(sceneToLoadAfterVideo);
+    }
+
     void OnPrepareCompleted(VideoPlayer vp) 
     {
         Debug.Log("Video prepared. Starting playback.");

@@ -9,8 +9,9 @@ public class GameData
 {
     public long lastUpdated;
     public Vector3 playerPosition;
-    public Vector3 playerCheckpointPosition;
-    public bool hasPlayerCheckpoint;
+    public bool hasLastSavedPlayerPosition;
+    public Vector3 playerRevivePoint;
+    public bool hasPlayerRevivePoint;
     public string currentZone;
     public string currentSceneName;
 
@@ -25,8 +26,11 @@ public class GameData
 
     public GameData() {
         playerPosition = Vector3.zero;
-        playerCheckpointPosition = Vector3.zero;
-        hasPlayerCheckpoint = false;
+        hasLastSavedPlayerPosition = false;
+
+        playerRevivePoint = Vector3.zero;
+        hasPlayerRevivePoint = false;
+
         currentZone = "Wrecked Hometown";
         currentSceneName = "Zone 1";
 

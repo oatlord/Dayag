@@ -16,17 +16,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c3b74aed4540150489cff962c6346662,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2038271
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3b74aed4540150489cff962c6346662,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22901464
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3b74aed4540150489cff962c6346662,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.5303519
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3b74aed4540150489cff962c6346662,
         type: 3}
@@ -215,7 +215,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c3b74aed4540150489cff962c6346662,
         type: 3}
       propertyPath: m_Name
-      value: Player 1
+      value: Player New
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c3b74aed4540150489cff962c6346662,
         type: 3}
@@ -369,3 +369,4 @@ MonoBehaviour:
   deathSequenceTime: 10
   deathAnimHasPlayed: 0
   playerHasDied: 0
+  gravityVelocity: -9.81

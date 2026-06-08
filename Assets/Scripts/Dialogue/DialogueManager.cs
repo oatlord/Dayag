@@ -20,7 +20,9 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     private TextMeshProUGUI[] choicesText;
 
     [Header("Player Control Maps")]
-    [SerializeField] private string playerControlMapName;
+    // Reference to the scene's currently active player control map name to automatically switch to.
+    private string sceneCurrentlyActivePlayerControlMapName;
+    // [SerializeField] private string playerControlMapName;
     [SerializeField] private string uiControlMapName = "UI_Input";
 
     private Story currentStory;
@@ -94,6 +96,10 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
         dialogueVariables.StartListening(currentStory);
 
+        // Always save the currently active map before switching to uiControlMap.
+        sceneCurrentlyActivePlayerControlMapName = InputManager.GetInstance().GetCurrentlyActiveMap();
+        Debug.Log(sceneCurrentlyActivePlayerControlMapName);
+
         if (InputManager.GetInstance().GetCurrentlyActiveMap() != uiControlMapName)
         {
             InputManager.GetInstance().SwitchToUIMap();
@@ -110,9 +116,15 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
         dialogueVariables.StopListening(currentStory);
 
-        if (InputManager.GetInstance().GetCurrentlyActiveMap() != playerControlMapName)
+        // if (InputManager.GetInstance().GetCurrentlyActiveMap() != playerControlMapName)
+        // {
+        //     InputManager.GetInstance().SwitchToPlayerMap(playerControlMapName);
+        // }
+        // Switch to the saved currently active player control map name when exiting dialogue mode.
+        if (InputManager.GetInstance().GetCurrentlyActiveMap() != sceneCurrentlyActivePlayerControlMapName)
         {
-            InputManager.GetInstance().SwitchToPlayerMap(playerControlMapName);
+            InputManager.GetInstance().SwitchToPlayerMap(sceneCurrentlyActivePlayerControlMapName);
+            sceneCurrentlyActivePlayerControlMapName = "";
         }
     }
 

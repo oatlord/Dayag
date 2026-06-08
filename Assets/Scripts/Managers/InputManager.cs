@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
     private bool submitPressed = false;
 
     private static InputManager instance;
-    [SerializeField] private GameObject player;
+    // [SerializeField] private GameObject player;
     // [SerializeField] private Animator animator;
     [SerializeField] private PlayerInput playerInput;
 
@@ -37,6 +37,7 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Active Map: " + playerInput.currentActionMap.name);
     }
 
     public static InputManager GetInstance()

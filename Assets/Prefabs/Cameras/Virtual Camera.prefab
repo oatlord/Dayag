@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4801191841378047232}
   - component: {fileID: 7785220034113505039}
+  - component: {fileID: 4938817150857661895}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -25,14 +26,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525241125663341573}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.27059802, y: -0.65328157, z: 0.27059805, w: 0.65328145}
+  m_LocalRotation: {x: 0.27059805, y: -0.6532815, z: 0.27059805, w: 0.6532815}
   m_LocalPosition: {x: 11.203966, y: 10.49, z: 0.6398566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8206475583802285148}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: -90, z: 0}
 --- !u!114 &7785220034113505039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +55,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 40
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -72,6 +73,20 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 8206475583802285148}
+--- !u!114 &4938817150857661895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525241125663341573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42cfc3ede36f2c4680cf30a99a39831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 7785220034113505039}
+  target: {fileID: 0}
 --- !u!1 &5758609022602334989
 GameObject:
   m_ObjectHideFlags: 0

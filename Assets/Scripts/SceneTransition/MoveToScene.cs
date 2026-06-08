@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MoveToScene : MonoBehaviour
 {
+    public string ExitTriggerID;
+    public Transform playerSpawnPoint;
     [SerializeField] private string sceneName;
 
     private void OnTriggerEnter(Collider other)
@@ -16,6 +18,7 @@ public class MoveToScene : MonoBehaviour
                 Debug.LogError("Scene " + sceneName + " does not exist. Please check the scene name and try again.");
                 return;
             }
+            ScenePersistenceManager.instance.LastExitTriggerID = ExitTriggerID;
             GameSceneManager.instance.MoveToScene(sceneName);
         }
     }
