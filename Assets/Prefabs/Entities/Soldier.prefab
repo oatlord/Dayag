@@ -519,6 +519,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5340968126498183511}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3695530cf951bd04899bb4a0943d6ce7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8023454852158296791}
   m_SourcePrefab: {fileID: 100100000, guid: 3695530cf951bd04899bb4a0943d6ce7, type: 3}
 --- !u!1 &5939808394377345694 stripped
 GameObject:
@@ -592,7 +596,7 @@ MonoBehaviour:
   m_currentWaypoint: {fileID: 0}
   playerHead: {fileID: 8106006615368926923}
   viewRadius: 1
-  viewDistance: 8
+  viewDistance: 10
   viewAngle: 90
   turnSpeed: 5
   alertRadius: 2
@@ -603,6 +607,8 @@ MonoBehaviour:
   enemyChaseSpeed: 3
   enemyWalkSpeed: 2
   alertAudioSource: {fileID: 2503801101875129362}
+  detectionDrainRate: 1
+  detectionProgress: 0
   enemyReachedPlayer: 0
   enemyHasHitPlayer: 0
   enemyHitStateActive: 0
@@ -629,6 +635,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8023454852158296791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939808394377345694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b7e94af23a84e43b17bbd84ab0ca34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heightOffset: 2.4
+  meterWidth: 1.2
+  meterHeight: 0.18
+  colorLow: {r: 1, g: 0.85, b: 0, a: 1}
+  colorHigh: {r: 1, g: 0.15, b: 0, a: 1}
+  bgColor: {r: 0, g: 0, b: 0, a: 0.55}
+  chaseFlash: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.35
+  fadeSpped: 4
 --- !u!4 &6423717392912670756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3695530cf951bd04899bb4a0943d6ce7,

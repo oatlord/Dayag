@@ -36,7 +36,7 @@ public class AIController : MonoBehaviour
     [Tooltip("Range of soldier's hit, i.e. the range that the soldier needs to kill the player.")]
     public float hitRange = 2;
 
-    [Header("Enemy Multipler Settings")]
+    [Header("Enemy Multiplier Settings")]
     [Tooltip("AI's alert radius rises to this amount when the player is running.")]
     [SerializeField] private float alertRadiusHeightenedAmount;
     [Tooltip("AI's alert radius lowers to this amount when the player is crouching.")]
@@ -48,6 +48,18 @@ public class AIController : MonoBehaviour
 
     [Header("Enemy Audio Settings")]
     [SerializeField] private AudioSource alertAudioSource = null;
+
+    // ─── Detection Meter ──────────────────────────────────────────────────────
+    [Header("Detection Meter Settings")]
+    [Tooltip("How quickly the detection meter drains per second when the player is out of sight.")]
+    [SerializeField] private float detectionDrainRate = 1f;
+
+    /// <summary>
+    /// Normalised detection progress (0 = undetected, 1 = fully alerted / chasing).
+    /// Read by DetectionMeterUI to drive the on-screen slider.
+    /// </summary>
+    [HideInInspector] public float detectionProgress = 0f;
+    // ─────────────────────────────────────────────────────────────────────────
 
     private Vector3 playerPosition;
     private bool enemySeesPlayer;
@@ -96,26 +108,6 @@ public class AIController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Enemy has reached player: " + enemyReachedPlayer);
-        Debug.Log("Currenct waypoint: " + m_currentWaypoint);
-
-        // if (enemyHasHitPlayer)
-        // {
-        //     m_ResetStateTimer += Time.deltaTime;
-        //     if (m_ResetStateTimer >= ResetStateTimer)
-        //     {
-        //         Debug.Log("Resetting enemy state.");
-        //         enemyReachedPlayer = false;
-        //         enemyHasHitPlayer = false;
-        //         animController.SetBool("IsPatrolling", true);
-        //     }
-        // }
-
-        // if (enemyHasHitPlayer)
-        // {
-            
-        // }
-
         if (enemyReachedPlayer)
         {
             if (!hasHitAnimPlayed)
@@ -131,40 +123,20 @@ public class AIController : MonoBehaviour
             return;
         }
 
-        
-
-        // if (navMeshAgent.remainingDistance <= hitRange)
-        // {
-        //     enemyReachedPlayer = true;
-        //     // aiController.StopChase();
-        //     GameManager.instance.KillPlayer();
-        //     Debug.Log("Player caught");
-        // }
-
         enemySeesPlayer = CanSeePlayer();
-        // if (Physics.SphereCast(playerHead.position, viewRadius, playerHead.forward, out RaycastHit hit, viewDistance))
-        // {
-        //     if (hit.collider.CompareTag("Player"))
-        //     {
-        //         Debug.Log("Player detected");
-        //         enemySeesPlayer = true;
-        //         animController.SetBool("IsSeeingPlayer", true);
-        //     }
-        // }
-        // else
-        // {
-        //     enemySeesPlayer = false;
-        //     animController.SetBool("IsSeeingPlayer", false);
-        // }
 
         if (enemySeesPlayer)
         {
             animController.SetBool("IsSeeingPlayer", true);
             m_timer += Time.deltaTime;
 
+            // ── Fill detection meter proportional to timeToSeePlayer ──
+            detectionProgress = Mathf.Clamp01(m_timer / timeToSeePlayer);
+
             if (m_timer >= timeToSeePlayer)
             {
                 m_timer = 0;
+                detectionProgress = 1f;
                 animController.SetBool("IsChasing", true);
             }
         }
@@ -173,6 +145,13 @@ public class AIController : MonoBehaviour
             m_timer = 0;
             animController.SetBool("IsChasing", false);
             animController.SetBool("IsSeeingPlayer", false);
+
+            // ── Drain the meter gradually when the player is out of sight ──
+            // Keep it full while actively chasing, drain only when not chasing
+            if (!animController.GetBool("IsChasing"))
+            {
+                detectionProgress = Mathf.Clamp01(detectionProgress - detectionDrainRate * Time.deltaTime);
+            }
         }
 
         if (animController.GetBool("IsChasing"))
@@ -202,18 +181,9 @@ public class AIController : MonoBehaviour
     {
         if (alertAudioSource != null && !alertAudioSource.isPlaying)
         {
-            Debug.Log("Playing alert audio");
             alertAudioSource.Play();
         }
     }
-
-    // public void ForceChase() 
-    // {
-    //     Debug.Log("Chase forced.");
-
-    //     animController.SetBool("IsSeeingPlayer", true);
-    //     animController.SetBool("IsChasing", true);
-    // }
 
     private bool CanSeePlayer()
     {
@@ -230,7 +200,6 @@ public class AIController : MonoBehaviour
 
         if (distanceToPlayer <= alertRadius)
         {
-            Debug.Log("close");
             return true;
         }
 
@@ -241,18 +210,13 @@ public class AIController : MonoBehaviour
 
         if (angleToPlayer <= viewAngle * 0.5f)
         {
-            Debug.Log("within field of view");
-
             if (Physics.SphereCast(transform.position, viewRadius, normalizedDirection, out hit, viewDistance))
             {
-                Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
                 if (hit.collider.gameObject.CompareTag("Player"))
                 {
-                    Debug.Log("Can see player");
                     return true;
                 }
 
-                Debug.Log("Can not see player");
                 return false;
             }
         }
@@ -286,10 +250,7 @@ public class AIController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player Detected");
-
             animController.SetBool("IsAlert", true);
-
             playerPosition = other.transform.position;
         }
     }
@@ -299,40 +260,32 @@ public class AIController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             animController.SetBool("IsAlert", false);
-
             playerPosition = Vector3.zero;
         }
     }
 
     private void OnDrawGizmos()
     {
-        if (player == null)
-        {
-            return;
-        }
+        if (player == null) return;
 
         Vector3 rayDirection = player.transform.position - transform.position;
         float distanceToPlayer = rayDirection.magnitude;
         float angleToPlayer = Vector3.Angle(rayDirection, transform.forward);
         Vector3 normalizedDirection = rayDirection.normalized;
+        float halfAngle = viewAngle * 0.5f;
 
-        // Draw the alert radius sphere
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, alertRadius);
 
-        // Draw the maximum view distance circle
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, viewDistance);
 
-        // Draw the view cone edges
         Gizmos.color = Color.yellow;
-        float halfAngle = viewAngle * 0.5f;
         Vector3 leftDir = Quaternion.Euler(0, -halfAngle, 0) * transform.forward;
         Vector3 rightDir = Quaternion.Euler(0, halfAngle, 0) * transform.forward;
         Gizmos.DrawRay(transform.position, leftDir * viewDistance);
         Gizmos.DrawRay(transform.position, rightDir * viewDistance);
 
-        // Draw the spherecast path used by CanSeePlayer()
         Vector3 spherecastEnd = transform.position + normalizedDirection * viewDistance;
         Gizmos.color = Color.white;
         Gizmos.DrawLine(transform.position, spherecastEnd);
@@ -346,16 +299,13 @@ public class AIController : MonoBehaviour
             Gizmos.DrawWireSphere(stepPos, viewRadius);
         }
 
-        // Draw ray to player in the same color as detection logic
         bool canSee = distanceToPlayer <= alertRadius ||
             (distanceToPlayer <= viewDistance && angleToPlayer <= halfAngle);
         Gizmos.color = canSee ? Color.green : Color.red;
         Gizmos.DrawRay(transform.position, normalizedDirection * Mathf.Min(distanceToPlayer, viewDistance));
 
-        // Draw a helper line to show the angle difference
         Gizmos.color = Color.magenta;
         Gizmos.DrawLine(transform.position, transform.position + leftDir * viewDistance * 0.2f);
         Gizmos.DrawLine(transform.position, transform.position + rightDir * viewDistance * 0.2f);
-
     }
 }
