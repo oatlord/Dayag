@@ -21,6 +21,7 @@ VAR PlayerPickedUpWater = false
 VAR PlayerPickedUpBandages = false
 
 // ZONE 5 VARIABLES
+VAR AnsweredSoldierCorrectly = false
 
 // TESTING PURPOSES ONLY
 VAR NameOfChoice = ""
