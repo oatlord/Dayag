@@ -228,6 +228,39 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
         return variableValue;
     }
 
+    public void SetVariableState(string variableName, Ink.Runtime.Object value)
+    {
+        if (dialogueVariables == null)
+        {
+            Debug.LogError("DialogueVariables not initialized.");
+            return;
+        }
+
+        if (dialogueVariables.variables.ContainsKey(variableName))
+        {
+            dialogueVariables.variables[variableName] = value;
+        }
+        else
+        {
+            dialogueVariables.variables.Add(variableName, value);
+        }
+
+        if (dialogueVariables.globalVariablesStory != null)
+        {
+            dialogueVariables.globalVariablesStory.variablesState.SetGlobal(variableName, value);
+        }
+
+        if (currentStory != null)
+        {
+            currentStory.variablesState.SetGlobal(variableName, value);
+        }
+    }
+
+    public void SetVariableState(string variableName, bool value)
+    {
+        SetVariableState(variableName, new Ink.Runtime.BoolValue(value));
+    }
+
     public static DialogueManager GetInstance()
     {
         return instance;

@@ -250,10 +250,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced56429581faac4fb13cc581c7ddeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HasHelpedHideo: 0
-  HasLetterFromTanaka: 0
+  HasHelpedHideo: 1
+  HasLetterFromTanaka: 1
   ChoseMainRoute: 0
   ChoseBackRoute: 0
+  debugSetMainRoute: 0
+  debugSetBackRoute: 0
+  debugHasHelpedHideo: 1
+  debugHasLetterFromTanaka: 1
 --- !u!4 &34167875
 Transform:
   m_ObjectHideFlags: 0
