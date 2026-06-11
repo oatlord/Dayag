@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameEndingManager : MonoBehaviour
 {
     public static GameEndingManager instance;
+    public bool IsPlayingEnding = false;
 
     [Header("Ending Bools")]
     public bool HasHelpedHideo;
@@ -21,6 +22,10 @@ public class GameEndingManager : MonoBehaviour
     public bool debugHasHelpedHideo;
     [Tooltip("Toggle this to set HasLetterFromTanaka and sync with Ink state.")]
     public bool debugHasLetterFromTanaka;
+
+    [Header("Ending Dialogue Texts")]
+    [SerializeField] private TextAsset ending1Prelude;
+    [SerializeField] private TextAsset ending3Prelude;
 
     // Manager to be placed in Zone 5 to distinguish the next ending. Will work on this as Zone 5 is finished.
 
@@ -43,6 +48,12 @@ public class GameEndingManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        HasHelpedHideo = GetInkBool("HasHelpedHideo");
+        HasLetterFromTanaka = GetInkBool("HasLetterFromTanaka");
+    }
+
     void Update()
     {
         if (!TalkedToSoldiers && (GetInkBool("ShowedTheTag") || GetInkBool("ShowedTheLetter")))
@@ -50,6 +61,9 @@ public class GameEndingManager : MonoBehaviour
             Debug.Log("Player has talked to soldiers.");
             TalkedToSoldiers = true;
         }
+
+        Debug.Log("Helped Hideo:" + GetInkBool("HasHelpedHideo"));
+        Debug.Log("Letter from Tanaka: " + GetInkBool("HasLetterFromTanaka"));
     }
 
     private bool GetInkBool(string variableName)
@@ -166,7 +180,23 @@ public class GameEndingManager : MonoBehaviour
 
     void CalculateEnding()
     {
-        HasHelpedHideo = ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("HasHelpedHideo")).value;
-        HasLetterFromTanaka = ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("HasLetterFromTanaka")).value;
+        // bool qualifiesForEnding3 = false;
+        // bool qualifiesForEnding1 = false;
+
+        // if (HasHelpedHideo) {
+        //     qualifiesForEnding3 = true;
+        // }
+    }
+
+    public void GetEnding1()
+    {
+        IsPlayingEnding = true;
+        DialogueManager.GetInstance().EnterDialogueMode(ending1Prelude);
+    }
+
+    public void GetEnding3()
+    {
+        IsPlayingEnding = true;
+        DialogueManager.GetInstance().EnterDialogueMode(ending3Prelude);
     }
 }

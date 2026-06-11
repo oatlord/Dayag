@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool HasRevivePoint { get; private set; } = false;
 
     // Player Checkpoint System
-    public Vector3 PlayerCheckpoint {get; private set;} = Vector3.zero;
+    public Vector3 PlayerCheckpoint { get; private set; } = Vector3.zero;
     public bool HasCheckpoint { get; private set; } = false;
     // Player Variables
     // public bool HasHelped;
@@ -105,16 +105,32 @@ public class GameManager : MonoBehaviour, IDataPersistence
         PlayerIsAlive = false;
         blackoutScreen.SetActive(true);
 
-        if (SceneManager.GetActiveScene().name == "Zone 5" && GameEndingManager.instance != null && GameEndingManager.instance.ChoseBackRoute)
+        // If scene is Zone 5, and the game ending manager isn't null, perform the following.
+        if (SceneManager.GetActiveScene().name == "Zone 5" && GameEndingManager.instance != null)
         {
-            StartCoroutine(StartEnding1LoadSequence());
+            if (GameEndingManager.instance.HasHelpedHideo)
+            {
+                StartCoroutine(StartEnding3LoadSequence());
+            }
+            else if (GameEndingManager.instance.ChoseBackRoute &&
+                !GameEndingManager.instance.HasHelpedHideo &&
+                !GameEndingManager.instance.HasLetterFromTanaka)
+            {
+                StartCoroutine(StartEnding1LoadSequence());
+            }
         }
     }
 
     IEnumerator StartEnding1LoadSequence()
     {
         yield return new WaitForSeconds(5f);
-        GameSceneManager.instance.MoveToScene("Ending 1");
+        GameEndingManager.instance.GetEnding1();
+    }
+
+    IEnumerator StartEnding3LoadSequence()
+    {
+        yield return new WaitForSeconds(5f);
+        GameEndingManager.instance.GetEnding3();
     }
 
     public void SetChasePlayerState(bool isBeingChased)
