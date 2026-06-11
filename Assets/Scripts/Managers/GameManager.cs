@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour, IDataPersistence
 {
@@ -103,6 +104,17 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         PlayerIsAlive = false;
         blackoutScreen.SetActive(true);
+
+        if (SceneManager.GetActiveScene().name == "Zone 5" && GameEndingManager.instance != null && GameEndingManager.instance.ChoseBackRoute)
+        {
+            StartCoroutine(StartEnding1LoadSequence());
+        }
+    }
+
+    IEnumerator StartEnding1LoadSequence()
+    {
+        yield return new WaitForSeconds(5f);
+        GameSceneManager.instance.MoveToScene("Ending 1");
     }
 
     public void SetChasePlayerState(bool isBeingChased)
