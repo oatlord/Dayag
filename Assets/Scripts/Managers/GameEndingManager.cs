@@ -1,3 +1,4 @@
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class GameEndingManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameEndingManager : MonoBehaviour
     public bool HasLetterFromTanaka;
     public bool ChoseMainRoute = false;
     public bool ChoseBackRoute = false;
+    public bool TalkedToSoldiers = false;
 
     [Header("Debug Inspector")]
     [Tooltip("Tick to force ChoseMainRoute = true and sync with Ink state.")]
@@ -22,7 +24,7 @@ public class GameEndingManager : MonoBehaviour
 
     // Manager to be placed in Zone 5 to distinguish the next ending. Will work on this as Zone 5 is finished.
 
- void Awake()
+    void Awake()
     {
         if (instance != null)
         {
@@ -33,9 +35,46 @@ public class GameEndingManager : MonoBehaviour
         {
             instance = this;
         }
-        // Read these two variables too just in case
-        HasHelpedHideo = ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("HasHelpedHideo")).value;
-        HasLetterFromTanaka = ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("HasLetterFromTanaka")).value;
+
+        if (DialogueManager.GetInstance() != null)
+        {
+            HasHelpedHideo = GetInkBool("HasHelpedHideo");
+            HasLetterFromTanaka = GetInkBool("HasLetterFromTanaka");
+        }
+    }
+
+    void Update()
+    {
+        if (!TalkedToSoldiers && (GetInkBool("ShowedTheTag") || GetInkBool("ShowedTheLetter")))
+        {
+            Debug.Log("Player has talked to soldiers.");
+            TalkedToSoldiers = true;
+        }
+    }
+
+    private bool GetInkBool(string variableName)
+    {
+        if (DialogueManager.GetInstance() == null)
+        {
+            return false;
+        }
+
+        Ink.Runtime.Object variableState = DialogueManager.GetInstance().GetVariableState(variableName);
+        if (variableState is Ink.Runtime.BoolValue boolValue)
+        {
+            return boolValue.value;
+        }
+
+        if (variableState == null)
+        {
+            Debug.LogWarning($"Ink variable '{variableName}' was not found.");
+        }
+        else
+        {
+            Debug.LogWarning($"Ink variable '{variableName}' is not a bool: {variableState.GetType().Name}");
+        }
+
+        return false;
     }
 
     public void SetMainRouteBool(bool choice)
@@ -51,10 +90,9 @@ public class GameEndingManager : MonoBehaviour
         }
     }
 
-  public void SetBackRouteBool(bool choice)
+    public void SetBackRouteBool(bool choice)
     {
         Debug.Log("Set back route bool: " + choice);
-        ChoseMainRoute = choice;
         ChoseBackRoute = choice;
         ChoseMainRoute = !choice;
 
@@ -87,7 +125,21 @@ public class GameEndingManager : MonoBehaviour
         }
     }
 
- private void OnValidate()
+    // Clear both route booleans without invoking the other setter logic.
+    public void ClearRoutes()
+    {
+        Debug.Log("Clearing route choices.");
+        ChoseMainRoute = false;
+        ChoseBackRoute = false;
+
+        if (DialogueManager.GetInstance() != null)
+        {
+            DialogueManager.GetInstance().SetVariableState("ChoseMainRoute", false);
+            DialogueManager.GetInstance().SetVariableState("ChoseBackRoute", false);
+        }
+    }
+
+    private void OnValidate()
     {
         if (debugSetMainRoute)
         {
@@ -114,7 +166,7 @@ public class GameEndingManager : MonoBehaviour
 
     void CalculateEnding()
     {
-        HasHelpedHideo = ((Ink.Runtime.BoolValue) DialogueManager.GetInstance().GetVariableState("HasHelpedHideo")).value;
-        HasLetterFromTanaka = ((Ink.Runtime.BoolValue) DialogueManager.GetInstance().GetVariableState("HasLetterFromTanaka")).value;
+        HasHelpedHideo = ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("HasHelpedHideo")).value;
+        HasLetterFromTanaka = ((Ink.Runtime.BoolValue)DialogueManager.GetInstance().GetVariableState("HasLetterFromTanaka")).value;
     }
 }
