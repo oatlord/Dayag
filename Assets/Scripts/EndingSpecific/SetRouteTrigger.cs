@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SetRouteTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Route Choice Bools")]
+    [Tooltip("Check only if this trigger is for if the player chose the main route.")]
+    [SerializeField] private bool choseMainRoute;
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
-        
-    }
+        if (other.CompareTag("Player"))
+        {
+            switch (choseMainRoute)
+            {
+                case true:
+                    GameEndingManager.instance.SetMainRouteBool(true);
+                    GameEndingManager.instance.SetBackRouteBool(false);
+                    break;
+                case false:
+                    GameEndingManager.instance.SetMainRouteBool(false);
+                    GameEndingManager.instance.SetBackRouteBool(true);
+                    break;
+            }
+        }
+    } 
+    
 }
