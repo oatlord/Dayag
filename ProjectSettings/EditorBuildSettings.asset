@@ -23,12 +23,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Zone 2.unity
     guid: 20cecff62e197394792cbff2c0cdae3c
+<<<<<<< Zone-5-and-Ending
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Ending 1.unity
+    guid: b6ae6ae8b00b5a1479288a5b7dc510d7
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Ending 2.unity
+    guid: bb63a6eaf31c5b540a96d3734dd04335
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Ending 3.unity
+    guid: 05ae6f95fb8389c4e9fa78130fbb5425
+=======
   - enabled: 1
     path: Assets/Scenes/Zone 3.unity
     guid: 888cda5ba9f160e40b5f363fee6fb839
   - enabled: 1
     path: Assets/Scenes/Zone 4.unity
     guid: 391d17a700bb9e74580079f10cdf0f35
+>>>>>>> master
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 482c5a7d8274b6b43af4c9bbd8b55d52,
       type: 2}

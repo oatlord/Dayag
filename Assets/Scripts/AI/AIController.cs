@@ -108,6 +108,11 @@ public class AIController : MonoBehaviour
 
     void Update()
     {
+        if (GameEndingManager.instance != null && GameEndingManager.instance.IsPlayingEnding)
+        {
+            return;
+        }
+        
         if (enemyReachedPlayer)
         {
             if (!hasHitAnimPlayed)

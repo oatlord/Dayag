@@ -20,5 +20,10 @@ VAR ChoseToHelpHideo = false
 VAR PlayerPickedUpWater = false
 VAR PlayerPickedUpBandages = false
 
+// ZONE 5 VARIABLES
+VAR ShowedTheTag = false
+VAR ShowedTheLetter = false
+VAR AnsweredCorrectly = false
+
 // TESTING PURPOSES ONLY
 VAR NameOfChoice = ""

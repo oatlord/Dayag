@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using Microsoft.Unity.VisualStudio.Editor;
+using UnityEngine.Animations;
 
 public class DialogueManager : MonoBehaviour, IDataPersistence
 {
@@ -19,6 +21,10 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
 
+    [Header("CG UI")]
+    [Tooltip("Can be left null if there are no CGs in this zone's dialogue.")]
+    [SerializeField] private GameObject cgCanvas = null;
+
     [Header("Player Control Maps")]
     // Reference to the scene's currently active player control map name to automatically switch to.
     private string sceneCurrentlyActivePlayerControlMapName;
@@ -33,6 +39,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
     private const string SPEAKER_TAG = "speaker";
     private const string SCENE_TRANSITION = "moveToScene";
+    private const string CG_IMAGE = "cgImage";
 
     void Awake()
     {
@@ -126,6 +133,11 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
             InputManager.GetInstance().SwitchToPlayerMap(sceneCurrentlyActivePlayerControlMapName);
             sceneCurrentlyActivePlayerControlMapName = "";
         }
+
+        if (cgCanvas != null && cgCanvas.activeSelf)
+        {
+            cgCanvas.SetActive(false);
+        }
     }
 
     private void ContinueStory()
@@ -144,12 +156,25 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
     private void HandleTags(List<string> currentTags)
     {
+        // Hide CG canvas by default; only show when a CG_IMAGE tag is present, return all children of cgCanvas
+        List<GameObject> cgImages = new List<GameObject>();
+        if (cgCanvas != null)
+        {
+            cgCanvas.SetActive(false);
+            foreach (Transform child in cgCanvas.transform)
+            {
+                child.gameObject.SetActive(false);
+                cgImages.Add(child.gameObject);
+            }
+        }
+
         foreach (string tag in currentTags)
         {
             string[] splitTag = tag.Split(':');
             if (splitTag.Length != 2)
             {
                 Debug.LogError("Tag could not be appropriately parsed: " + tag);
+                continue;
             }
             string tagKey = splitTag[0].Trim();
             string tagValue = splitTag[1].Trim();
@@ -170,6 +195,28 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
                 case SCENE_TRANSITION:
                     Debug.Log("Scene transition tag with value: " + tagValue);
                     GameSceneManager.instance.MoveToScene(tagValue);
+                    break;
+                case CG_IMAGE:
+                    if (cgCanvas != null)
+                    {
+                        Debug.Log("Showing CG canvas.");
+                        cgCanvas.SetActive(true);
+                        if (int.TryParse(tagValue, out int result))
+                        {
+                            if (result >= 0 && result < cgImages.Count)
+                            {
+                                cgImages[result].SetActive(true);
+                            }
+                            else
+                            {
+                                Debug.LogWarning($"CG image index out of range: {result}. Valid range is 0 to {cgImages.Count - 1}.");
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"CG image tag value is not a valid index: {tagValue}");
+                        }
+                    }
                     break;
                 default:
                     Debug.LogWarning("Tag came in but is not being currently handled: " + tag);
@@ -254,12 +301,22 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     public Ink.Runtime.Object GetVariableState(string variableName)
     {
         Ink.Runtime.Object variableValue = null;
-        dialogueVariables.variables.TryGetValue(variableName, out variableValue);
-        if (variableValue == null)
+        if (dialogueVariables != null && dialogueVariables.variables.TryGetValue(variableName, out variableValue) && variableValue != null)
         {
-            Debug.LogError("Variable requested but not found: " + variableName);
+            return variableValue;
         }
-        return variableValue;
+
+        if (currentStory != null)
+        {
+            variableValue = currentStory.variablesState.GetVariableWithName(variableName);
+            if (variableValue != null)
+            {
+                return variableValue;
+            }
+        }
+
+        Debug.LogError("Variable requested but not found: " + variableName);
+        return null;
     }
 
     public static DialogueManager GetInstance()
@@ -268,10 +325,10 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     }
 
     private void OnDisable()
-{
-    Debug.LogError($"[CATCHER] DialogueManager was just UNCHECKED/DISABLED!", this);
-    Debug.Log(System.Environment.StackTrace);
-}
+    {
+        Debug.LogError($"[CATCHER] DialogueManager was just UNCHECKED/DISABLED!", this);
+        Debug.Log(System.Environment.StackTrace);
+    }
 
     public void OnApplicationQuit()
     {
