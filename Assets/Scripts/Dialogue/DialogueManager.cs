@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using Microsoft.Unity.VisualStudio.Editor;
+using UnityEngine.Animations;
 
 public class DialogueManager : MonoBehaviour, IDataPersistence
 {
@@ -132,7 +134,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
             sceneCurrentlyActivePlayerControlMapName = "";
         }
 
-        if (cgCanvas != null && cgCanvas.activeSelf) 
+        if (cgCanvas != null && cgCanvas.activeSelf)
         {
             cgCanvas.SetActive(false);
         }
@@ -154,11 +156,17 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
     private void HandleTags(List<string> currentTags)
     {
-        // Hide CG canvas by default; only show when a CG_IMAGE tag is present
-        // if (cgCanvas != null)
-        // {
-        //     cgCanvas.SetActive(false);
-        // }
+        // Hide CG canvas by default; only show when a CG_IMAGE tag is present, return all children of cgCanvas
+        List<GameObject> cgImages = new List<GameObject>();
+        if (cgCanvas != null)
+        {
+            cgCanvas.SetActive(false);
+            foreach (Transform child in cgCanvas.transform)
+            {
+                child.gameObject.SetActive(false);
+                cgImages.Add(child.gameObject);
+            }
+        }
 
         foreach (string tag in currentTags)
         {
@@ -166,6 +174,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
             if (splitTag.Length != 2)
             {
                 Debug.LogError("Tag could not be appropriately parsed: " + tag);
+                continue;
             }
             string tagKey = splitTag[0].Trim();
             string tagValue = splitTag[1].Trim();
@@ -192,6 +201,21 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
                     {
                         Debug.Log("Showing CG canvas.");
                         cgCanvas.SetActive(true);
+                        if (int.TryParse(tagValue, out int result))
+                        {
+                            if (result >= 0 && result < cgImages.Count)
+                            {
+                                cgImages[result].SetActive(true);
+                            }
+                            else
+                            {
+                                Debug.LogWarning($"CG image index out of range: {result}. Valid range is 0 to {cgImages.Count - 1}.");
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"CG image tag value is not a valid index: {tagValue}");
+                        }
                     }
                     break;
                 default:

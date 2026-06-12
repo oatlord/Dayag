@@ -1,25 +1,25 @@
 -> main
 
 ===main===
-Soldier 1: A kid! Over here!#cgImage:Img1
+A kid! Over here!#cgImage:1#speaker:Soldier 1
 
-Another soldier approaches as you struggle to break free from the grasp.
+Another soldier approaches as you struggle to break free from the grasp.#cgImage:1#speaker:Narrator
 
-Soldier 2: What are you doing here, boy?!
+What are you doing here, boy?!#cgImage:1#speaker:Soldier 2
 
-My family- they were taken here, I just want to find-
+My family- they were taken here, I just want to find-#cgImage:1#speaker:You
 
-Soldier 2: Quiet!
+Quiet!#cgImage:1#speaker:Soldier 2
 
-Soldier 2 looks you over.
+Soldier 2 looks you over.#cgImage:1#speaker:Narrator
 
-Soldier 2: You come from zonification?
+You come from zonification?#cgImage:1#speaker:Soldier 2
 
-You look down and says nothing.
+You look down and says nothing.#cgImage:1#speaker:Narrator
 
-Soldier 2 Nods, concluding his questions.
+The soldier nods, concluding his questions.#cgImage:1#speaker:Narrator
 
-Soldier 2: (to Soldier 1) Take him to the holding area with the others. 
+(to Soldier 1) Take him to the holding area with the others. #cgImage:1#speaker:Soldier 2
 
 -#moveToScene:Ending 1
 

@@ -3,68 +3,99 @@ INCLUDE globals.ink
 -> main
 
 ===main===
-The soldiers began discussing with the general, and the MC could only wait patiently and watch. He observes multiple makeshift jail cells, ducking his head as the cries and wales of hungry and mistreated Filipinos haunt him. It’s as if the fog itself that has been haunting him is made real here. 
+The soldiers began discussing with the General, and you can only wait patiently and watch. #speaker:Narrator#cgImage:1
 
-Soldier 1: General, that frail Filipino boy over by the entrance… He has a hold of this tag. (Japanese)
+You observe multiple makeshift jail cells, ducking your head as the cries and wales of hungry and mistreated Filipinos haunt you. #speaker:Narrator#cgImage:1
 
-General: Hideo... Tsk. Of course.(Japanese)
+The soldier brings the tag you obtained from Hideo to the General.#speaker:Narrator#cgImage:1
 
-Soldier 1: What should we do with the kid, General? (Jpn)
+General, that frail Filipino boy over by the entrance… He has a hold of this tag.#speaker:Soldier 1#cgImage:1
 
-Soldier 2: We can put him in jail like the rest of ‘em. (Jpn)
+Hideo... Tsk. Of course.#speaker:General#cgImage:2
 
-Soldier 1 & 2: (shared laugh)
+What should we do with the kid, General?#speaker:Soldier 1#cgImage:2
 
-General: (raises hand to silence them) What you should do is interrogate him further. Find where Hideo was last seen and send soldiers there after to retrieve him, copy? (in Japanese)
+We can put him in jail like the rest of ‘em.#speaker:Soldier 2#cgImage:2
 
-Soldier 1 & 2: Yes General!
+The two soldiers share a hearty laugh.#speaker:Narrator#cgImage:2
 
-The two soldiers approach you again.
+The General raises a hand to silence them.#speaker:Narrator#cgImage:2
 
-Soldier 2: Wow, aren’t you a good kid, sat still when ordered to. (jpn)
+What you should do is interrogate him further. Find where Hideo was last seen and send soldiers there after to retrieve him, copy?#speaker:General#cgImage:2
 
-Soldier 1: We are gonna ask you more questions, okay? Let’s start with this. (brings out Hideo’s tag)
+Yes General!#speaker:Soldier 1 & 2#cgImage:2
 
-Soldier 1: Where did you find this?
+The two soldiers approach you again.#speaker:Narrator#cgImage:3
 
-Ruined Plantation
-Soldier 1: Did he just say the Plantation?
+Wow, aren’t you a good kid, sat still when ordered to.#speaker:Soldier 2#cgImage:3
 
-Soldier 2: Most probably. Did… Did Hideo give this to you?
+We are gonna ask you more questions, okay? Let’s start with this. #speaker:Soldier 1#cgImage:3
 
-	Yes
-	Soldier 2: Hideo did, huh? Then he’s-
+The soldier brings out the tag.#speaker:Narrator#cgImage:0
 
-	Soldier 1: Probably already dead.
+Where did you find this?#speaker:Soldier 1#cgImage:0
 
-	Soldier 2: Hey now, we can’t just rule him out. He’s probably there in need of help. (jpn)
+*[Ruined Plantation] -> ruinedPlantation
+*[I Don’t Know] -> iDontKnow
 
-	Soldier 1: Or, he forcefully took this tag from an already rotting Hideo.
+-> END
 
-Soldier 1 kneels down to the kid and puts the tag right in front of him. 
+===ruinedPlantation===
+Did he just say the plantation?#speaker:Soldier 1#cgImage:0
+
+Most probably. Did… Did Hideo give this to you?#speaker:Soldier 2#cgImage:0
+
+*[Yes]
+	Hideo did, huh? Then he’s-#speaker:Soldier 2#cgImage:0
+
+	Probably already dead.#speaker:Soldier 1#cgImage:0
+
+    Hey now, we can’t just rule him out. He’s probably there in need of help. #speaker:Soldier 2#cgImage:0
+
+	Or, he forcefully took this tag from an already rotting Hideo.#speaker:Soldier 1#cgImage:0
+
+    The soldier kneels down to your height and hangs the tag right in front of you. #speaker:Narrator#cgImage:0
 	
-	Soldier 1: Right, that’s what you did, right? You killed Hideo, and Hideo is dead because of you? 
+	Right, that’s what you did, right? You killed Hideo, and Hideo is dead because of you? #speaker:Soldier 1#cgImage:0
 
-	I Don’t Know
+->answeredQuestion
 
-	Soldier 2: Woah, calm down. That’s just a kid!
+===iDontKnow===
+Woah, calm down. That’s just a kid!#speaker:Soldier 2#cgImage:0
 
-	Soldier 1: We’ve seen what those nasty Filipino rebellion fighters can do. Who knows, they might even be low enough to send a kid with a bomb strapped to his back to blow us all up? Heh, wouldn’t put it above them.
+We’ve seen what those nasty Filipino rebellion fighters can do. Who knows, they might even be low enough to send a kid with a bomb strapped to his back to blow us all up? #speaker:Soldier#cgImage:0
 
-	Soldier 2: Well, either way, he looks terrified. Weak and terrified. I doubt he did something to Hideo in that sorry state.
+Heh, wouldn’t put it above them.#speaker:Soldier 1#cgImage:0
 
-	The soldiers continue arguing while the MC stands silently between them.
-Soldier 1: No matter. This Filipino could’ve killed Hideo or left him for dead. He’s no saint. He knew what he had to do to survive.
-MC: He was hurt… in the plantation. I gave him water. I wrapped his shoulder.
-Soldier 1: Hah! Listen to that. A Filipino helping one of us?
-Soldier 2 studies the MC carefully. Behind them, the General finally speaks.
-General: Enough.
-The soldiers immediately straighten.
-General: The tag belongs to Hideo of the 4th Division. We’ll send a patrol to the ruined plantation ASAP.
-Soldier 2: Yes, General.
-Soldier 1: And the boy?
-The General pauses for a moment.
-General: Hold him here until we know the truth.
+Well, either way, he looks terrified. Weak and terrified. I doubt he did something to Hideo in that sorry state.#speaker:Soldier 2#cgImage:0
 
+The soldiers continue arguing while you sit silently between them.#speaker:Narrator#cgImage:0
+
+->answeredQuestion
+
+===answeredQuestion===
+No matter. This Filipino could’ve killed Hideo or left him for dead. He’s no saint. He knew what he had to do to survive.#speaker:Soldier 1#cgImage:0
+
+He was hurt… in the plantation. I gave him water. I wrapped his shoulder.#speaker:You#cgImage:0
+
+Hah! Listen to that. A Filipino helping one of us?#speaker:Soldier 1#cgImage:0
+
+Soldier 2 studies you carefully. Behind them, the General finally speaks.#speaker:Narrator#cgImage:0
+
+Enough.#speaker:General#cgImage:1
+
+The soldiers immediately straighten.#speaker:General#cgImage:1
+
+The tag belongs to Hideo of the 4th Division. We’ll send a patrol to the ruined plantation ASAP.#speaker:General#cgImage:1
+
+Yes, General.#speaker:Soldier 2#cgImage:1
+
+And the boy?#speaker:Soldier 1#cgImage:1
+
+The General pauses for a moment.#speaker:Narrator#cgImage:1
+
+Hold him here until we know the truth.#speaker:General#cgImage:1
+
+-#moveToScene:Ending 3
 
 -> END

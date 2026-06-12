@@ -13,6 +13,11 @@ public class GameEndingManager : MonoBehaviour
     public bool ChoseBackRoute = false;
     public bool TalkedToSoldiers = false;
 
+    [Header("Waiting Paramaters")]
+    [SerializeField] private float waitTimeTillEnding3;
+    private float m_TimerTillEnding3;
+    private bool canCountDownToEnding3;
+
     [Header("Debug Inspector")]
     [Tooltip("Tick to force ChoseMainRoute = true and sync with Ink state.")]
     public bool debugSetMainRoute;
@@ -64,6 +69,26 @@ public class GameEndingManager : MonoBehaviour
 
         Debug.Log("Helped Hideo:" + GetInkBool("HasHelpedHideo"));
         Debug.Log("Letter from Tanaka: " + GetInkBool("HasLetterFromTanaka"));
+
+        // If you talked to the soldiers and showed the tag, the manager can now start counting down for you to "wait".
+        if (GetInkBool("ShowedTheTag") && !DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            canCountDownToEnding3 = true;
+        }
+
+        if (canCountDownToEnding3)
+        {
+            m_TimerTillEnding3 += Time.deltaTime;
+            if (m_TimerTillEnding3 >= waitTimeTillEnding3)
+            {
+                canCountDownToEnding3 = false;
+                m_TimerTillEnding3 = 0;
+                GetEnding3();
+            }
+        }
+
+        Debug.Log("Can count down to ending 3:" + canCountDownToEnding3);
+        Debug.Log("Counting down till ending 3: " + m_TimerTillEnding3);
     }
 
     private bool GetInkBool(string variableName)
