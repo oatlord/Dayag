@@ -10,6 +10,8 @@ INCLUDE globals.ink
     
     Take this, and if any guards come by and ask you why you’re here, say your parents work for the Furukawa Plantation Company. 
     
+    "Furukawa Plantation Company", say that.
+    
     They’ll mistake you for an errand boy.
     
     But they don’t work for the Furukawa Plantation Company, they work for Mister Ernesto…#speaker:You
@@ -50,7 +52,9 @@ INCLUDE globals.ink
         
         O-okay…#speaker:You
         
-        Good luck out there, kid. I’ll see you when I see you.#speaker:Tanaka-san 
+        Alright, that's "Furukawa Plantation Company", got it? That's what you tell 'em. #speaker:Tanaka-san 
+        
+        Anyways, good luck out there, kid. I’ll see you when I see you.#speaker:Tanaka-san 
         
         ~ TalkedToTanaka = true
         
