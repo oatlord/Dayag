@@ -258,6 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6684591456037419856}
+  - component: {fileID: 374096584832377451}
   m_Layer: 0
   m_Name: OpenCrate
   m_TagString: Untagged
@@ -293,6 +294,27 @@ Transform:
   - {fileID: 8727714421551048167}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &374096584832377451
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520117386403465543}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6283493, y: 1.591065, z: 1.696988}
+  m_Center: {x: 2.620205, y: -0.7963373, z: -0.11363912}
 --- !u!1 &3288270424470174469
 GameObject:
   m_ObjectHideFlags: 0
