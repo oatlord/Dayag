@@ -3,6 +3,7 @@ VAR HasHelpedHideo = false
 VAR HasLetterFromTanaka = false
 
 // HOUSE ZONE VARIABLES
+VAR TalkedToMom = false
 VAR ToldDadAboutDinner = false
 VAR ReceivedTaskFromDad = false
 VAR CheckedOnDogHouse = false
