@@ -26,10 +26,12 @@ Okay! Yummy! #speaker:You
 I would ask you to help me but you should be cleaning the dog house. So run along now. Tell your father dinner is almost ready. #speaker:Mama
 
 Okay! #speaker:You
+~TalkedToMom = true
 
 -> END
 
 ===toldPapaItsDinner===
+~TalkedToMom = true
 { ToldDadAboutDinner == true: 
 Alright, dear. Set up the table. Let’s eat. #speaker:Mama
 ~ HouseZoneTasksFinished = true 
