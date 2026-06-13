@@ -114,7 +114,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5702189713620600272}
-  - component: {fileID: 5409044880755657496}
   m_Layer: 0
   m_Name: HalfFilledCrate+Cover
   m_TagString: Untagged
@@ -140,27 +139,6 @@ Transform:
   - {fileID: 6742142158762162356}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5409044880755657496
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8252017715089045410}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.7668629, y: 1.5812988, z: 1.9640045}
-  m_Center: {x: -2.2857828, y: 2.730441, z: 1.854085}
 --- !u!1001 &848820138561062591
 PrefabInstance:
   m_ObjectHideFlags: 0
