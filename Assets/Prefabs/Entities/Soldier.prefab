@@ -599,16 +599,19 @@ MonoBehaviour:
   viewDistance: 10
   viewAngle: 90
   turnSpeed: 5
-  alertRadius: 2
+  alertRadius: 10
   timeToSeePlayer: 5
-  hitRange: 2
+  hitRange: 1.5
   alertRadiusHeightenedAmount: 4
   alertRadiusLessenedAmount: 1.5
   enemyChaseSpeed: 3
   enemyWalkSpeed: 2
   alertAudioSource: {fileID: 2503801101875129362}
   detectionDrainRate: 1
+  detectionFillRateNear: 1
+  detectionFillRateFar: 0.15
   detectionProgress: 0
+  playerInAlertRadius: 0
   enemyReachedPlayer: 0
   enemyHasHitPlayer: 0
   enemyHitStateActive: 0

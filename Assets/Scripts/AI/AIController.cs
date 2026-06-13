@@ -31,7 +31,7 @@ public class AIController : MonoBehaviour
     public float viewAngle = 90;
     public float turnSpeed = 3;
     public float alertRadius = 3;
-    [Tooltip("Time in seconds before the enemy starts chasing the player after seeing them")]
+    [Tooltip("(Legacy – no longer used for detection filling. Detection speed is now distance-based via Detection Meter Settings.)")]
     public float timeToSeePlayer = 5;
     [Tooltip("Range of soldier's hit, i.e. the range that the soldier needs to kill the player.")]
     public float hitRange = 2;
@@ -53,18 +53,24 @@ public class AIController : MonoBehaviour
     [Header("Detection Meter Settings")]
     [Tooltip("How quickly the detection meter drains per second when the player is out of sight.")]
     [SerializeField] private float detectionDrainRate = 1f;
+    [Tooltip("Fill rate (progress/sec) when the player is AT the alertRadius (closest).")]
+    [SerializeField] private float detectionFillRateNear = 1.0f;
+    [Tooltip("Fill rate (progress/sec) when the player is AT the viewDistance (farthest visible).")]
+    [SerializeField] private float detectionFillRateFar  = 0.15f;
 
     /// <summary>
     /// Normalised detection progress (0 = undetected, 1 = fully alerted / chasing).
     /// Read by DetectionMeterUI to drive the on-screen slider.
     /// </summary>
     [HideInInspector] public float detectionProgress = 0f;
+
+    /// <summary>True while the player is inside the alert-radius trigger.</summary>
+    [HideInInspector] public bool playerInAlertRadius = false;
     // ─────────────────────────────────────────────────────────────────────────
 
     private Vector3 playerPosition;
     private bool enemySeesPlayer;
     public bool enemyReachedPlayer = false;
-    private float m_timer = 0;
 
     // RESET AI STATE POST-PLAYER DEATH
     [Header("Post-Chase AI Reset Settings")]
@@ -130,33 +136,46 @@ public class AIController : MonoBehaviour
 
         enemySeesPlayer = CanSeePlayer();
 
+        // ── Alert-radius head-tracking ─────────────────────────────────────────
+        // Rotate on Y to face the player while they are inside the proximity
+        // sphere, without moving the AI's position.
+        if (playerInAlertRadius && player != null && !animController.GetBool("IsChasing"))
+        {
+            Vector3 dirToPlayer = player.transform.position - transform.position;
+            dirToPlayer.y = 0f;
+            if (dirToPlayer.sqrMagnitude > 0.001f)
+            {
+                Quaternion targetRot = Quaternion.LookRotation(dirToPlayer);
+                transform.rotation  = Quaternion.Slerp(transform.rotation, targetRot, turnSpeed * Time.deltaTime);
+            }
+        }
+
         if (enemySeesPlayer)
         {
             animController.SetBool("IsSeeingPlayer", true);
-            m_timer += Time.deltaTime;
 
-            // ── Fill detection meter proportional to timeToSeePlayer ──
-            detectionProgress = Mathf.Clamp01(m_timer / timeToSeePlayer);
+            // ── Distance-based fill rate ──────────────────────────────────────
+            // proximity = 1 when player is at alertRadius (closest),
+            // proximity = 0 when player is at viewDistance (farthest visible).
+            float distToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            float proximity    = Mathf.InverseLerp(viewDistance, alertRadius, distToPlayer);
+            float fillRate     = Mathf.Lerp(detectionFillRateFar, detectionFillRateNear, proximity);
 
-            if (m_timer >= timeToSeePlayer)
+            detectionProgress = Mathf.Clamp01(detectionProgress + fillRate * Time.deltaTime);
+
+            if (detectionProgress >= 1f)
             {
-                m_timer = 0;
                 detectionProgress = 1f;
                 animController.SetBool("IsChasing", true);
             }
         }
         else
         {
-            m_timer = 0;
             animController.SetBool("IsChasing", false);
             animController.SetBool("IsSeeingPlayer", false);
 
             // ── Drain the meter gradually when the player is out of sight ──
-            // Keep it full while actively chasing, drain only when not chasing
-            if (!animController.GetBool("IsChasing"))
-            {
-                detectionProgress = Mathf.Clamp01(detectionProgress - detectionDrainRate * Time.deltaTime);
-            }
+            detectionProgress = Mathf.Clamp01(detectionProgress - detectionDrainRate * Time.deltaTime);
         }
 
         if (animController.GetBool("IsChasing"))
@@ -256,7 +275,8 @@ public class AIController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             animController.SetBool("IsAlert", true);
-            playerPosition = other.transform.position;
+            playerPosition    = other.transform.position;
+            playerInAlertRadius = true;
         }
     }
 
@@ -265,7 +285,8 @@ public class AIController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             animController.SetBool("IsAlert", false);
-            playerPosition = Vector3.zero;
+            playerPosition    = Vector3.zero;
+            playerInAlertRadius = false;
         }
     }
 
