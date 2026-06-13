@@ -472,6 +472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     nameOfLinkedBoolean: ToldDadAboutDinner
+    BooleanDependent: 1
+    nameOfDependentBoolean: CheckedOnDogHouse
     questCompleteCounter: {fileID: 2146895013}
     questText: {fileID: 957341267}
 --- !u!1 &86986272
@@ -6082,6 +6084,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     nameOfLinkedBoolean: CheckedOnDogHouse
+    BooleanDependent: 1
+    nameOfDependentBoolean: ReceivedTaskFromDad
     questCompleteCounter: {fileID: 1353702414}
     questText: {fileID: 398071976}
 --- !u!1 &1353702412
@@ -7258,6 +7262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     nameOfLinkedBoolean: TalkedToMom
+    BooleanDependent: 0
+    nameOfDependentBoolean: 
     questCompleteCounter: {fileID: 1064404221}
     questText: {fileID: 608533499}
 --- !u!1001 &1593107710
@@ -9043,6 +9049,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     nameOfLinkedBoolean: HouseZoneTasksFinished
+    BooleanDependent: 1
+    nameOfDependentBoolean: ToldDadAboutDinner
     questCompleteCounter: {fileID: 1218565097}
     questText: {fileID: 1293870501}
 --- !u!1 &2097226299
@@ -9180,6 +9188,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     nameOfLinkedBoolean: ReceivedTaskFromDad
+    BooleanDependent: 1
+    nameOfDependentBoolean: TalkedToMom
     questCompleteCounter: {fileID: 1982503838}
     questText: {fileID: 1276039812}
 --- !u!1 &2135919367
