@@ -576,6 +576,37 @@ Transform:
   - {fileID: 1622520902}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &75329988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75329989}
+  m_Layer: 0
+  m_Name: SceneDefaultPlayerSpawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &75329989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75329988}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24.59, y: -1.224, z: 22.17}
+  m_LocalScale: {x: 8.0288, y: 6.5712605, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &103190109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,7 +705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &118629346
 Transform:
   m_ObjectHideFlags: 0
@@ -7859,6 +7890,7 @@ SceneRoots:
   - {fileID: 38994492}
   - {fileID: 284552214}
   - {fileID: 118629346}
+  - {fileID: 75329989}
   - {fileID: 1964934168}
   - {fileID: 1044840521}
   - {fileID: 390042902}
