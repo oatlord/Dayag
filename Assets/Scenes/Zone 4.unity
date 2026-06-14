@@ -7756,6 +7756,21 @@ PrefabInstance:
       propertyPath: inkJSON
       value: 
       objectReference: {fileID: 4900000, guid: c43ed87294b669943ad877773203f5e5, type: 3}
+    - target: {fileID: 6003117038641754069, guid: 25a96123d7a9e1f4195f854081560108,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003117038641754069, guid: 25a96123d7a9e1f4195f854081560108,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003117038641754069, guid: 25a96123d7a9e1f4195f854081560108,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.69
+      objectReference: {fileID: 0}
     - target: {fileID: 8083359269240046901, guid: 25a96123d7a9e1f4195f854081560108,
         type: 3}
       propertyPath: m_LocalPosition.x
