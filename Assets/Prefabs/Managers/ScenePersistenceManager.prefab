@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneDefaultPlayerSpawn: {fileID: 0}
+  LastExitTriggerID: 
   player: {fileID: 0}
   playerPrefab: {fileID: 0}
