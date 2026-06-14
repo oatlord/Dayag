@@ -364,6 +364,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueTextboxUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7829202803912266111, guid: 811a4326a54ebcd4fadabf8f017ee4b5,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 7829202803912266111, guid: 811a4326a54ebcd4fadabf8f017ee4b5,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.68235296
+      objectReference: {fileID: 0}
+    - target: {fileID: 7829202803912266111, guid: 811a4326a54ebcd4fadabf8f017ee4b5,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855393115600179021, guid: 811a4326a54ebcd4fadabf8f017ee4b5,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855393115600179021, guid: 811a4326a54ebcd4fadabf8f017ee4b5,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.68235296
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855393115600179021, guid: 811a4326a54ebcd4fadabf8f017ee4b5,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.7372549
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

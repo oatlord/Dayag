@@ -67,7 +67,6 @@ GameObject:
   - component: {fileID: 3442285461931413541}
   - component: {fileID: 8390867725472803482}
   - component: {fileID: 5943249947328590020}
-  - component: {fileID: 5167927803431556323}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -152,27 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6fb52319d928f04591e40ceafad784a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &5167927803431556323
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311152361227884449}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7f360af6c41bee64b8ed5c6b49c1ed9c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6037141425723228558
 GameObject:
   m_ObjectHideFlags: 0
