@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        data.playerRevivePoint = PlayerRevivePoint;
-        data.hasPlayerRevivePoint = HasRevivePoint;
+        // data.playerRevivePoint = PlayerRevivePoint;
+        // data.hasPlayerRevivePoint = HasRevivePoint;
 
         data.playerPosition = PlayerCheckpoint;
         data.hasLastSavedPlayerPosition = HasCheckpoint;
@@ -47,8 +47,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        PlayerRevivePoint = data.playerRevivePoint;
-        HasRevivePoint = data.hasPlayerRevivePoint;
+        // PlayerRevivePoint = data.playerRevivePoint;
+        // HasRevivePoint = data.hasPlayerRevivePoint;
 
         Debug.Log("LoadData in GameManager called.");
 
@@ -154,13 +154,20 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         if (!HasRevivePoint)
         {
-            Debug.LogWarning("No player revive point set. Cannot revive to checkpoint.");
-            return;
+            // Debug.LogWarning("No player revive point set. Cannot revive to checkpoint.");
+            // return;
+            Transform sceneDefaultPlayerSpawn = GameObject.Find("SceneDefaultPlayerSpawn").transform;
+            Debug.Log("Revived Player at default spawn point");
+            player.transform.position = sceneDefaultPlayerSpawn.position;
+            PlayerIsAlive = true;
+        }
+        else
+        {
+            Debug.Log("Revived Player at: " + PlayerRevivePoint);
+            player.transform.position = new Vector3(PlayerRevivePoint.x, 0, PlayerRevivePoint.z);
+            PlayerIsAlive = true;
         }
 
-        Debug.Log("Revived Player at: " + PlayerRevivePoint);
-        player.transform.position = new Vector3(PlayerRevivePoint.x, 0, PlayerRevivePoint.z);
-        PlayerIsAlive = true;
         // blackoutScreen.SetActive(false);
     }
 }

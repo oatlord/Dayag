@@ -31,46 +31,47 @@ INCLUDE globals.ink
     *[Refuse the note]
         ~ HasLetterFromTanaka = false
         ->choice2
+    
+    -> END
         
-        
-    === choice1 ===
-        Good luck out there, kid.#speaker:Tanaka-san
-        
-        Where are you going, Mr. Tanaka?#speaker:You
-        
-        Somewhere away from the Kempei Tai. It isn’t safe for me out here. Ha, maybe I’ll take up on that evacuation order to go to Tamugan instead!#speaker:Tanaka-san
-        
-        Aren’t they Japanese too? Why wouldn’t you feel safe around them?#speaker:You
-        
-        Haha! The Kempei Tai are a different monster, kid, even if we’re both Japanese. #speaker:Tanaka-san
-        
-        They’re from the mainland, and I’m an Okinawan; in their eyes, we’re one and the same too. Just islanders lower in worth than them.#speaker:Tanaka-san
+=== choice1 ===
+    Good luck out there, kid.#speaker:Tanaka-san
+    
+    Where are you going, Mr. Tanaka?#speaker:You
+    
+    Somewhere away from the Kempei Tai. It isn’t safe for me out here. Ha, maybe I’ll take up on that evacuation order to go to Tamugan instead!#speaker:Tanaka-san
+    
+    Aren’t they Japanese too? Why wouldn’t you feel safe around them?#speaker:You
+    
+    Haha! The Kempei Tai are a different monster, kid, even if we’re both Japanese. #speaker:Tanaka-san
+    
+    They’re from the mainland, and I’m an Okinawan; in their eyes, we’re one and the same too. Just islanders lower in worth than them.#speaker:Tanaka-san
 
-        (he looks up and realizes some guards are getting closer) Kid, I’ve gotta scram. 
-        
-        (Tanaka looks at you with a look of apprehension, and he frowns) I’ll see you when I see you.
-        
-        O-okay…#speaker:You
-        
-        Alright, that's "Furukawa Plantation Company", got it? That's what you tell 'em. #speaker:Tanaka-san 
-        
-        Anyways, good luck out there, kid. I’ll see you when I see you.#speaker:Tanaka-san 
-        
-        ~ TalkedToTanaka = true
-        
-        -> END
-        
-        
-    === choice2 ===
-        
-        Have it your way, kid, but lemme tell ya, the Kempei Tai are a different monster for both you and me.#speaker:Tanaka-san
-        
-        O-okay…#speaker:You
-        
-        Good luck out there, kid. I’ll see you when I see you.#speaker:Tanaka-san
-        
-        ~ TalkedToTanaka = true
-        -> END
+    (he looks up and realizes some guards are getting closer) Kid, I’ve gotta scram. 
+    
+    (Tanaka looks at you with a look of apprehension, and he frowns) I’ll see you when I see you.
+    
+    O-okay…#speaker:You
+    
+    Alright, that's "Furukawa Plantation Company", got it? That's what you tell 'em. #speaker:Tanaka-san 
+    
+    Anyways, good luck out there, kid. I’ll see you when I see you.#speaker:Tanaka-san 
+    
+    ~ TalkedToTanaka = true
+    
+    -> END
+    
+    
+=== choice2 ===
+    
+    Have it your way, kid, but lemme tell ya, the Kempei Tai are a different monster for both you and me.#speaker:Tanaka-san
+    
+    O-okay…#speaker:You
+    
+    Good luck out there, kid. I’ll see you when I see you.#speaker:Tanaka-san
+    
+    ~ TalkedToTanaka = true
+    -> END
         
 ===talkedToTanaka===
 Shoo, kid! I gotta scram! #speaker:Tanaka-san

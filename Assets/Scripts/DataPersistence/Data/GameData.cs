@@ -10,8 +10,8 @@ public class GameData
     public long lastUpdated;
     public Vector3 playerPosition;
     public bool hasLastSavedPlayerPosition;
-    public Vector3 playerRevivePoint;
-    public bool hasPlayerRevivePoint;
+    // public Vector3 playerRevivePoint;
+    // public bool hasPlayerRevivePoint;
     public string currentZone;
     public string currentSceneName;
 
@@ -28,8 +28,8 @@ public class GameData
         playerPosition = Vector3.zero;
         hasLastSavedPlayerPosition = false;
 
-        playerRevivePoint = Vector3.zero;
-        hasPlayerRevivePoint = false;
+        // playerRevivePoint = Vector3.zero;
+        // hasPlayerRevivePoint = false;
 
         currentZone = "Wrecked Hometown";
         currentSceneName = "Zone 1";

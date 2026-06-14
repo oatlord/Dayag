@@ -12,7 +12,31 @@ public class GameSceneManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(GameData data)
     {
-        data.currentSceneName = SceneManager.GetActiveScene().name;
+        string activeSceneName = SceneManager.GetActiveScene().name;
+        data.currentSceneName = activeSceneName;
+
+        switch (activeSceneName) 
+        {
+            case "Zone 1":
+                data.currentZone = "Wrecked Hometown";
+                break;
+            case "Zone 2":
+                data.currentZone = "Abaca Fields";
+                break;
+            case "Zone 3":
+                data.currentZone = "Kempei Tai Checkpoint";
+                break;
+            case "Zone 4":
+                data.currentZone = "Ruined Plantation";
+                break;
+            case "Zone 5":
+                data.currentZone = "Mintal Base";
+                break;
+            default:
+                Debug.LogWarning("Unreadable scene name.");
+                data.currentZone = "Wrecked Hometown";
+                break;
+        }
         Debug.Log("Saving current scene name: " + data.currentSceneName);
     }
 
