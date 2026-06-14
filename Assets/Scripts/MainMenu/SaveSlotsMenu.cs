@@ -41,6 +41,7 @@ public class SaveSlotsMenu : Menu
     public void OnBackClicked()
     {
         mainMenu.ActivateMenu();
+        mainMenu.EnableMenuGraphics();
         this.DeactivateMenu();
     }
 
