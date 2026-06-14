@@ -87,7 +87,7 @@ public class DataPersistenceManager : MonoBehaviour
     private void OnSceneUnloaded(Scene scene)
     {
         Debug.Log("OnSceneUnloaded called");
-        // SaveGame();
+        SaveGame();
     }
 
     public void ChangeSelectedProfileId(string newProfileId)
@@ -183,6 +183,6 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        // SaveGame();
+        SaveGame();
     }
 }
