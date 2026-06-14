@@ -118,6 +118,11 @@ public class AIController : MonoBehaviour
         {
             return;
         }
+
+        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            return;
+        }
         
         if (enemyReachedPlayer)
         {
