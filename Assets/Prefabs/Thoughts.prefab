@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 1586709341621135454}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2633123, y: -5.3545117, z: 17.777292}
+  m_LocalPosition: {x: 3.63, y: 1.66, z: -7.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -81,7 +81,7 @@ MonoBehaviour:
   inkJSON: {fileID: 0}
   dialogueCanvas: {fileID: 1769768964294957549}
   dialogueText: {fileID: 3338519830137414967}
-  typingSpeed: 0.08
+  typingSpeed: 0.0005
   retriggerDelay: 0.5
 --- !u!65 &3082256483981125115
 BoxCollider:

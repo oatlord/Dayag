@@ -9,6 +9,10 @@ VAR ReceivedTaskFromDad = false
 VAR CheckedOnDogHouse = false
 VAR HouseZoneTasksFinished = false
 
+// HOUSE AFTERMATH VARIABLES
+VAR CheckHouseFirst = false
+VAR LeaveHouse = false
+
 // ZONE 1 VARIABLES
 VAR AskedWataruAllQuestions = false
 
