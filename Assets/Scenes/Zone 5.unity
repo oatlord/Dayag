@@ -19543,7 +19543,7 @@ PrefabInstance:
         type: 3}
       propertyPath: inkJSON
       value: 
-      objectReference: {fileID: 4900000, guid: c885b47f03cded940bae8a8df233dd87, type: 3}
+      objectReference: {fileID: 4900000, guid: e5ddc5eef0859ee4db69784f15d945dc, type: 3}
     - target: {fileID: 8083359269240046901, guid: 25a96123d7a9e1f4195f854081560108,
         type: 3}
       propertyPath: m_LocalPosition.x
