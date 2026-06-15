@@ -12,6 +12,7 @@ public class MainMenu : Menu
     [Header("Menu Buttons")]
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button loadGameButton;
+    [SerializeField] private Button quitButton;
 
     [Header("Menu Graphics")]
     [SerializeField] private GameObject dayagTitle;
@@ -69,6 +70,15 @@ public class MainMenu : Menu
         DisableMenuGraphics();
         Debug.Log("Continue Game Clicked");
         SceneManager.LoadSceneAsync("SampleScene"); 
+    }
+
+    public void OnQuitClicked()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 
     private void DisableMenuButtons() {
