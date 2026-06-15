@@ -29,7 +29,7 @@ public class OptionManager : Menu
     private const string PrefFullscreen = "Fullscreen";
     private const string PrefResolutionIndex = "ResolutionIndex";
 
-    private const float DefaultVolume = 0.80f;
+    private const float DefaultVolume = 1f;
     private const float MinDecibels = -80f;
     private const float MaxDecibels = 0f;
 
