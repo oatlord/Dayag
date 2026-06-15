@@ -1,8 +1,12 @@
 INCLUDE globals.ink
 
--> main
+->start
 
-{TalkedToHideo == true: -> talkedToHideo | -> main}
+=== start ===
+{TalkedToHideo: 
+    -> talkedToHideo
+- else: -> main
+}
 
 === main ===
     He breathes laboriously, trying to scramble away from you.#speaker:Narrator
@@ -17,17 +21,47 @@ INCLUDE globals.ink
         
     *[Do not help the soldier]
         ->choice2
-    
+        
+    {ChoseToHelpHideo && PlayerPickedUpWater && PlayerPickedUpBandages}
+    *[Assist the soldier]
+        ->assistHideo
+        
+    -> END
         
 === choice1 ===
-~ TalkedToHideo = true
+// ~ TalkedToHideo = true
+~ ChoseToHelpHideo = true
     The man looks like he needs a drink and something to bandage his wound with. #speaker: Narrator
     
     -> END
     
 === choice2 ===
-~ TalkedToHideo = true
-    You left.#speaker:Narrator
+// ~ TalkedToHideo = true
+    The man gazes at you weakly, but he says nothing more. His breath is getting more and more laborious by the second, but you get up and leave.#speaker:Narrator
+    -> END
+    
+===assistHideo===
+    You drop a cloth and some water in front of the injured man. #speaker:Narrator
+    
+    You take his injured shoulder, and he lets you, and with your little hands although inexperienced, you wrap it in the makeshift bandage to soak up the blood. #speaker:Narrator
+    
+    Then, you help him take gentle sips of water.#speaker:Narrator
+
+    His mouth then moves, but you don’t quite understand what he said. #speaker:Narrator
+    
+    It seems he’s speaking Japanese, which is a language you don't quite understand fluently. #speaker:Narrator
+    
+    You nod anyway and get up to leave, but before you can leave, he takes your wrist and quickly places something in your hand. #speaker:Narrator
+    
+    My tag…#speaker:Hideo
+    
+    It seems like a dogtag that many military men wear, engraved with his initials.#speaker:Narrator
+    
+    You thank him in your language before heading on your way.#speaker:Narrator
+    
+    ~ HasHelpedHideo = true
+    ~ TalkedToHideo = true
+
     -> END
     
 === talkedToHideo===

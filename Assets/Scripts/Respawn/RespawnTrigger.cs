@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.Animations;
 
 public class RespawnTrigger : MonoBehaviour
 {
@@ -13,21 +14,10 @@ public class RespawnTrigger : MonoBehaviour
     private bool HasBeenInteractedWithOnce = false;
     private bool playerInRange = false;
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-        // if (playerInRange)
-        // {
-        //     visualCue.SetActive(true);
-        // } else
-        // {
-        //     visualCue.SetActive(false);
-        // }
         Debug.Log("Has been interacted with: " + HasBeenInteractedWithOnce);
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying && HasBeenInteractedWithOnce)
         {
@@ -35,12 +25,7 @@ public class RespawnTrigger : MonoBehaviour
             bool interactPressed = InputManager.GetInstance().GetInteractPressed();
             if (interactPressed)
             {
-                // Debug.Log("Player respawn point set to: " + RespawnPositionChild.name);
                 SetPlayerRespawnPoint();
-                // RespawnPointSetText.SetActive(true);
-                // visualCue.SetActive(true);
-                // GameManager.instance.SetPlayerCheckpoint(RespawnPositionChild.position);
-                // DataPersistenceManager.instance.SaveGame();
             }
         }
         else
@@ -77,6 +62,7 @@ public class RespawnTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerInRange = false;
+            RespawnPointSetText.SetActive(false);
         }
     }
 }
