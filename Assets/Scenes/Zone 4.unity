@@ -2495,6 +2495,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7094170620094531457, guid: 72d2112f2169af84ba972ad525ac8091,
         type: 3}
+      propertyPath: typingSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7094170620094531457, guid: 72d2112f2169af84ba972ad525ac8091,
+        type: 3}
+      propertyPath: continueIcon
+      value: 
+      objectReference: {fileID: 828919539}
+    - target: {fileID: 7094170620094531457, guid: 72d2112f2169af84ba972ad525ac8091,
+        type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 408862004}
@@ -4312,6 +4322,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6540688638064050716, guid: 297db787d76b237468daf27056a9431b,
     type: 3}
   m_PrefabInstance: {fileID: 813699991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &828919539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6145827954480484944, guid: 0148be3aade0e904bba7eb6bdf122880,
+    type: 3}
+  m_PrefabInstance: {fileID: 408862000}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &867585892
 GameObject:

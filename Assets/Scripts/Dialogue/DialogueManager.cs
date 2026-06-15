@@ -12,8 +12,12 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     [Header("Load Globals JSON")]
     [SerializeField] private TextAsset loadGlobalsJSON;
 
+    [Header("Params")]
+    [SerializeField] private float typingSpeed = 0.04f;
+
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private GameObject continueIcon;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText;
 
@@ -33,9 +37,11 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
+    private bool canContinueToNextLine = false;
 
     private static DialogueManager instance;
     private DialogueVariables dialogueVariables;
+    private Coroutine displayLineCoroutine;
 
     private const string SPEAKER_TAG = "speaker";
     private const string SCENE_TRANSITION = "moveToScene";
@@ -76,7 +82,9 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
             return;
         }
 
-        if (currentStory.currentChoices.Count == 0 && InputManager.GetInstance().GetSubmitPressed())
+        if (canContinueToNextLine
+        && currentStory.currentChoices.Count == 0
+        && InputManager.GetInstance().GetSubmitPressed())
         {
             ContinueStory();
         }
@@ -144,13 +152,51 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
-            DisplayChoices();
+            if (displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+            // dialogueText.text = currentStory.Continue();
             HandleTags(currentStory.currentTags);
         }
         else
         {
             ExitDialogueMode();
+        }
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        // clear dialogue
+        dialogueText.text = "";
+
+        continueIcon.SetActive(false);
+        HideChoices();
+
+        canContinueToNextLine = false;
+
+        foreach (char letter in line.ToCharArray())
+        {
+            if (InputManager.GetInstance().GetSubmitPressed())
+            {
+                dialogueText.text = line;
+                break;
+            }
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        continueIcon.SetActive(true);
+        DisplayChoices();
+        canContinueToNextLine = true;
+    }
+
+    private void HideChoices()
+    {
+        foreach (GameObject choiceButton in choices)
+        {
+            choiceButton.SetActive(false);
         }
     }
 
@@ -259,9 +305,12 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
     public void MakeChoice(int choiceIndex)
     {
-        currentStory.ChooseChoiceIndex(choiceIndex);
-        InputManager.GetInstance().RegisterSubmitPressed();
-        ContinueStory();
+        if (canContinueToNextLine)
+        {
+            currentStory.ChooseChoiceIndex(choiceIndex);
+            InputManager.GetInstance().RegisterSubmitPressed();
+            ContinueStory();
+        }
     }
 
     public void SetVariableState(string variableName, Ink.Runtime.Object value)

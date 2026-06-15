@@ -4622,6 +4622,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7094170620094531457, guid: 72d2112f2169af84ba972ad525ac8091,
         type: 3}
+      propertyPath: typingSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7094170620094531457, guid: 72d2112f2169af84ba972ad525ac8091,
+        type: 3}
+      propertyPath: continueIcon
+      value: 
+      objectReference: {fileID: 1925882361}
+    - target: {fileID: 7094170620094531457, guid: 72d2112f2169af84ba972ad525ac8091,
+        type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 669389435}
@@ -27361,6 +27371,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907054772}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1925882361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6145827954480484944, guid: 0148be3aade0e904bba7eb6bdf122880,
+    type: 3}
+  m_PrefabInstance: {fileID: 669389430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1929813876
 GameObject:
   m_ObjectHideFlags: 0

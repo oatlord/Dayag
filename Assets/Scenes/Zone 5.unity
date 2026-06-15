@@ -21290,6 +21290,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453231411}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &460274061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6145827954480484944, guid: 0148be3aade0e904bba7eb6bdf122880,
+    type: 3}
+  m_PrefabInstance: {fileID: 1592832793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &466185649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91720,6 +91726,16 @@ PrefabInstance:
       propertyPath: cgCanvas
       value: 
       objectReference: {fileID: 1992871916}
+    - target: {fileID: 7094170620094531457, guid: 72d2112f2169af84ba972ad525ac8091,
+        type: 3}
+      propertyPath: typingSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7094170620094531457, guid: 72d2112f2169af84ba972ad525ac8091,
+        type: 3}
+      propertyPath: continueIcon
+      value: 
+      objectReference: {fileID: 460274061}
     - target: {fileID: 7094170620094531457, guid: 72d2112f2169af84ba972ad525ac8091,
         type: 3}
       propertyPath: dialogueText
