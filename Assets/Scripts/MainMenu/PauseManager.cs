@@ -14,7 +14,6 @@ public class PauseManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
 
         if (pausePanel != null)
             pausePanel.SetActive(true);

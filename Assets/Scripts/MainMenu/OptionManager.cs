@@ -38,7 +38,6 @@ public class OptionManager : Menu
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         resolutions = Screen.resolutions;
 
         if (audioMixer == null)
