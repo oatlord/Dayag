@@ -82,6 +82,7 @@ public class DialogueVariables
     {
         VariablesToStory(story);
         story.variablesState.variableChangedEvent += VariableChanged;
+        
     }
 
     public void StopListening(Story story)

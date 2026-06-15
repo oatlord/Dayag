@@ -110,6 +110,10 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
         dialoguePanel.SetActive(true);
 
         dialogueVariables.StartListening(currentStory);
+        foreach (string name in currentStory.variablesState)
+{
+    Debug.Log("Story variable: " + name);
+}
 
         // Always save the currently active map before switching to uiControlMap.
         sceneCurrentlyActivePlayerControlMapName = InputManager.GetInstance().GetCurrentlyActiveMap();

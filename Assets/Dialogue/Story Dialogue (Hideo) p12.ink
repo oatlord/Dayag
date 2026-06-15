@@ -5,8 +5,11 @@ INCLUDE globals.ink
 === start ===
 {TalkedToHideo: 
     -> talkedToHideo
-- else: -> main
+- else: 
+    -> main
 }
+-> END
+
 
 === main ===
     He breathes laboriously, trying to scramble away from you.#speaker:Narrator
@@ -22,25 +25,34 @@ INCLUDE globals.ink
     *[Do not help the soldier]
         ->choice2
         
-    {ChoseToHelpHideo && PlayerPickedUpWater && PlayerPickedUpBandages}
-    *[Assist the soldier]
-        ->assistHideo
-        
-    -> END
-        
 === choice1 ===
-// ~ TalkedToHideo = true
+~ TalkedToHideo = true
 ~ ChoseToHelpHideo = true
     The man looks like he needs a drink and something to bandage his wound with. #speaker: Narrator
     
     -> END
     
 === choice2 ===
-// ~ TalkedToHideo = true
+~ TalkedToHideo = true
     The man gazes at you weakly, but he says nothing more. His breath is getting more and more laborious by the second, but you get up and leave.#speaker:Narrator
     -> END
     
-===assistHideo===
+=== talkedToHideo ===
+    // The man doesn't have much to say. He doesn't look like he has the energy to, if he had anything to say anyway. #speaker:Narrator
+    // {HasHelpedHideo: He does, however, look up at you with thankful eyes. For now, that keeps you going.} #speaker:Narrator
+    {HasHelpedHideo:
+        He looks up at you with thankful eyes and says nothing else. #speaker:Narrator
+        -else: 
+    The man doesn't have much to say. He doesn't look like he has the energy to, if he had anything to say anyway. #speaker:Narrator
+    }
+    
+    *[Leave]
+        You decide against saying any more to this man.
+        -> END
+    * {!HasHelpedHideo && ChoseToHelpHideo && PlayerPickedUpWater && PlayerPickedUpBandages} [Assist the soldier]
+        ->assistHideo
+    
+=== assistHideo ===
     You drop a cloth and some water in front of the injured man. #speaker:Narrator
     
     You take his injured shoulder, and he lets you, and with your little hands although inexperienced, you wrap it in the makeshift bandage to soak up the blood. #speaker:Narrator
@@ -61,10 +73,5 @@ INCLUDE globals.ink
     
     ~ HasHelpedHideo = true
     ~ TalkedToHideo = true
-
-    -> END
-    
-=== talkedToHideo===
-    The man doesn't have much to say. He doesn't look like he has the energy to, if he had anything to say anyway. #speaker:Narrator
 
     -> END
