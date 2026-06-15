@@ -22,6 +22,9 @@ public class OptionManager : Menu
 
     private Resolution[] resolutions;
     [SerializeField] private MainMenu mainMenu;
+    [SerializeField] private PauseManager pauseManager;
+
+    private bool openedFromPause;
 
     private const string PrefMasterVolume = "MasterVol";
     private const string PrefBGMVolume = "BGMVol";
@@ -35,6 +38,7 @@ public class OptionManager : Menu
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         resolutions = Screen.resolutions;
 
         if (audioMixer == null)
@@ -158,6 +162,12 @@ public class OptionManager : Menu
         PlayerPrefs.Save();
     }
 
+    public void OpenFromPause()
+    {
+        openedFromPause = true;
+        SetCanvasGroupVisibility(optionsCanvasGroup, true);
+    }
+
     public void RestoreDefaults()
     {
         float defaultMasterVolume = DefaultVolume;
@@ -223,14 +233,25 @@ public class OptionManager : Menu
 
     public void CloseOptionsPanel()
     {
+        SetCanvasGroupVisibility(optionsCanvasGroup, false);
+
+        if (openedFromPause)
+        {
+            openedFromPause = false;
+            if (pauseManager != null)
+                pauseManager.ShowPausePanel();
+
+            return;
+        }
+
         if (mainMenu != null)
         {
             mainMenu.ActivateMenu();
             mainMenu.EnableMenuGraphics();
         }
-
-        SetCanvasGroupVisibility(optionsCanvasGroup, false);
     }
+
+    public bool IsOpenedFromPause() => openedFromPause;
 
     private void SetCanvasGroupVisibility(CanvasGroup group, bool visible)
     {

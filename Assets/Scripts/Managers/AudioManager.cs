@@ -18,48 +18,61 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        if (PlayMusic)
-        {
-            if (backgroundMusicSource.clip != null && !backgroundMusicSource.isPlaying)
-            {
-                backgroundMusicSource.Play();
-            }
-            if (ambienceMusicSource.clip != null && !ambienceMusicSource.isPlaying)
-            {
-                ambienceMusicSource.Play();
-            }
+        if (!PlayMusic)
+            return;
 
-            if (playerFootstepSource.clip != null && !playerFootstepSource.isPlaying
-            && InputManager.GetInstance().IsMoving && !InputManager.GetInstance().IsSprinting)
+        if (backgroundMusicSource != null && backgroundMusicSource.clip != null && !backgroundMusicSource.isPlaying)
+        {
+            backgroundMusicSource.Play();
+        }
+
+        if (ambienceMusicSource != null && ambienceMusicSource.clip != null && !ambienceMusicSource.isPlaying)
+        {
+            ambienceMusicSource.Play();
+        }
+
+        InputManager inputManager = InputManager.GetInstance();
+        bool isMoving = inputManager != null && inputManager.IsMoving;
+        bool isSprinting = inputManager != null && inputManager.IsSprinting;
+
+        if (playerFootstepSource != null && playerFootstepSource.clip != null)
+        {
+            if (!playerFootstepSource.isPlaying && isMoving && !isSprinting)
             {
                 Debug.Log("Playing footstep sound");
                 playerFootstepSource.Play();
             }
-            else if (playerFootstepSource.isPlaying && (InputManager.GetInstance().IsSprinting || !InputManager.GetInstance().IsMoving))
+            else if (playerFootstepSource.isPlaying && (isSprinting || !isMoving))
             {
                 Debug.Log("Stopping footstep sound");
                 playerFootstepSource.Stop();
             }
+        }
 
-            if (playerRunFootstepSource.clip != null && !playerRunFootstepSource.isPlaying &&
-            InputManager.GetInstance().IsSprinting)
+        if (playerRunFootstepSource != null && playerRunFootstepSource.clip != null)
+        {
+            if (!playerRunFootstepSource.isPlaying && isSprinting)
             {
                 Debug.Log("Playing running footstep sound");
                 playerRunFootstepSource.Play();
             }
-            else if (playerRunFootstepSource.isPlaying && !InputManager.GetInstance().IsSprinting)
+            else if (playerRunFootstepSource.isPlaying && !isSprinting)
             {
                 Debug.Log("Stopping running footstep sound");
                 playerRunFootstepSource.Stop();
             }
+        }
 
-            if (playerHeartbeatSource.clip != null && !playerHeartbeatSource.isPlaying
-            && GameManager.instance.PlayerIsBeingChased)
+        bool isBeingChased = GameManager.instance != null && GameManager.instance.PlayerIsBeingChased;
+
+        if (playerHeartbeatSource != null && playerHeartbeatSource.clip != null)
+        {
+            if (!playerHeartbeatSource.isPlaying && isBeingChased)
             {
                 Debug.Log("Playing heartbeat sound");
                 playerHeartbeatSource.Play();
             }
-            else if (playerHeartbeatSource.isPlaying && !GameManager.instance.PlayerIsBeingChased)
+            else if (playerHeartbeatSource.isPlaying && !isBeingChased)
             {
                 Debug.Log("Stopping heartbeat sound");
                 playerHeartbeatSource.Stop();
