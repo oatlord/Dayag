@@ -2636,6 +2636,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Ruined Plantation
       objectReference: {fileID: 0}
+    - target: {fileID: 8759804785736123556, guid: 0148be3aade0e904bba7eb6bdf122880,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8965935126586294856, guid: 0148be3aade0e904bba7eb6bdf122880,
         type: 3}
       propertyPath: m_Alpha

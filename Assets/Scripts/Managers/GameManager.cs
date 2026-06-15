@@ -102,9 +102,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void KillPlayer()
     {
-        PlayerIsAlive = false;
-        blackoutScreen.SetActive(true);
-
         // If scene is Zone 5, and the game ending manager isn't null, perform the following.
         if (SceneManager.GetActiveScene().name == "Zone 5" && GameEndingManager.instance != null)
         {
@@ -112,12 +109,16 @@ public class GameManager : MonoBehaviour, IDataPersistence
             {
                 StartCoroutine(StartEnding3LoadSequence());
             }
-            else if (GameEndingManager.instance.ChoseBackRoute &&
-                !GameEndingManager.instance.HasHelpedHideo &&
+            else if (!GameEndingManager.instance.HasHelpedHideo &&
                 !GameEndingManager.instance.HasLetterFromTanaka)
             {
                 StartCoroutine(StartEnding1LoadSequence());
             }
+        }
+        else
+        {
+            PlayerIsAlive = false;
+            blackoutScreen.SetActive(true);
         }
     }
 
