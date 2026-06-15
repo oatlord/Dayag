@@ -66,6 +66,13 @@ public class ScenePersistenceManager : MonoBehaviour, IDataPersistence
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         sceneDefaultPlayerSpawn = GameObject.Find("SceneDefaultPlayerSpawn").transform;
+
+        // End operations if sceneDefaultPlayerSpawn is NULL.
+        if (sceneDefaultPlayerSpawn == null)
+        {
+            return;
+        }
+
         playerPrefab = Resources.Load<GameObject>("Player/Player New");
 
         // if (player == null)
