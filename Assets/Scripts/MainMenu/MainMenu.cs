@@ -18,17 +18,34 @@ public class MainMenu : Menu
     [SerializeField] private GameObject dayagBaybayin;
 
     [Header("Menu Panels")]
-    [SerializeField] private GameObject optionsPanel;
-    [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private CanvasGroup mainMenuCanvasGroup;
+    [SerializeField] private CanvasGroup optionsCanvasGroup;
+    [SerializeField] private CanvasGroup creditsCanvasGroup;
 
     private void Start() {
         if (!DataPersistenceManager.instance.HasGameData()) {
             loadGameButton.interactable = false;
-            // continueGameButton.interactable = false;
         } else
         {
             loadGameButton.interactable = true;
         }
+
+        InitializeMenuState();
+    }
+
+    private void InitializeMenuState()
+    {
+        SetCanvasGroupVisibility(mainMenuCanvasGroup, true);
+        SetCanvasGroupVisibility(optionsCanvasGroup, false);
+        SetCanvasGroupVisibility(creditsCanvasGroup, false);
+    }
+
+    private void SetCanvasGroupVisibility(CanvasGroup group, bool visible)
+    {
+        if (group == null) return;
+        group.alpha = visible ? 1f : 0f;
+        group.interactable = visible;
+        group.blocksRaycasts = visible;
     }
 
     // Start is called before the first frame update
@@ -81,40 +98,28 @@ public class MainMenu : Menu
     }
 
     public void ActivateMenu() {
-        this.gameObject.SetActive(true);
+        SetCanvasGroupVisibility(mainMenuCanvasGroup, true);
     }
 
     public void DeactivateMenu() {
-        this.gameObject.SetActive(false);
+        SetCanvasGroupVisibility(mainMenuCanvasGroup, false);
     }
 
     public void OnOptionsClicked() {
-        if (optionsPanel != null) {
-            optionsPanel.SetActive(true);
-        }
-
-        if (creditsPanel != null) {
-            creditsPanel.SetActive(false);
-        }
+        SetCanvasGroupVisibility(optionsCanvasGroup, true);
+        SetCanvasGroupVisibility(creditsCanvasGroup, false);
+        DeactivateMenu();
+        DisableMenuGraphics();
     }
 
     public void OnCreditsClicked() {
-        if (creditsPanel != null) {
-            creditsPanel.SetActive(true);
-        }
-
-        if (optionsPanel != null) {
-            optionsPanel.SetActive(false);
-        }
+        SetCanvasGroupVisibility(creditsCanvasGroup, true);
+        SetCanvasGroupVisibility(optionsCanvasGroup, false);
+        DeactivateMenu();
     }
 
     public void CloseSubMenuPanels() {
-        if (optionsPanel != null) {
-            optionsPanel.SetActive(false);
-        }
-
-        if (creditsPanel != null) {
-            creditsPanel.SetActive(false);
-        }
+        SetCanvasGroupVisibility(optionsCanvasGroup, false);
+        SetCanvasGroupVisibility(creditsCanvasGroup, false);
     }
 }

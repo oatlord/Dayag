@@ -12,12 +12,20 @@ public class SaveSlotsMenu : Menu
     [Header("Menu Buttons")]
     [SerializeField] private Button backButton;
 
+    [Header("Menu Panels")]
+    [SerializeField] private CanvasGroup saveSlotsCanvasGroup;
+
     private SaveSlot[] saveSlots;
     private bool isLoadingGame = false;
 
     private void Awake()
     {
         saveSlots = this.GetComponentsInChildren<SaveSlot>();
+
+        if (saveSlotsCanvasGroup == null)
+        {
+            saveSlotsCanvasGroup = GetComponent<CanvasGroup>();
+        }
     }
 
     public void OnSaveSlotClicked(SaveSlot saveSlot)
@@ -47,7 +55,7 @@ public class SaveSlotsMenu : Menu
 
     public void ActivateMenu(bool isLoadingGame)
     {
-        this.gameObject.SetActive(true);
+        SetCanvasGroupVisibility(saveSlotsCanvasGroup, true);
         this.isLoadingGame = isLoadingGame;
 
         Dictionary<string, GameData> profilesGameData = DataPersistenceManager.instance.GetAllProfilesGameData();
@@ -77,7 +85,15 @@ public class SaveSlotsMenu : Menu
 
     public void DeactivateMenu()
     {
-        this.gameObject.SetActive(false);
+        SetCanvasGroupVisibility(saveSlotsCanvasGroup, false);
+    }
+
+    private void SetCanvasGroupVisibility(CanvasGroup group, bool visible)
+    {
+        if (group == null) return;
+        group.alpha = visible ? 1f : 0f;
+        group.interactable = visible;
+        group.blocksRaycasts = visible;
     }
 
     private void DisableMenuButtons()

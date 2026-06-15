@@ -1,40 +1,64 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class OptionManager : Menu
 {
     [Header("UI References")]
     [SerializeField] private Slider masterVolumeSlider;
-    [SerializeField] private Slider musicVolumeSlider;
+    [SerializeField] private Slider bgmVolumeSlider;
+    [SerializeField] private Slider sfxVolumeSlider;
     [SerializeField] private Toggle fullscreenToggle;
-    [SerializeField] private Dropdown resolutionDropdown;
-    [SerializeField] private Dropdown qualityDropdown;
+    [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private Button restoreDefaultsButton;
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource backgroundMusicSource;
     [SerializeField] private AudioSource ambienceMusicSource;
+    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private CanvasGroup optionsCanvasGroup;
 
     private Resolution[] resolutions;
+    [SerializeField] private MainMenu mainMenu;
 
-    private const string PrefMasterVolume = "Pref_MasterVolume";
-    private const string PrefMusicVolume = "Pref_MusicVolume";
-    private const string PrefFullscreen = "Pref_Fullscreen";
-    private const string PrefResolutionIndex = "Pref_ResolutionIndex";
-    private const string PrefQualityLevel = "Pref_QualityLevel";
+    private const string PrefMasterVolume = "MasterVol";
+    private const string PrefBGMVolume = "BGMVol";
+    private const string PrefSFXVolume = "SFXVol";
+    private const string PrefFullscreen = "Fullscreen";
+    private const string PrefResolutionIndex = "ResolutionIndex";
+
+    private const float DefaultVolume = 0.80f;
+    private const float MinDecibels = -80f;
+    private const float MaxDecibels = 0f;
 
     private void Awake()
     {
         resolutions = Screen.resolutions;
+
+        if (audioMixer == null)
+        {
+            audioMixer = Resources.Load<AudioMixer>("MainMixer");
+        }
+
+        if (optionsCanvasGroup == null)
+        {
+            optionsCanvasGroup = GetComponent<CanvasGroup>();
+        }
     }
 
     protected override void OnEnable()
     {
         base.OnEnable();
         InitializeResolutionDropdown();
-        InitializeQualityDropdown();
         LoadSettings();
+        SubscribeUIEvents();
+    }
+
+    private void OnDisable()
+    {
+        UnsubscribeUIEvents();
     }
 
     private void InitializeResolutionDropdown()
@@ -53,33 +77,66 @@ public class OptionManager : Menu
         resolutionDropdown.AddOptions(options);
     }
 
-    private void InitializeQualityDropdown()
+    private void SubscribeUIEvents()
     {
-        if (qualityDropdown == null) return;
+        if (masterVolumeSlider != null)
+            masterVolumeSlider.onValueChanged.AddListener(SetMasterVolume);
 
-        qualityDropdown.ClearOptions();
-        qualityDropdown.AddOptions(new List<string>(QualitySettings.names));
+        if (bgmVolumeSlider != null)
+            bgmVolumeSlider.onValueChanged.AddListener(SetBGMVolume);
+
+        if (sfxVolumeSlider != null)
+            sfxVolumeSlider.onValueChanged.AddListener(SetSFXVolume);
+    }
+
+    private void UnsubscribeUIEvents()
+    {
+        if (masterVolumeSlider != null)
+            masterVolumeSlider.onValueChanged.RemoveListener(SetMasterVolume);
+
+        if (bgmVolumeSlider != null)
+            bgmVolumeSlider.onValueChanged.RemoveListener(SetBGMVolume);
+
+        if (sfxVolumeSlider != null)
+            sfxVolumeSlider.onValueChanged.RemoveListener(SetSFXVolume);
     }
 
     public void SetMasterVolume(float value)
     {
         float clamped = Mathf.Clamp01(value);
-        AudioListener.volume = clamped;
+
+        if (audioMixer != null)
+            audioMixer.SetFloat(PrefMasterVolume, Mathf.Lerp(MinDecibels, MaxDecibels, clamped));
+        else
+            AudioListener.volume = clamped;
+
         PlayerPrefs.SetFloat(PrefMasterVolume, clamped);
         PlayerPrefs.Save();
     }
 
-    public void SetMusicVolume(float value)
+    public void SetBGMVolume(float value)
     {
         float clamped = Mathf.Clamp01(value);
 
-        if (backgroundMusicSource != null)
+        if (audioMixer != null)
+            audioMixer.SetFloat(PrefBGMVolume, Mathf.Lerp(MinDecibels, MaxDecibels, clamped));
+        else if (backgroundMusicSource != null)
             backgroundMusicSource.volume = clamped;
 
-        if (ambienceMusicSource != null)
+        PlayerPrefs.SetFloat(PrefBGMVolume, clamped);
+        PlayerPrefs.Save();
+    }
+
+    public void SetSFXVolume(float value)
+    {
+        float clamped = Mathf.Clamp01(value);
+
+        if (audioMixer != null)
+            audioMixer.SetFloat(PrefSFXVolume, Mathf.Lerp(MinDecibels, MaxDecibels, clamped));
+        else if (ambienceMusicSource != null)
             ambienceMusicSource.volume = clamped;
 
-        PlayerPrefs.SetFloat(PrefMusicVolume, clamped);
+        PlayerPrefs.SetFloat(PrefSFXVolume, clamped);
         PlayerPrefs.Save();
     }
 
@@ -101,62 +158,51 @@ public class OptionManager : Menu
         PlayerPrefs.Save();
     }
 
-    public void SetQuality(int index)
-    {
-        if (index < 0 || index >= QualitySettings.names.Length) return;
-
-        QualitySettings.SetQualityLevel(index, true);
-        PlayerPrefs.SetInt(PrefQualityLevel, index);
-        PlayerPrefs.Save();
-    }
-
     public void RestoreDefaults()
     {
-        float defaultMasterVolume = 1f;
-        float defaultMusicVolume = 1f;
+        float defaultMasterVolume = DefaultVolume;
+        float defaultBGMVolume = DefaultVolume;
+        float defaultSFXVolume = DefaultVolume;
         bool defaultFullscreen = true;
-        int defaultQuality = QualitySettings.names.Length - 1;
         int defaultResolution = resolutions.Length - 1;
 
         SetMasterVolume(defaultMasterVolume);
-        SetMusicVolume(defaultMusicVolume);
+        SetBGMVolume(defaultBGMVolume);
+        SetSFXVolume(defaultSFXVolume);
         SetFullscreen(defaultFullscreen);
-        SetQuality(defaultQuality);
         SetResolution(defaultResolution);
 
-        UpdateUI(defaultMasterVolume, defaultMusicVolume, defaultFullscreen, defaultResolution, defaultQuality);
+        UpdateUI(defaultMasterVolume, defaultBGMVolume, defaultSFXVolume, defaultFullscreen, defaultResolution);
     }
 
     private void LoadSettings()
     {
-        float masterVolume = PlayerPrefs.GetFloat(PrefMasterVolume, AudioListener.volume);
-        float musicVolume = PlayerPrefs.GetFloat(PrefMusicVolume, 1f);
+        float masterVolume = PlayerPrefs.GetFloat(PrefMasterVolume, DefaultVolume);
+        float bgmVolume = PlayerPrefs.GetFloat(PrefBGMVolume, DefaultVolume);
+        float sfxVolume = PlayerPrefs.GetFloat(PrefSFXVolume, DefaultVolume);
         bool fullscreen = PlayerPrefs.GetInt(PrefFullscreen, Screen.fullScreen ? 1 : 0) == 1;
         int resolutionIndex = PlayerPrefs.GetInt(PrefResolutionIndex, resolutions.Length - 1);
-        int qualityIndex = PlayerPrefs.GetInt(PrefQualityLevel, QualitySettings.GetQualityLevel());
 
         if (resolutionIndex < 0 || resolutionIndex >= resolutions.Length)
             resolutionIndex = resolutions.Length - 1;
 
-        if (qualityIndex < 0 || qualityIndex >= QualitySettings.names.Length)
-            qualityIndex = QualitySettings.GetQualityLevel();
-
-        SetMasterVolume(masterVolume);
-        SetMusicVolume(musicVolume);
+        ApplyStoredAudioSettings(masterVolume, bgmVolume, sfxVolume);
         SetFullscreen(fullscreen);
-        SetQuality(qualityIndex);
         SetResolution(resolutionIndex);
 
-        UpdateUI(masterVolume, musicVolume, fullscreen, resolutionIndex, qualityIndex);
+        UpdateUI(masterVolume, bgmVolume, sfxVolume, fullscreen, resolutionIndex);
     }
 
-    private void UpdateUI(float masterVolume, float musicVolume, bool fullscreen, int resolutionIndex, int qualityIndex)
+    private void UpdateUI(float masterVolume, float bgmVolume, float sfxVolume, bool fullscreen, int resolutionIndex)
     {
         if (masterVolumeSlider != null)
             masterVolumeSlider.value = masterVolume;
 
-        if (musicVolumeSlider != null)
-            musicVolumeSlider.value = musicVolume;
+        if (bgmVolumeSlider != null)
+            bgmVolumeSlider.value = bgmVolume;
+
+        if (sfxVolumeSlider != null)
+            sfxVolumeSlider.value = sfxVolume;
 
         if (fullscreenToggle != null)
             fullscreenToggle.isOn = fullscreen;
@@ -166,16 +212,31 @@ public class OptionManager : Menu
             resolutionDropdown.value = Mathf.Clamp(resolutionIndex, 0, resolutions.Length - 1);
             resolutionDropdown.RefreshShownValue();
         }
+    }
 
-        if (qualityDropdown != null)
-        {
-            qualityDropdown.value = Mathf.Clamp(qualityIndex, 0, QualitySettings.names.Length - 1);
-            qualityDropdown.RefreshShownValue();
-        }
+    private void ApplyStoredAudioSettings(float masterVolume, float bgmVolume, float sfxVolume)
+    {
+        SetMasterVolume(masterVolume);
+        SetBGMVolume(bgmVolume);
+        SetSFXVolume(sfxVolume);
     }
 
     public void CloseOptionsPanel()
     {
-        gameObject.SetActive(false);
+        if (mainMenu != null)
+        {
+            mainMenu.ActivateMenu();
+            mainMenu.EnableMenuGraphics();
+        }
+
+        SetCanvasGroupVisibility(optionsCanvasGroup, false);
+    }
+
+    private void SetCanvasGroupVisibility(CanvasGroup group, bool visible)
+    {
+        if (group == null) return;
+        group.alpha = visible ? 1f : 0f;
+        group.interactable = visible;
+        group.blocksRaycasts = visible;
     }
 }
