@@ -82,7 +82,7 @@ public class ScenePersistenceManager : MonoBehaviour, IDataPersistence
 
         if (loadingFromSave)
         {
-            Debug.Log("Loading from save. Spawning player in last checkpointed position.");
+            // Debug.Log("Loading from save. Spawning player in last checkpointed position.");
             // Use the saved player position directly; use the default spawn's rotation for input mapping
             spawnPointToUse = sceneDefaultPlayerSpawn;
             player = Instantiate(playerPrefab, savedPlayerPosition, sceneDefaultPlayerSpawn.rotation);
@@ -116,7 +116,7 @@ public class ScenePersistenceManager : MonoBehaviour, IDataPersistence
             }
             if (!foundMatchingExit)
             {
-                Debug.LogWarning("No trigger with matching ID found. Spawning player in default spawn position.");
+                // Debug.LogWarning("No trigger with matching ID found. Spawning player in default spawn position.");
                 if (player == null)
                 {
                     spawnPointToUse = sceneDefaultPlayerSpawn;

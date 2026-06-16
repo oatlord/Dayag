@@ -33,7 +33,7 @@ public class EnemyChaseState : StateMachineBehaviour
             aiController.enemyReachedPlayer = true;
             // aiController.StopChase();
             GameManager.instance.KillPlayer();
-            Debug.Log("Player caught");
+            // Debug.Log("Player caught");
         }
     }
 

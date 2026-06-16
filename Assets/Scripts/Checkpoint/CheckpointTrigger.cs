@@ -27,7 +27,7 @@ public class CheckpointTrigger : MonoBehaviour
 
             if (InputManager.GetInstance().GetInteractPressed())
             {
-                Debug.Log("Player checkpoint set.");
+                // Debug.Log("Player checkpoint set.");
                 
                 // Start the saving animation
                 if (savingCoroutine != null)

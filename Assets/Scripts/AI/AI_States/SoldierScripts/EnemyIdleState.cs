@@ -26,7 +26,7 @@ public class EnemyIdleState : StateMachineBehaviour
         if (timer >= aiController.waitAtWaypointTime)
         {
             animator.SetBool("IsPatrolling", true);
-            Debug.Log("Timer has hit wait time. Switching to next state.");
+            // Debug.Log("Timer has hit wait time. Switching to next state.");
         }
     }
 

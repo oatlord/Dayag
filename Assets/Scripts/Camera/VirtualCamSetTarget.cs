@@ -19,13 +19,13 @@ public class VirtualCamSetTarget : MonoBehaviour
         
         if (virtualCamera.Follow != null || virtualCamera.Follow != target)
         {
-            Debug.Log("Setting virtual camera follow target to " + target.name);
+            // Debug.Log("Setting virtual camera follow target to " + target.name);
             virtualCamera.Follow = target;
         }
 
         if (virtualCamera.LookAt != null || virtualCamera.LookAt != target)
         {
-            Debug.Log("Setting virtual camera look at target to " + target.name);
+            // Debug.Log("Setting virtual camera look at target to " + target.name);
             virtualCamera.LookAt = target;
         }
     }

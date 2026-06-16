@@ -64,7 +64,7 @@ public class GameSceneManager : MonoBehaviour, IDataPersistence
         if (loadingScreen == null)
 
             loadingScreen = GameObject.Find("LoadingScreen");
-            Debug.LogError("Loading screen reference is not set in GameSceneManager. Please set it in the inspector.");              // Debug.LogError("Loading screen reference is not set in GameSceneManager. Please set it in the inspector.");         
+            // Debug.LogError("Loading screen reference is not set in GameSceneManager. Please set it in the inspector.");              // Debug.LogError("Loading screen reference is not set in GameSceneManager. Please set it in the inspector.");         
         }
         
     

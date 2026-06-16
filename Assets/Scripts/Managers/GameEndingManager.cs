@@ -63,7 +63,7 @@ public class GameEndingManager : MonoBehaviour
     {
         if (!TalkedToSoldiers && (GetInkBool("ShowedTheTag") || GetInkBool("ShowedTheLetter")))
         {
-            Debug.Log("Player has talked to soldiers.");
+            // Debug.Log("Player has talked to soldiers.");
             TalkedToSoldiers = true;
         }
 
@@ -87,8 +87,8 @@ public class GameEndingManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Can count down to ending 3:" + canCountDownToEnding3);
-        Debug.Log("Counting down till ending 3: " + m_TimerTillEnding3);
+        // Debug.Log("Can count down to ending 3:" + canCountDownToEnding3);
+        // Debug.Log("Counting down till ending 3: " + m_TimerTillEnding3);
     }
 
     private bool GetInkBool(string variableName)
@@ -106,11 +106,11 @@ public class GameEndingManager : MonoBehaviour
 
         if (variableState == null)
         {
-            Debug.LogWarning($"Ink variable '{variableName}' was not found.");
+            // Debug.LogWarning($"Ink variable '{variableName}' was not found.");
         }
         else
         {
-            Debug.LogWarning($"Ink variable '{variableName}' is not a bool: {variableState.GetType().Name}");
+            // Debug.LogWarning($"Ink variable '{variableName}' is not a bool: {variableState.GetType().Name}");
         }
 
         return false;
