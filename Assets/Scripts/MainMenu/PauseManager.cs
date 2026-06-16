@@ -112,6 +112,9 @@ public class PauseManager : MonoBehaviour
     public void OnResumeButton() => ResumeGame();
     public void OnOptionsButton()
     {
+        if (optionManager == null && OptionManager.instance != null)
+            optionManager = OptionManager.instance;
+
         if (optionManager != null)
         {
             HidePausePanel();
@@ -119,7 +122,7 @@ public class PauseManager : MonoBehaviour
             return;
         }
 
-        // Debug.Log("Options opened");
+        // Debug.LogWarning("OptionManager not found!");
     }
     
     public void OnSaveButton()

@@ -56934,7 +56934,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1691306590}
-  - {fileID: 1415391975}
   - {fileID: 1562100259}
   - {fileID: 1745529133}
   m_Father: {fileID: 0}
@@ -64194,22 +64193,22 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1243151405}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5
+      value: 40.65
       objectReference: {fileID: 0}
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.49
+      value: 0.83000004
       objectReference: {fileID: 0}
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.3
+      value: 16.070002
       objectReference: {fileID: 0}
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
@@ -64229,7 +64228,7 @@ PrefabInstance:
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
@@ -64256,12 +64255,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75cd569fe2363f14da19c5d7d47dbb89, type: 3}
---- !u!4 &1415391975 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
-    type: 3}
-  m_PrefabInstance: {fileID: 1415391974}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1415897338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78788,7 +78781,7 @@ PrefabInstance:
     - target: {fileID: 6581094517241704755, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
         type: 3}
       propertyPath: m_text
-      value: Kempei Tai Branch Post
+      value: Abandoned Marketplace
       objectReference: {fileID: 0}
     - target: {fileID: 7547097865162668654, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
         type: 3}
@@ -82640,37 +82633,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1827495071}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1830339329
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1830339330}
-  m_Layer: 0
-  m_Name: SceneDefaultPlayerSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1830339330
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830339329}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -277.6, y: 1, z: 80.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1834431136
 GameObject:
   m_ObjectHideFlags: 0
@@ -97164,7 +97126,6 @@ SceneRoots:
   - {fileID: 1865319748}
   - {fileID: 354019340}
   - {fileID: 1003970012}
-  - {fileID: 1830339330}
   - {fileID: 1629088947}
   - {fileID: 1572780995}
   - {fileID: 1521226949}
@@ -97233,5 +97194,6 @@ SceneRoots:
   - {fileID: 2013636207}
   - {fileID: 591403973}
   - {fileID: 205914121}
+  - {fileID: 1415391974}
   - {fileID: 914124652}
   - {fileID: 1243151405}

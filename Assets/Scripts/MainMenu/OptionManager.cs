@@ -12,7 +12,6 @@ public class OptionManager : Menu
     [SerializeField] private Slider bgmVolumeSlider;
     [SerializeField] private Slider sfxVolumeSlider;
     [SerializeField] private Toggle fullscreenToggle;
-    [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private Button restoreDefaultsButton;
 
     [Header("Audio Sources")]
@@ -21,11 +20,12 @@ public class OptionManager : Menu
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private CanvasGroup optionsCanvasGroup;
 
-    private Resolution[] resolutions;
     [SerializeField] private MainMenu mainMenu;
     [SerializeField] private PauseManager pauseManager;
 
     private bool openedFromPause;
+
+    private bool isOpenFromMainMenu = false;
 
     private const string PrefMasterVolume = "MasterVol";
     private const string PrefBGMVolume = "BGMVol";
@@ -41,6 +41,7 @@ public class OptionManager : Menu
 
     private void Awake()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(this.gameObject);
         if (instance != null)
         {
@@ -51,8 +52,6 @@ public class OptionManager : Menu
         {
             instance = this;
         }
-        
-        resolutions = Screen.resolutions;
 
         if (audioMixer == null)
         {
@@ -75,7 +74,6 @@ public class OptionManager : Menu
     protected override void OnEnable()
     {
         base.OnEnable();
-        InitializeResolutionDropdown();
         LoadSettings();
         SubscribeUIEvents();
     }
@@ -85,20 +83,9 @@ public class OptionManager : Menu
         UnsubscribeUIEvents();
     }
 
-    private void InitializeResolutionDropdown()
+    private void OnDestroy()
     {
-        if (resolutionDropdown == null || resolutions == null || resolutions.Length == 0) return;
-
-        resolutionDropdown.ClearOptions();
-        var options = new List<string>(resolutions.Length);
-
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            Resolution resolution = resolutions[i];
-            options.Add($"{resolution.width} x {resolution.height} @ {resolution.refreshRate}Hz");
-        }
-
-        resolutionDropdown.AddOptions(options);
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void SubscribeUIEvents()
@@ -171,21 +158,21 @@ public class OptionManager : Menu
         PlayerPrefs.Save();
     }
 
-    public void SetResolution(int index)
-    {
-        if (resolutions == null || resolutions.Length == 0) return;
-        if (index < 0 || index >= resolutions.Length) return;
-
-        Resolution resolution = resolutions[index];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, resolution.refreshRate);
-        PlayerPrefs.SetInt(PrefResolutionIndex, index);
-        PlayerPrefs.Save();
-    }
-
     public void OpenFromPause()
     {
         openedFromPause = true;
+        isOpenFromMainMenu = false;
         SetCanvasGroupVisibility(optionsCanvasGroup, true);
+    }
+
+        public void OpenFromMainMenu()
+    {
+        openedFromPause = false;
+        isOpenFromMainMenu = true;
+        SetCanvasGroupVisibility(optionsCanvasGroup, true);
+        
+        LoadSettings();
+        SubscribeUIEvents();
     }
 
     public void RestoreDefaults()
@@ -194,15 +181,13 @@ public class OptionManager : Menu
         float defaultBGMVolume = DefaultVolume;
         float defaultSFXVolume = DefaultVolume;
         bool defaultFullscreen = true;
-        int defaultResolution = resolutions.Length - 1;
 
         SetMasterVolume(defaultMasterVolume);
         SetBGMVolume(defaultBGMVolume);
         SetSFXVolume(defaultSFXVolume);
         SetFullscreen(defaultFullscreen);
-        SetResolution(defaultResolution);
 
-        UpdateUI(defaultMasterVolume, defaultBGMVolume, defaultSFXVolume, defaultFullscreen, defaultResolution);
+        UpdateUI(defaultMasterVolume, defaultBGMVolume, defaultSFXVolume, defaultFullscreen);
     }
 
     private void LoadSettings()
@@ -211,19 +196,15 @@ public class OptionManager : Menu
         float bgmVolume = PlayerPrefs.GetFloat(PrefBGMVolume, DefaultVolume);
         float sfxVolume = PlayerPrefs.GetFloat(PrefSFXVolume, DefaultVolume);
         bool fullscreen = PlayerPrefs.GetInt(PrefFullscreen, Screen.fullScreen ? 1 : 0) == 1;
-        int resolutionIndex = PlayerPrefs.GetInt(PrefResolutionIndex, resolutions.Length - 1);
 
-        if (resolutionIndex < 0 || resolutionIndex >= resolutions.Length)
-            resolutionIndex = resolutions.Length - 1;
 
         ApplyStoredAudioSettings(masterVolume, bgmVolume, sfxVolume);
         SetFullscreen(fullscreen);
-        SetResolution(resolutionIndex);
 
-        UpdateUI(masterVolume, bgmVolume, sfxVolume, fullscreen, resolutionIndex);
+        UpdateUI(masterVolume, bgmVolume, sfxVolume, fullscreen);
     }
 
-    private void UpdateUI(float masterVolume, float bgmVolume, float sfxVolume, bool fullscreen, int resolutionIndex)
+    private void UpdateUI(float masterVolume, float bgmVolume, float sfxVolume, bool fullscreen)
     {
         if (masterVolumeSlider != null)
             masterVolumeSlider.value = masterVolume;
@@ -236,12 +217,6 @@ public class OptionManager : Menu
 
         if (fullscreenToggle != null)
             fullscreenToggle.isOn = fullscreen;
-
-        if (resolutionDropdown != null)
-        {
-            resolutionDropdown.value = Mathf.Clamp(resolutionIndex, 0, resolutions.Length - 1);
-            resolutionDropdown.RefreshShownValue();
-        }
     }
 
     private void ApplyStoredAudioSettings(float masterVolume, float bgmVolume, float sfxVolume)
@@ -251,25 +226,33 @@ public class OptionManager : Menu
         SetSFXVolume(sfxVolume);
     }
 
-    public void CloseOptionsPanel()
+  public void CloseOptionsPanel()
+{
+    SetCanvasGroupVisibility(optionsCanvasGroup, false);
+
+    if (openedFromPause)
     {
-        SetCanvasGroupVisibility(optionsCanvasGroup, false);
-
-        if (openedFromPause)
-        {
-            openedFromPause = false;
-            if (pauseManager != null)
-                pauseManager.ShowPausePanel();
-
-            return;
-        }
-
-        if (mainMenu != null)
-        {
-            mainMenu.ActivateMenu();
-            mainMenu.EnableMenuGraphics();
-        }
+        openedFromPause = false;
+        if (pauseManager != null)
+            pauseManager.ShowPausePanel();
+        return;
     }
+
+    if (mainMenu == null && MainMenu.instance != null)
+    {
+        mainMenu = MainMenu.instance;
+    }
+
+    if (mainMenu != null)
+    {
+        mainMenu.ActivateMenu();
+        mainMenu.EnableMenuGraphics();
+    }
+    else
+    {
+        Debug.LogWarning("MainMenu reference missing - options closed but menu may not reactivate properly.");
+    }
+}
 
     public bool IsOpenedFromPause() => openedFromPause;
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MainMenu : Menu
 {
+    public static MainMenu instance;
     [Header("Menu Navigation")]
     [SerializeField] private SaveSlotsMenu saveSlotsMenu;
 
@@ -32,6 +33,18 @@ public class MainMenu : Menu
         }
 
         InitializeMenuState();
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -124,11 +137,20 @@ public class MainMenu : Menu
         SetCanvasGroupVisibility(mainMenuCanvasGroup, false);
     }
 
-    public void OnOptionsClicked() {
-        SetCanvasGroupVisibility(optionsCanvasGroup, true);
-        SetCanvasGroupVisibility(creditsCanvasGroup, false);
-        DeactivateMenu();
-        DisableMenuGraphics();
+    public void OnOptionsButtonPressed()
+    {
+        if (OptionManager.instance != null)
+        {
+            OptionManager.instance.OpenFromMainMenu();
+            SetCanvasGroupVisibility(optionsCanvasGroup, true);
+            SetCanvasGroupVisibility(creditsCanvasGroup, false);
+            DeactivateMenu();
+            DisableMenuGraphics();
+        }
+        else
+        {
+            Debug.LogError("OptionManager.instance is null!");
+        }
     }
 
     public void OnCreditsClicked() {
