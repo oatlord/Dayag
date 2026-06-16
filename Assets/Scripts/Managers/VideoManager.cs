@@ -28,10 +28,10 @@ public class VideoManager : MonoBehaviour
     private void Update()
     {
         // // ONLY FOR DEBUGGING PURPOSES
-        // if (Input.GetKeyDown(KeyCode.Tab))
-        // {
-        //     SkipVideo();
-        // }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            SkipVideo();
+        }
     }
 
     void SkipVideo()

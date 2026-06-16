@@ -89,41 +89,41 @@ public class ScenePersistenceManager : MonoBehaviour, IDataPersistence
             // Reset loading from save, this is only supposed to trigger once when loading from an existing game.
             loadingFromSave = false;
         }
-        else if (LastExitTriggerID != null)
-        {
-            // If there is a last trigger, spawn them in the new matching scene's position.
-            MoveToScene[] moveToSceneObjs = GameObject.FindObjectsOfType<MoveToScene>();
-            bool foundMatchingExit = false;
-            foreach (MoveToScene moveToSceneObj in moveToSceneObjs)
-            {
-                // If a movetosceneObj matches the ID of the triggered one, instantiate the player there.
-                if (moveToSceneObj.ExitTriggerID == LastExitTriggerID)
-                {
-                    if (player == null)
-                    {
-                        spawnPointToUse = moveToSceneObj.playerSpawnPoint;
-                        player = Instantiate(playerPrefab, spawnPointToUse.position, spawnPointToUse.rotation);
-                        foundMatchingExit = true;
-                        break;
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Player already exists.");
-                        foundMatchingExit = true;
-                        break;
-                    }
-                }
-            }
-            if (!foundMatchingExit)
-            {
-                // Debug.LogWarning("No trigger with matching ID found. Spawning player in default spawn position.");
-                if (player == null)
-                {
-                    spawnPointToUse = sceneDefaultPlayerSpawn;
-                    player = Instantiate(playerPrefab, spawnPointToUse.position, spawnPointToUse.rotation);
-                }
-            }
-        }
+        // else if (LastExitTriggerID != null)
+        // {
+        //     // If there is a last trigger, spawn them in the new matching scene's position.
+        //     MoveToScene[] moveToSceneObjs = GameObject.FindObjectsOfType<MoveToScene>();
+        //     bool foundMatchingExit = false;
+        //     foreach (MoveToScene moveToSceneObj in moveToSceneObjs)
+        //     {
+        //         // If a movetosceneObj matches the ID of the triggered one, instantiate the player there.
+        //         if (moveToSceneObj.ExitTriggerID == LastExitTriggerID)
+        //         {
+        //             if (player == null)
+        //             {
+        //                 spawnPointToUse = moveToSceneObj.playerSpawnPoint;
+        //                 player = Instantiate(playerPrefab, spawnPointToUse.position, spawnPointToUse.rotation);
+        //                 foundMatchingExit = true;
+        //                 break;
+        //             }
+        //             else
+        //             {
+        //                 Debug.LogWarning("Player already exists.");
+        //                 foundMatchingExit = true;
+        //                 break;
+        //             }
+        //         }
+        //     }
+        //     if (!foundMatchingExit)
+        //     {
+        //         // Debug.LogWarning("No trigger with matching ID found. Spawning player in default spawn position.");
+        //         if (player == null)
+        //         {
+        //             spawnPointToUse = sceneDefaultPlayerSpawn;
+        //             player = Instantiate(playerPrefab, spawnPointToUse.position, spawnPointToUse.rotation);
+        //         }
+        //     }
+        // }
         else
         {
             // If there was no last trigger, i.e. playing from a scene, spawn the player in the default area.
