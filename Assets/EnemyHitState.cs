@@ -27,11 +27,10 @@ public class EnemyHitState : StateMachineBehaviour
         // navMeshAgent.SetDestination(aiController.m_currentWaypoint.position);
         // Debug.Log("Current waypoint set.");
 
-        aiController.enemyReachedPlayer = false;
-                        // enemyReachedPlayer = false;
-        aiController.enemyHasHitPlayer = false;
+        // Clear AI hit flags so it can resume patrolling/behavior.
+        aiController.ResetAfterHit();
 
-        animator.SetBool("IsPatrolling", true);
+        // animator.SetBool("IsPatrolling", true);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

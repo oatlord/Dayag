@@ -31,6 +31,8 @@ public class AIController : MonoBehaviour
     public float viewAngle = 90;
     public float turnSpeed = 3;
     public float alertRadius = 3;
+    [Tooltip("Layers considered by the AI's vision spherecast (what can block sight)")]
+    [SerializeField] private LayerMask sightLayerMask = ~0;
     [Tooltip("(Legacy – no longer used for detection filling. Detection speed is now distance-based via Detection Meter Settings.)")]
     public float timeToSeePlayer = 5;
     [Tooltip("Range of soldier's hit, i.e. the range that the soldier needs to kill the player.")]
@@ -41,6 +43,11 @@ public class AIController : MonoBehaviour
     [SerializeField] private float alertRadiusHeightenedAmount;
     [Tooltip("AI's alert radius lowers to this amount when the player is crouching.")]
     [SerializeField] private float alertRadiusLessenedAmount;
+
+    [Header("Alert to Other State Settings")]
+    [SerializeField] private float m_alertToSwitchTimer;
+    [Tooltip("Time till alert state can become other states.")]
+    [SerializeField] private float alertToSwitchTimerMax = 2f;
 
     [Header("Enemy Movement Settings")]
     public float enemyChaseSpeed;
@@ -56,7 +63,7 @@ public class AIController : MonoBehaviour
     [Tooltip("Fill rate (progress/sec) when the player is AT the alertRadius (closest).")]
     [SerializeField] private float detectionFillRateNear = 1.0f;
     [Tooltip("Fill rate (progress/sec) when the player is AT the viewDistance (farthest visible).")]
-    [SerializeField] private float detectionFillRateFar  = 0.15f;
+    [SerializeField] private float detectionFillRateFar = 0.15f;
 
     /// <summary>
     /// Normalised detection progress (0 = undetected, 1 = fully alerted / chasing).
@@ -114,6 +121,8 @@ public class AIController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Enemy reached player: " + enemyReachedPlayer);
+
         if (GameEndingManager.instance != null && GameEndingManager.instance.IsPlayingEnding)
         {
             return;
@@ -123,7 +132,7 @@ public class AIController : MonoBehaviour
         {
             return;
         }
-        
+
         if (enemyReachedPlayer)
         {
             if (!hasHitAnimPlayed)
@@ -139,7 +148,24 @@ public class AIController : MonoBehaviour
             return;
         }
 
+        // JUST IN CASE?
+        // if (enemyHasHitPlayer)
+        // {
+        //     enemyReachedPlayer = false;
+        // }
+
+        
+
+
+
         enemySeesPlayer = CanSeePlayer();
+        Debug.Log($"{gameObject.name} SEES PLAYER: " + enemySeesPlayer);
+
+        // TIMER FROM ALERT TO ANY OTHER STATE
+        if (animController.GetBool("IsAlert")) 
+        {
+            m_alertToSwitchTimer += Time.deltaTime;
+        }
 
         // ── Alert-radius head-tracking ─────────────────────────────────────────
         // Rotate on Y to face the player while they are inside the proximity
@@ -151,11 +177,15 @@ public class AIController : MonoBehaviour
             if (dirToPlayer.sqrMagnitude > 0.001f)
             {
                 Quaternion targetRot = Quaternion.LookRotation(dirToPlayer);
-                transform.rotation  = Quaternion.Slerp(transform.rotation, targetRot, turnSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, turnSpeed * Time.deltaTime);
             }
         }
 
-        if (enemySeesPlayer)
+        // Check if player is visible OR in alert radius long enough to trigger detection fill
+        bool shouldFillDetection = enemySeesPlayer || 
+            (playerInAlertRadius && m_alertToSwitchTimer >= alertToSwitchTimerMax);
+
+        if (shouldFillDetection)
         {
             animController.SetBool("IsSeeingPlayer", true);
 
@@ -163,8 +193,8 @@ public class AIController : MonoBehaviour
             // proximity = 1 when player is at alertRadius (closest),
             // proximity = 0 when player is at viewDistance (farthest visible).
             float distToPlayer = Vector3.Distance(transform.position, player.transform.position);
-            float proximity    = Mathf.InverseLerp(viewDistance, alertRadius, distToPlayer);
-            float fillRate     = Mathf.Lerp(detectionFillRateFar, detectionFillRateNear, proximity);
+            float proximity = Mathf.InverseLerp(viewDistance, alertRadius, distToPlayer);
+            float fillRate = Mathf.Lerp(detectionFillRateFar, detectionFillRateNear, proximity);
 
             detectionProgress = Mathf.Clamp01(detectionProgress + fillRate * Time.deltaTime);
 
@@ -227,11 +257,6 @@ public class AIController : MonoBehaviour
         float angleToPlayer = Vector3.Angle(rayDirection, transform.forward);
         Vector3 normalizedDirection = rayDirection.normalized;
 
-        if (distanceToPlayer <= alertRadius)
-        {
-            return true;
-        }
-
         if (distanceToPlayer > viewDistance)
         {
             return false;
@@ -239,15 +264,45 @@ public class AIController : MonoBehaviour
 
         if (angleToPlayer <= viewAngle * 0.5f)
         {
-            if (Physics.SphereCast(transform.position, viewRadius, normalizedDirection, out hit, viewDistance))
+            // Cast a sphere along the direction to the player and inspect all hits
+            // in distance order. If any `Barrier` appears before the `Player`,
+            // the player is considered hidden.
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, viewRadius, normalizedDirection, viewDistance, sightLayerMask.value);
+            if (hits == null || hits.Length == 0)
             {
-                if (hit.collider.gameObject.CompareTag("Player"))
+                return false;
+            }
+
+            System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
+            foreach (var h in hits)
+            {
+                var col = h.collider;
+                if (col == null) continue;
+
+                // Ignore our own colliders
+                if (col.transform.IsChildOf(transform)) continue;
+
+                // Ignore trigger colliders
+                if (col.isTrigger) continue;
+
+                if (col.gameObject.CompareTag("Barrier"))
                 {
+                    // A barrier blocks sight even if the player is behind it.
+                    return false;
+                }
+
+                if (col.gameObject.CompareTag("Player"))
+                {
+                    // Player is the first non-ignored hit -> visible
                     return true;
                 }
 
-                return false;
+                // Otherwise keep checking next hit
             }
+
+            // No player hit among non-ignored colliders
+            return false;
         }
 
         return false;
@@ -275,12 +330,20 @@ public class AIController : MonoBehaviour
         animController.SetBool("IsChasing", false);
     }
 
+    // Reset flags used by the hit sequence so the AI can resume normal behavior.
+    public void ResetAfterHit()
+    {
+        hasHitAnimPlayed = false;
+        enemyReachedPlayer = false;
+        enemyHasHitPlayer = false;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             animController.SetBool("IsAlert", true);
-            playerPosition    = other.transform.position;
+            playerPosition = other.transform.position;
             playerInAlertRadius = true;
         }
     }
@@ -290,8 +353,13 @@ public class AIController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             animController.SetBool("IsAlert", false);
-            playerPosition    = Vector3.zero;
+            playerPosition = Vector3.zero;
             playerInAlertRadius = false;
+            
+            if (m_alertToSwitchTimer >= alertToSwitchTimerMax) 
+            {
+                m_alertToSwitchTimer = 0;
+            }
         }
     }
 
@@ -338,5 +406,6 @@ public class AIController : MonoBehaviour
         Gizmos.color = Color.magenta;
         Gizmos.DrawLine(transform.position, transform.position + leftDir * viewDistance * 0.2f);
         Gizmos.DrawLine(transform.position, transform.position + rightDir * viewDistance * 0.2f);
+
     }
 }
