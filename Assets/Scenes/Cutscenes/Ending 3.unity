@@ -317,7 +317,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -672,6 +672,11 @@ PrefabInstance:
       propertyPath: videoPlayer
       value: 
       objectReference: {fileID: 1038584713}
+    - target: {fileID: 617549983517750026, guid: a2695898e912e6d4baf3d9a37fef9f30,
+        type: 3}
+      propertyPath: deleteSaveOnFinish
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 617549983517750026, guid: a2695898e912e6d4baf3d9a37fef9f30,
         type: 3}
       propertyPath: sceneToLoadAfterVideo

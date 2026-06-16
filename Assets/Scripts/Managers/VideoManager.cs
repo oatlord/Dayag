@@ -7,7 +7,9 @@ public class VideoManager : MonoBehaviour
     [Header("Video Player Reference")]
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private string sceneToLoadAfterVideo;
-
+    [Tooltip("Deletes the save file on cutscene finish.")]
+    [SerializeField] private bool deleteSaveOnFinish;
+ 
     private void Awake()
     {
         if (instance != null)
@@ -49,6 +51,14 @@ public class VideoManager : MonoBehaviour
     {
         Debug.Log("Video finished. Ending playback.");
         vp.Stop();
+        // Deletes the save file to leave it empty and disables players from going back.
+        if (deleteSaveOnFinish)
+        {
+            if (DataPersistenceManager.instance != null)
+            {
+                DataPersistenceManager.instance.DeleteCurrentProfileSaveFile();
+            }
+        }
         GameSceneManager.instance.MoveToScene(sceneToLoadAfterVideo);
     }
 
