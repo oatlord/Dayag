@@ -151,6 +151,12 @@ MonoBehaviour:
   noDataContent: {fileID: 5206085074959170613}
   hasDataContent: {fileID: 5267824681261449199}
   zoneText: {fileID: 6787898255457755348}
+  yourHomeImage: {fileID: 21300000, guid: 741ed5c7d7237f4418db56314297d423, type: 3}
+  zone1Image: {fileID: 21300000, guid: e61c599ca591c8844a69ae40a488bb6f, type: 3}
+  zone2Image: {fileID: 21300000, guid: 469858b00077a624280aa0e102b51c91, type: 3}
+  zone3Image: {fileID: 21300000, guid: dd13568535cf35f4990fa182cbb7bda9, type: 3}
+  zone4Image: {fileID: 21300000, guid: b75424dad3efcfe4dbdc2821c9534bd3, type: 3}
+  zone5Image: {fileID: 21300000, guid: 3fec40a6985ec294795a20941c857a18, type: 3}
 --- !u!1 &5206085074959170613
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +296,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: EMPTY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6994ecaf91341014bb3d1510589a9950, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -354,7 +360,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7852910538032389680
@@ -424,15 +430,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: ZONE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6994ecaf91341014bb3d1510589a9950, type: 2}
+  m_sharedMaterial: {fileID: 8194226771000486780, guid: 6994ecaf91341014bb3d1510589a9950,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
