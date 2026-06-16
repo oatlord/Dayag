@@ -165,13 +165,13 @@ public class GameManager : MonoBehaviour, IDataPersistence
             // Debug.LogWarning("No player revive point set. Cannot revive to checkpoint.");
             // return;
             Transform sceneDefaultPlayerSpawn = GameObject.Find("SceneDefaultPlayerSpawn").transform;
-            Debug.Log("Revived Player at default spawn point");
+            // Debug.Log("Revived Player at default spawn point");
             player.transform.position = sceneDefaultPlayerSpawn.position;
             PlayerIsAlive = true;
         }
         else
         {
-            Debug.Log("Revived Player at: " + PlayerRevivePoint);
+            // Debug.Log("Revived Player at: " + PlayerRevivePoint);
             player.transform.position = new Vector3(PlayerRevivePoint.x, 0, PlayerRevivePoint.z);
             PlayerIsAlive = true;
         }

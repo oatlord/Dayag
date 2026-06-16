@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"DialogueTrigger Update: {NPCName} - playerInRange: {playerInRange}, dialoguePlaying: {DialogueManager.GetInstance().dialogueIsPlaying}");
+        // Debug.Log($"DialogueTrigger Update: {NPCName} - playerInRange: {playerInRange}, dialoguePlaying: {DialogueManager.GetInstance().dialogueIsPlaying}");
         
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {

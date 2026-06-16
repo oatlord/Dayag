@@ -39,12 +39,12 @@ public class AudioManager : MonoBehaviour
         {
             if (!playerFootstepSource.isPlaying && isMoving && !isSprinting)
             {
-                Debug.Log("Playing footstep sound");
+                // Debug.Log("Playing footstep sound");
                 playerFootstepSource.Play();
             }
             else if (playerFootstepSource.isPlaying && (isSprinting || !isMoving))
             {
-                Debug.Log("Stopping footstep sound");
+                // Debug.Log("Stopping footstep sound");
                 playerFootstepSource.Stop();
             }
         }
@@ -53,12 +53,12 @@ public class AudioManager : MonoBehaviour
         {
             if (!playerRunFootstepSource.isPlaying && isSprinting)
             {
-                Debug.Log("Playing running footstep sound");
+                // Debug.Log("Playing running footstep sound");
                 playerRunFootstepSource.Play();
             }
             else if (playerRunFootstepSource.isPlaying && !isSprinting)
             {
-                Debug.Log("Stopping running footstep sound");
+                // Debug.Log("Stopping running footstep sound");
                 playerRunFootstepSource.Stop();
             }
         }
@@ -69,12 +69,12 @@ public class AudioManager : MonoBehaviour
         {
             if (!playerHeartbeatSource.isPlaying && isBeingChased)
             {
-                Debug.Log("Playing heartbeat sound");
+                // Debug.Log("Playing heartbeat sound");
                 playerHeartbeatSource.Play();
             }
             else if (playerHeartbeatSource.isPlaying && !isBeingChased)
             {
-                Debug.Log("Stopping heartbeat sound");
+                // Debug.Log("Stopping heartbeat sound");
                 playerHeartbeatSource.Stop();
             }
         }

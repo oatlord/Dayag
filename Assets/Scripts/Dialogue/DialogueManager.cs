@@ -4,8 +4,8 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
-using Microsoft.Unity.VisualStudio.Editor;
-using UnityEngine.Animations;
+// using Microsoft.Unity.VisualStudio.Editor;
+// using UnityEngine.Animations;
 
 public class DialogueManager : MonoBehaviour, IDataPersistence
 {
@@ -223,7 +223,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
             string[] splitTag = tag.Split(':');
             if (splitTag.Length != 2)
             {
-                Debug.LogError("Tag could not be appropriately parsed: " + tag);
+                // Debug.LogError("Tag could not be appropriately parsed: " + tag);
                 continue;
             }
             string tagKey = splitTag[0].Trim();
@@ -249,7 +249,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
                 case CG_IMAGE:
                     if (cgCanvas != null)
                     {
-                        Debug.Log("Showing CG canvas.");
+                        // Debug.Log("Showing CG canvas.");
                         cgCanvas.SetActive(true);
                         if (int.TryParse(tagValue, out int result))
                         {
@@ -259,17 +259,17 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
                             }
                             else
                             {
-                                Debug.LogWarning($"CG image index out of range: {result}. Valid range is 0 to {cgImages.Count - 1}.");
+                                // Debug.LogWarning($"CG image index out of range: {result}. Valid range is 0 to {cgImages.Count - 1}.");
                             }
                         }
                         else
                         {
-                            Debug.LogWarning($"CG image tag value is not a valid index: {tagValue}");
+                            // Debug.LogWarning($"CG image tag value is not a valid index: {tagValue}");
                         }
                     }
                     break;
                 default:
-                    Debug.LogWarning("Tag came in but is not being currently handled: " + tag);
+                    // Debug.LogWarning("Tag came in but is not being currently handled: " + tag);
                     break;
             }
         }
@@ -281,7 +281,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
         if (currentChoices.Count > choices.Length)
         {
-            Debug.LogError("More choices than UI can support. Number of choices given: " + currentChoices.Count);
+            // Debug.LogError("More choices than UI can support. Number of choices given: " + currentChoices.Count);
         }
 
         int index = 0;
@@ -321,7 +321,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     {
         if (dialogueVariables == null)
         {
-            Debug.LogError("DialogueVariables not initialized.");
+            // Debug.LogError("DialogueVariables not initialized.");
             return;
         }
 
@@ -368,7 +368,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
             }
         }
 
-        Debug.LogError("Variable requested but not found: " + variableName);
+        // Debug.LogError("Variable requested but not found: " + variableName);
         return null;
     }
 
@@ -379,7 +379,7 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
     private void OnDisable()
     {
-        Debug.LogError($"[CATCHER] DialogueManager was just UNCHECKED/DISABLED!", this);
+        // Debug.LogError($"[CATCHER] DialogueManager was just UNCHECKED/DISABLED!", this);
         Debug.Log(System.Environment.StackTrace);
     }
 

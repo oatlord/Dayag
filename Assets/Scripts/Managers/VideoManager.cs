@@ -27,7 +27,7 @@ public class VideoManager : MonoBehaviour
 
     private void Update()
     {
-        // ONLY FOR DEBUGGING PURPOSES
+        // // ONLY FOR DEBUGGING PURPOSES
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SkipVideo();
@@ -36,20 +36,20 @@ public class VideoManager : MonoBehaviour
 
     void SkipVideo()
     {
-        Debug.Log("Skipping video.");
+        // Debug.Log("Skipping video.");
         videoPlayer.Stop();
         GameSceneManager.instance.MoveToScene(sceneToLoadAfterVideo);
     }
 
     void OnPrepareCompleted(VideoPlayer vp) 
     {
-        Debug.Log("Video prepared. Starting playback.");
+        // Debug.Log("Video prepared. Starting playback.");
         // vp.Play();
     }
 
     void OnLoopPointReached(VideoPlayer vp)
     {
-        Debug.Log("Video finished. Ending playback.");
+        // Debug.Log("Video finished. Ending playback.");
         vp.Stop();
         // Deletes the save file to leave it empty and disables players from going back.
         if (deleteSaveOnFinish)

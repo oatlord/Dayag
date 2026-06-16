@@ -68,11 +68,11 @@ public class GameStartManager : MonoBehaviour
 
         if (variableState == null)
         {
-            Debug.LogWarning($"Ink variable '{variableName}' was not found.");
+            // Debug.LogWarning($"Ink variable '{variableName}' was not found.");
         }
         else
         {
-            Debug.LogWarning($"Ink variable '{variableName}' is not a bool.");
+            // Debug.LogWarning($"Ink variable '{variableName}' is not a bool.");
         }
 
         return false;

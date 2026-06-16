@@ -38,11 +38,11 @@ public class SaveSlotsMenu : Menu
         {
             DataPersistenceManager.instance.NewGame();
             SceneManager.LoadSceneAsync("BeginningCutscene");
-            Debug.Log("New game created. DEBUGGING: Loaded BeginningCutscene.");
+            // Debug.Log("New game created. DEBUGGING: Loaded BeginningCutscene.");
         } else
         {
             SceneManager.LoadSceneAsync(saveSlot.GetSceneToLoad());
-            Debug.Log("Loading game from scene: " + saveSlot.GetSceneToLoad());
+            // Debug.Log("Loading game from scene: " + saveSlot.GetSceneToLoad());
         }
     }
 

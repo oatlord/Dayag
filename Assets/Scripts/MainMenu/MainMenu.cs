@@ -77,7 +77,7 @@ public class MainMenu : Menu
     public void OnContinueGameClicked() {
         DisableMenuButtons();
         DisableMenuGraphics();
-        Debug.Log("Continue Game Clicked");
+        // Debug.Log("Continue Game Clicked");
         SceneManager.LoadSceneAsync("SampleScene"); 
     }
 

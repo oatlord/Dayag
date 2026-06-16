@@ -72,7 +72,7 @@ public class PauseManager : MonoBehaviour
 
     private void PauseGame()
     {
-        Debug.Log("Game paused.");
+        // Debug.Log("Game paused.");
         Time.timeScale = 0f;
         SetCanvasGroupVisibility(pauseCanvasGroup, true);
         Cursor.visible = true;
@@ -83,7 +83,7 @@ public class PauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        Debug.Log("Game resumed.");
+        // Debug.Log("Game resumed.");
         Time.timeScale = 1f;
         SetCanvasGroupVisibility(pauseCanvasGroup, false);
         isPaused = false;
@@ -95,7 +95,7 @@ public class PauseManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        Debug.Log("Returning to main menu.");
+        // Debug.Log("Returning to main menu.");
         Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuSceneName);
         pausePanel.SetActive(false);
@@ -119,12 +119,12 @@ public class PauseManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("Options opened");
+        // Debug.Log("Options opened");
     }
     
     public void OnSaveButton()
     {
-        Debug.Log("Save menu opened");
+        // Debug.Log("Save menu opened");
     }
     
     public void OnReturnToMenuButton() => ReturnToMainMenu();
