@@ -4,8 +4,8 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
-using Microsoft.Unity.VisualStudio.Editor;
-using UnityEngine.Animations;
+// using Microsoft.Unity.VisualStudio.Editor;
+// using UnityEngine.Animations;
 
 public class DialogueManager : MonoBehaviour, IDataPersistence
 {
