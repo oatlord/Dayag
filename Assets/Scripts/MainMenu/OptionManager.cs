@@ -40,6 +40,7 @@ public class OptionManager : Menu
 
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         if (instance != null)
         {
             Debug.LogError("More than one instance found. Destroying this instance.");

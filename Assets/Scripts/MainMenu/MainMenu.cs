@@ -34,6 +34,15 @@ public class MainMenu : Menu
         InitializeMenuState();
     }
 
+    private void Update()
+    {
+        if (Cursor.visible == false)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
     private void InitializeMenuState()
     {
         SetCanvasGroupVisibility(mainMenuCanvasGroup, true);
