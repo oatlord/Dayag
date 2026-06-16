@@ -127,6 +127,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""77a74930-22bc-496c-ac64-c8a0ecfae2af"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -228,6 +237,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0f532cf-80d7-4aca-b0c8-20072fbc4e40"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -266,6 +286,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""14d0e5c1-744a-48aa-9eb1-9ae6ac3e5070"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""b1ade37d-c17a-44b5-b960-b51dc973a5ff"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -371,6 +400,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1182f7a0-2178-49b9-939b-c2cb6ce1a18c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -409,6 +449,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""04f58fd2-ded0-4e8e-bfbf-5049fe746142"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""713a96a3-8a35-4436-b1bd-f36a5c2ba25c"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -514,6 +563,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b0a7cee8-4fa5-4137-a5cb-00238d74312d"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -552,6 +612,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""name"": ""LeftClick"",
                     ""type"": ""Button"",
                     ""id"": ""1134f48b-1ccd-49c9-8362-f059fb3fb86d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""81f2033a-f639-4771-8f85-7dd387209d4c"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -646,6 +715,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""LeftClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a78e3d9a-fdaa-4a56-a849-7521762bfa00"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -658,24 +738,28 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_PlayerControls_Sprint = m_PlayerControls.FindAction("Sprint", throwIfNotFound: true);
         m_PlayerControls_Crouch = m_PlayerControls.FindAction("Crouch", throwIfNotFound: true);
         m_PlayerControls_Interact = m_PlayerControls.FindAction("Interact", throwIfNotFound: true);
+        m_PlayerControls_Escape = m_PlayerControls.FindAction("Escape", throwIfNotFound: true);
         // PlayerControlsY90
         m_PlayerControlsY90 = asset.FindActionMap("PlayerControlsY90", throwIfNotFound: true);
         m_PlayerControlsY90_Move = m_PlayerControlsY90.FindAction("Move", throwIfNotFound: true);
         m_PlayerControlsY90_Sprint = m_PlayerControlsY90.FindAction("Sprint", throwIfNotFound: true);
         m_PlayerControlsY90_Crouch = m_PlayerControlsY90.FindAction("Crouch", throwIfNotFound: true);
         m_PlayerControlsY90_Interact = m_PlayerControlsY90.FindAction("Interact", throwIfNotFound: true);
+        m_PlayerControlsY90_Escape = m_PlayerControlsY90.FindAction("Escape", throwIfNotFound: true);
         // PlayerControlsAxisConfig
         m_PlayerControlsAxisConfig = asset.FindActionMap("PlayerControlsAxisConfig", throwIfNotFound: true);
         m_PlayerControlsAxisConfig_Move = m_PlayerControlsAxisConfig.FindAction("Move", throwIfNotFound: true);
         m_PlayerControlsAxisConfig_Sprint = m_PlayerControlsAxisConfig.FindAction("Sprint", throwIfNotFound: true);
         m_PlayerControlsAxisConfig_Crouch = m_PlayerControlsAxisConfig.FindAction("Crouch", throwIfNotFound: true);
         m_PlayerControlsAxisConfig_Interact = m_PlayerControlsAxisConfig.FindAction("Interact", throwIfNotFound: true);
+        m_PlayerControlsAxisConfig_Escape = m_PlayerControlsAxisConfig.FindAction("Escape", throwIfNotFound: true);
         // UI_Input
         m_UI_Input = asset.FindActionMap("UI_Input", throwIfNotFound: true);
         m_UI_Input_Submit = m_UI_Input.FindAction("Submit", throwIfNotFound: true);
         m_UI_Input_Navigate = m_UI_Input.FindAction("Navigate", throwIfNotFound: true);
         m_UI_Input_Point = m_UI_Input.FindAction("Point", throwIfNotFound: true);
         m_UI_Input_LeftClick = m_UI_Input.FindAction("LeftClick", throwIfNotFound: true);
+        m_UI_Input_Escape = m_UI_Input.FindAction("Escape", throwIfNotFound: true);
     }
 
     ~@PlayerActions()
@@ -763,6 +847,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControls_Sprint;
     private readonly InputAction m_PlayerControls_Crouch;
     private readonly InputAction m_PlayerControls_Interact;
+    private readonly InputAction m_PlayerControls_Escape;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerControls".
     /// </summary>
@@ -790,6 +875,10 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerControls/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_PlayerControls_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControls/Escape".
+        /// </summary>
+        public InputAction @Escape => m_Wrapper.m_PlayerControls_Escape;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -828,6 +917,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         /// <summary>
@@ -851,6 +943,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         /// <summary>
@@ -892,6 +987,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControlsY90_Sprint;
     private readonly InputAction m_PlayerControlsY90_Crouch;
     private readonly InputAction m_PlayerControlsY90_Interact;
+    private readonly InputAction m_PlayerControlsY90_Escape;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerControlsY90".
     /// </summary>
@@ -919,6 +1015,10 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerControlsY90/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_PlayerControlsY90_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControlsY90/Escape".
+        /// </summary>
+        public InputAction @Escape => m_Wrapper.m_PlayerControlsY90_Escape;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -957,6 +1057,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         /// <summary>
@@ -980,6 +1083,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         /// <summary>
@@ -1021,6 +1127,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControlsAxisConfig_Sprint;
     private readonly InputAction m_PlayerControlsAxisConfig_Crouch;
     private readonly InputAction m_PlayerControlsAxisConfig_Interact;
+    private readonly InputAction m_PlayerControlsAxisConfig_Escape;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerControlsAxisConfig".
     /// </summary>
@@ -1048,6 +1155,10 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerControlsAxisConfig/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_PlayerControlsAxisConfig_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerControlsAxisConfig/Escape".
+        /// </summary>
+        public InputAction @Escape => m_Wrapper.m_PlayerControlsAxisConfig_Escape;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1086,6 +1197,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         /// <summary>
@@ -1109,6 +1223,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         /// <summary>
@@ -1150,6 +1267,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Input_Navigate;
     private readonly InputAction m_UI_Input_Point;
     private readonly InputAction m_UI_Input_LeftClick;
+    private readonly InputAction m_UI_Input_Escape;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI_Input".
     /// </summary>
@@ -1177,6 +1295,10 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI_Input/LeftClick".
         /// </summary>
         public InputAction @LeftClick => m_Wrapper.m_UI_Input_LeftClick;
+        /// <summary>
+        /// Provides access to the underlying input action "UI_Input/Escape".
+        /// </summary>
+        public InputAction @Escape => m_Wrapper.m_UI_Input_Escape;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1215,6 +1337,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @LeftClick.started += instance.OnLeftClick;
             @LeftClick.performed += instance.OnLeftClick;
             @LeftClick.canceled += instance.OnLeftClick;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         /// <summary>
@@ -1238,6 +1363,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @LeftClick.started -= instance.OnLeftClick;
             @LeftClick.performed -= instance.OnLeftClick;
             @LeftClick.canceled -= instance.OnLeftClick;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         /// <summary>
@@ -1306,6 +1434,13 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEscape(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PlayerControlsY90" which allows adding and removing callbacks.
@@ -1342,6 +1477,13 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEscape(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PlayerControlsAxisConfig" which allows adding and removing callbacks.
@@ -1378,6 +1520,13 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEscape(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI_Input" which allows adding and removing callbacks.
@@ -1414,5 +1563,12 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLeftClick(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour
 
     private bool interactPressed = false;
     private bool submitPressed = false;
+    private bool escPressed = false;
 
     private static InputManager instance;
     // [SerializeField] private GameObject player;
@@ -123,6 +124,18 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    public void EscapePressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            escPressed = true;
+        }
+        else if (context.canceled)
+        {
+            escPressed = false;
+        }
+    }
+
     public bool GetInteractPressed()
     {
         bool result = interactPressed;
@@ -134,6 +147,13 @@ public class InputManager : MonoBehaviour
     {
         bool result = submitPressed;
         submitPressed = false;
+        return result;
+    }
+
+    public bool GetEscPressed()
+    {
+        bool result = escPressed;
+        escPressed = false;
         return result;
     }
 

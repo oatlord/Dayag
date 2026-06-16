@@ -36,9 +36,20 @@ public class OptionManager : Menu
     private const float MinDecibels = -80f;
     private const float MaxDecibels = 0f;
 
+    public static OptionManager instance;
+
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (instance != null)
+        {
+            Debug.LogError("More than one instance found. Destroying this instance.");
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+        
         resolutions = Screen.resolutions;
 
         if (audioMixer == null)
