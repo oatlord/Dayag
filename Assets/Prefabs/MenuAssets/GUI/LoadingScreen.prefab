@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3006217816195121257}
   - component: {fileID: 5229376411424115340}
   - component: {fileID: 3401589931237747714}
+  - component: {fileID: 9054159499201092356}
   m_Layer: 5
   m_Name: LoadingScreen
   m_TagString: Untagged
@@ -89,6 +90,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &9054159499201092356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476577202360458949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1661bf9c73417d941a59a6492913112f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingStatusText: {fileID: 3266082071968542083}
+  baseText: Loading
+  dotSpeed: 0.25
+  maxDots: 3
 --- !u!1 &8782170028068881670
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,13 +134,13 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5211643369757419828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -46, y: 243}
+  m_AnchoredPosition: {x: -97.8, y: 243}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &4771223966254120798
@@ -154,7 +171,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Loading...
+  m_text: Loading
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6994ecaf91341014bb3d1510589a9950, type: 2}
   m_sharedMaterial: {fileID: 8194226771000486780, guid: 6994ecaf91341014bb3d1510589a9950,
@@ -182,8 +199,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
-  m_fontSizeBase: 200
+  m_fontSize: 167.51
+  m_fontSizeBase: 167.51
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -218,7 +235,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -899.9542, y: -45.916046, z: 0, w: -229.58023}
+  m_margin: {x: -661.71936, y: -45.916046, z: 0, w: -229.58023}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

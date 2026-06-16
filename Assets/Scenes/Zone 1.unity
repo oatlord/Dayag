@@ -2061,11 +2061,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 78935600993713140, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_text
+      value: Mr. Wataru
+      objectReference: {fileID: 0}
     - target: {fileID: 78944956157746880, guid: a0ef5620c36d825458f7c280166270e7,
         type: 3}
       propertyPath: visualCue
       value: 
       objectReference: {fileID: 204749785}
+    - target: {fileID: 1807111668912428640, guid: a0ef5620c36d825458f7c280166270e7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -124.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3670570718750044329, guid: a0ef5620c36d825458f7c280166270e7,
         type: 3}
       propertyPath: m_IsActive
@@ -16359,7 +16369,7 @@ PrefabInstance:
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -148.61763
+      value: -148.57
       objectReference: {fileID: 0}
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
@@ -25327,6 +25337,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LolaSiangNPC
       objectReference: {fileID: 0}
+    - target: {fileID: 4786808982834004744, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -104.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6447298424086667190, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25376,6 +25391,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6512874214043283100, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
+        type: 3}
+      propertyPath: m_text
+      value: Lola Siang
       objectReference: {fileID: 0}
     - target: {fileID: 7605017959551903169, guid: a2adfc8a1eb22ef48bc2ea403b2012a2,
         type: 3}
