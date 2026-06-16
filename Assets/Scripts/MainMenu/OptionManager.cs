@@ -64,6 +64,13 @@ public class OptionManager : Menu
         }
     }
 
+    void Start()
+    {
+        SetMasterVolume(masterVolumeSlider.value);
+        SetBGMVolume(bgmVolumeSlider.value);
+        SetSFXVolume(sfxVolumeSlider.value);
+    }
+
     protected override void OnEnable()
     {
         base.OnEnable();
