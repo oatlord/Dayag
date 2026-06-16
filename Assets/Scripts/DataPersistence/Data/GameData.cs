@@ -31,8 +31,8 @@ public class GameData
         // playerRevivePoint = Vector3.zero;
         // hasPlayerRevivePoint = false;
 
-        currentZone = "Wrecked Hometown";
-        currentSceneName = "Zone 1";
+        currentZone = "Your Home";
+        currentSceneName = "House";
 
         // HasHelped = false;
         // HasLetter = false;

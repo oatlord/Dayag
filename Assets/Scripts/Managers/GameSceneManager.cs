@@ -34,7 +34,7 @@ public class GameSceneManager : MonoBehaviour, IDataPersistence
                 break;
             default:
                 Debug.LogWarning("Unreadable scene name.");
-                data.currentZone = "Wrecked Hometown";
+                data.currentZone = "Your Home";
                 break;
         }
         Debug.Log("Saving current scene name: " + data.currentSceneName);
