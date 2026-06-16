@@ -3138,8 +3138,8 @@ MonoBehaviour:
   isOneTimeDialogue: 1
   transitionPanel: {fileID: 1066589365}
   panelCanvasGroup: {fileID: 1066589369}
-  fadeDuration: 5.5
-  delayBeforeDialogue: 0.3
+  fadeDuration: 4.5
+  delayBeforeDialogue: 0.1
   chatUI: {fileID: 2047561396}
 --- !u!1 &531226384
 GameObject:
