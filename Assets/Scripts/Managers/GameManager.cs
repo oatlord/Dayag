@@ -109,11 +109,18 @@ public class GameManager : MonoBehaviour, IDataPersistence
             {
                 StartCoroutine(StartEnding3LoadSequence());
             }
-            else if (!GameEndingManager.instance.HasHelpedHideo &&
-                !GameEndingManager.instance.HasLetterFromTanaka)
+            // BY DEFAULT, IF THE PLAYER GETS CAUGHT, TRIGGER ENDING 1
+            else
             {
+                PlayerIsAlive = false;
+                blackoutScreen.SetActive(true);
                 StartCoroutine(StartEnding1LoadSequence());
             }
+            // else if (!GameEndingManager.instance.HasHelpedHideo &&
+            //     !GameEndingManager.instance.HasLetterFromTanaka)
+            // {
+            //     StartCoroutine(StartEnding1LoadSequence());
+            // }
         }
         else
         {
