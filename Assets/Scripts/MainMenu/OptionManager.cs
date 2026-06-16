@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class OptionManager : Menu
 {
@@ -64,7 +65,7 @@ public class OptionManager : Menu
         }
     }
 
-    void Start()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SetMasterVolume(masterVolumeSlider.value);
         SetBGMVolume(bgmVolumeSlider.value);
