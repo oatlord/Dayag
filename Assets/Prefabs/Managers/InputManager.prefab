@@ -144,6 +144,14 @@ MonoBehaviour:
     m_ActionId: 47402808-3ded-4416-a919-ded795dd5af6
     m_ActionName: UI_Input/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 567afcc0-f2f6-4502-b09d-26391dddc871
+    m_ActionName: UI_Input/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1134f48b-1ccd-49c9-8362-f059fb3fb86d
+    m_ActionName: UI_Input/LeftClick[/Mouse/leftButton]
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 110414089492487034}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
@@ -208,13 +216,21 @@ MonoBehaviour:
     m_ActionId: 04f58fd2-ded0-4e8e-bfbf-5049fe746142
     m_ActionName: PlayerControlsAxisConfig/Interact[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 567afcc0-f2f6-4502-b09d-26391dddc871
-    m_ActionName: UI_Input/Point[/Mouse/position]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1134f48b-1ccd-49c9-8362-f059fb3fb86d
-    m_ActionName: UI_Input/LeftClick[/Mouse/leftButton]
+      m_Calls:
+      - m_Target: {fileID: 110414089492487034}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: EscapePressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 77a74930-22bc-496c-ac64-c8a0ecfae2af
+    m_ActionName: PlayerControls/Escape[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 110414089492487034}
@@ -279,9 +295,69 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 14d0e5c1-744a-48aa-9eb1-9ae6ac3e5070
     m_ActionName: PlayerControlsY90/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 14d0e5c1-744a-48aa-9eb1-9ae6ac3e5070
+    m_ActionName: PlayerControlsY90/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 14d0e5c1-744a-48aa-9eb1-9ae6ac3e5070
+    m_ActionName: PlayerControlsY90/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 14d0e5c1-744a-48aa-9eb1-9ae6ac3e5070
+    m_ActionName: PlayerControlsY90/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 110414089492487034}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: EscapePressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b1ade37d-c17a-44b5-b960-b51dc973a5ff
+    m_ActionName: PlayerControlsY90/Escape[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 110414089492487034}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: EscapePressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 713a96a3-8a35-4436-b1bd-f36a5c2ba25c
+    m_ActionName: PlayerControlsAxisConfig/Escape[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 110414089492487034}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: EscapePressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 81f2033a-f639-4771-8f85-7dd387209d4c
+    m_ActionName: UI_Input/Escape[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerControlsAxisConfig
+  m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &110414089492487034

@@ -11,9 +11,20 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused = false;
     private string mainMenuSceneName = "MainMenu";
+    private string currentlyActivePlayerMap;
+    public static PauseManager instance;
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogError("More than one instance found. Destroying this instance.");
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
 
         if (pausePanel != null)
             pausePanel.SetActive(true);
@@ -32,7 +43,7 @@ public class PauseManager : MonoBehaviour
 
     private void Update()
     {
-        if (IsGameplayScene() && Input.GetKeyDown(KeyCode.Escape))
+        if (IsGameplayScene() && InputManager.GetInstance().GetEscPressed())
         {
             TogglePause();
         }
@@ -60,24 +71,30 @@ public class PauseManager : MonoBehaviour
 
     private void PauseGame()
     {
+        Debug.Log("Game paused.");
         Time.timeScale = 0f;
         SetCanvasGroupVisibility(pauseCanvasGroup, true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        currentlyActivePlayerMap = InputManager.GetInstance().GetCurrentlyActiveMap();
+        InputManager.GetInstance().SwitchToUIMap();
     }
 
     public void ResumeGame()
     {
+        Debug.Log("Game resumed.");
         Time.timeScale = 1f;
         SetCanvasGroupVisibility(pauseCanvasGroup, false);
         isPaused = false;
         
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        InputManager.GetInstance().SwitchToPlayerMap(currentlyActivePlayerMap);
     }
 
     public void ReturnToMainMenu()
     {
+        Debug.Log("Returning to main menu.");
         Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuSceneName);
         pausePanel.SetActive(false);

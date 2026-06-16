@@ -99,6 +99,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4391970644808025697, guid: aae6ebabea6dec5458f25ca6618011a9,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_ActionId
+      value: b1ade37d-c17a-44b5-b960-b51dc973a5ff
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391970644808025697, guid: aae6ebabea6dec5458f25ca6618011a9,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_ActionId
+      value: 713a96a3-8a35-4436-b1bd-f36a5c2ba25c
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391970644808025697, guid: aae6ebabea6dec5458f25ca6618011a9,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[19].m_ActionId
+      value: 81f2033a-f639-4771-8f85-7dd387209d4c
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391970644808025697, guid: aae6ebabea6dec5458f25ca6618011a9,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_ActionName
+      value: PlayerControlsY90/Escape[/Keyboard/escape]
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391970644808025697, guid: aae6ebabea6dec5458f25ca6618011a9,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_ActionName
+      value: PlayerControlsAxisConfig/Escape[/Keyboard/escape]
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391970644808025697, guid: aae6ebabea6dec5458f25ca6618011a9,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[19].m_ActionName
+      value: UI_Input/Escape[/Keyboard/escape]
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391970644808025697, guid: aae6ebabea6dec5458f25ca6618011a9,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391970644808025697, guid: aae6ebabea6dec5458f25ca6618011a9,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391970644808025697, guid: aae6ebabea6dec5458f25ca6618011a9,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391970644808025697, guid: aae6ebabea6dec5458f25ca6618011a9,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[19].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7351158093769713305, guid: aae6ebabea6dec5458f25ca6618011a9,
         type: 3}
       propertyPath: m_Name
