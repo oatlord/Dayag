@@ -155,6 +155,35 @@ public class FileDataHandler
         return mostRecentProfileId;
     }
 
+    public void Delete(string profileId)
+    {
+        if (string.IsNullOrEmpty(profileId))
+        {
+            return;
+        }
+
+        string fullPath = Path.Combine(dataDirPath, profileId, dataFileName);
+        try
+        {
+            if (File.Exists(fullPath))
+            {
+                File.Delete(fullPath);
+            }
+
+            string folderPath = Path.GetDirectoryName(fullPath);
+            if (Directory.Exists(folderPath) && Directory.GetFiles(folderPath).Length == 0 && Directory.GetDirectories(folderPath).Length == 0)
+            {
+                Directory.Delete(folderPath);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(
+                "Error occured when trying to delete data for profile: " + profileId + "\n" + e
+            );
+        }
+    }
+
     private string EncryptDecrypt(string data)
     {
         string modifiedData = "";

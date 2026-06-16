@@ -96,6 +96,26 @@ public class DataPersistenceManager : MonoBehaviour
         LoadGame();
     }
 
+    public void DeleteCurrentProfileSaveFile()
+    {
+        if (disableDataPersistence)
+        {
+            return;
+        }
+
+        if (string.IsNullOrEmpty(this.selectedProfileId))
+        {
+            Debug.LogWarning("No profile selected. Cannot delete save file.");
+            return;
+        }
+
+        dataHandler.Delete(this.selectedProfileId);
+        Debug.Log("Deleted save file for profile: " + this.selectedProfileId);
+
+        this.gameData = null;
+        this.selectedProfileId = null;
+    }
+
     public void NewGame()
     {
         this.gameData = new GameData();
