@@ -39,11 +39,11 @@ public class EnemyPatrolState : StateMachineBehaviour
     {
         navMeshAgent.SetDestination(aiController.m_currentWaypoint.position);
 
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-        {
-            aiController.MoveWaypoint();
-            animator.SetBool("IsPatrolling", false);
-        }
+        // if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        // {
+        //     aiController.MoveWaypoint();
+        //     // animator.SetBool("IsPatrolling", false);
+        // }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

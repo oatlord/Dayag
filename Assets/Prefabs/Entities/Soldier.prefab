@@ -594,19 +594,19 @@ MonoBehaviour:
   - {fileID: 0}
   waitAtWaypointTime: 2
   m_currentWaypoint: {fileID: 0}
-  playerHead: {fileID: 8106006615368926923}
+  soldierHead: {fileID: 0}
   viewRadius: 1
   viewDistance: 8
   viewAngle: 90
   turnSpeed: 5
-  alertRadius: 6.5
+  alertRadius: 4
   sightLayerMask:
     serializedVersion: 2
     m_Bits: 128
   timeToSeePlayer: 5
   hitRange: 1
-  alertRadiusHeightenedAmount: 8
-  alertRadiusLessenedAmount: 3
+  alertRadiusHeightenedAmount: 6
+  alertRadiusLessenedAmount: 2
   m_alertToSwitchTimer: 0
   alertToSwitchTimerMax: 5
   enemyChaseSpeed: 3

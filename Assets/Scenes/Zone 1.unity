@@ -3221,6 +3221,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier
       objectReference: {fileID: 0}
+    - target: {fileID: 5939808394377345694, guid: 8f9ac39d61fa0b545a953d96c31b5683,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6259485582092738995, guid: 8f9ac39d61fa0b545a953d96c31b5683,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9393,7 +9398,7 @@ Transform:
   m_GameObject: {fileID: 1008017638}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -128, y: 0.97, z: -0}
+  m_LocalPosition: {x: -3.19, y: 0.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12658,6 +12663,11 @@ PrefabInstance:
         type: 3}
       propertyPath: viewDistance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 690072338832212665, guid: 8f9ac39d61fa0b545a953d96c31b5683,
+        type: 3}
+      propertyPath: waitAtWaypointTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 690072338832212665, guid: 8f9ac39d61fa0b545a953d96c31b5683,
         type: 3}
