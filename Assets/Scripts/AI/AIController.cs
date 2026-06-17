@@ -27,7 +27,7 @@ public class AIController : MonoBehaviour
     private bool isWaiting = false;
 
     [Header("Enemy Vision and Detection Settings")]
-    public Transform playerHead;
+    public Transform soldierHead;
     public float viewRadius = 15;
     public float viewDistance = 20;
     [Tooltip("Field of view angle in degrees for the AI's vision cone")]
@@ -120,7 +120,7 @@ public class AIController : MonoBehaviour
     void Start()
     {
         if (player == null)
-        player = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindGameObjectWithTag("Player");
 
         if (waypoints.Count > 0)
         {
@@ -136,6 +136,7 @@ public class AIController : MonoBehaviour
         if (DialogueManager.GetInstance().dialogueIsPlaying) return;
 
         Debug.Log("Enemy reached player: " + enemyReachedPlayer);
+        Debug.Log($"{gameObject.name} sees player: " + enemySeesPlayer);
 
         if (enemyReachedPlayer)
         {
@@ -175,7 +176,7 @@ public class AIController : MonoBehaviour
         if (animController.GetBool("IsAlert"))
         {
             m_alertToSwitchTimer += Time.deltaTime;
-            
+
             // If the player is completely out of range/sight, start counting down to drop alert state
             if (!playerNoticed && m_alertToSwitchTimer >= alertToSwitchTimerMax)
             {
@@ -196,7 +197,7 @@ public class AIController : MonoBehaviour
             dir.y = 0;
             if (dir.sqrMagnitude > 0.001f)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, 
+                transform.rotation = Quaternion.Slerp(transform.rotation,
                     Quaternion.LookRotation(dir), turnSpeed * Time.deltaTime);
             }
         }
@@ -224,7 +225,7 @@ public class AIController : MonoBehaviour
         else
         {
             animController.SetBool("IsSeeingPlayer", false);
-            
+
             // Slowly drain the meter while out of sight
             detectionProgress = Mathf.Clamp01(detectionProgress - detectionDrainRate * Time.deltaTime);
 
@@ -250,15 +251,19 @@ public class AIController : MonoBehaviour
             // Wipe their navigation path completely so they stop running to your ghost position!
             if (navMeshAgent.hasPath)
             {
-                navMeshAgent.ResetPath(); 
+                navMeshAgent.ResetPath();
             }
             animController.SetBool("IsPatrolling", false);
             animController.SetBool("IsIdle", true); // Stands still or plays alert idle
         }
         else // Completely calm, back to normal patrol
         {
-            animController.SetBool("IsPatrolling", true);
-            animController.SetBool("IsIdle", false);
+            // Check if we're waiting at a waypoint before setting animator states
+            if (!isWaiting)
+            {
+                animController.SetBool("IsPatrolling", true);
+                animController.SetBool("IsIdle", false);
+            }
             PatrolBehaviour();
         }
 
@@ -270,7 +275,7 @@ public class AIController : MonoBehaviour
         else
             sphereCollider.radius = alertRadius;
 
-        sphereCollider.enabled = !isChasing;
+        // sphereCollider.enabled = !isChasing;
     }
 
     public void PlayAlertAudio()
@@ -288,67 +293,47 @@ public class AIController : MonoBehaviour
             return false;
         }
 
-        RaycastHit hit;
-        Vector3 rayDirection = player.transform.position - transform.position;
+        // Use `soldierHead` if assigned, otherwise fall back to an eye-height offset
+        Vector3 eyePosition = (soldierHead != null) ? soldierHead.position : transform.position + Vector3.up * 1.5f;
+        Vector3 rayDirection = player.transform.position - eyePosition;
         float distanceToPlayer = rayDirection.magnitude;
         float angleToPlayer = Vector3.Angle(rayDirection, transform.forward);
-        Vector3 normalizedDirection = rayDirection.normalized;
 
         if (distanceToPlayer > viewDistance)
-        {
             return false;
-        }
 
-        if (angleToPlayer <= viewAngle * 0.5f)
+        float halfAngle = viewAngle * 0.5f;
+        if (angleToPlayer > halfAngle)
+            return false;
+
+        RaycastHit hit;
+        int mask = sightLayerMask.value;
+
+        // Raycast straight to the player and see what we hit first
+        if (Physics.Raycast(eyePosition, rayDirection.normalized, out hit, viewDistance, mask))
         {
-            // Cast a sphere along the direction to the player and inspect all hits
-            // in distance order. If any `Barrier` appears before the `Player`,
-            // the player is considered hidden.
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, viewRadius, normalizedDirection, viewDistance, sightLayerMask.value);
-            if (hits == null || hits.Length == 0)
-            {
+            if (hit.collider == null) return false;
+
+            // If the hit collider belongs to the player (or a child of the player), we can see them
+            if (hit.collider.gameObject.CompareTag("Player") || hit.collider.transform.IsChildOf(player.transform))
+                return true;
+
+            // If a barrier blocks the ray, the player is hidden
+            if (hit.collider.gameObject.CompareTag("Barrier"))
                 return false;
-            }
 
-            System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
-
-            foreach (var h in hits)
-            {
-                var col = h.collider;
-                if (col == null) continue;
-
-                // Ignore our own colliders
-                if (col.transform.IsChildOf(transform)) continue;
-
-                // Ignore trigger colliders
-                if (col.isTrigger) continue;
-
-                if (col.gameObject.CompareTag("Barrier"))
-                {
-                    // A barrier blocks sight even if the player is behind it.
-                    return false;
-                }
-
-                if (col.gameObject.CompareTag("Player"))
-                {
-                    // Player is the first non-ignored hit -> visible
-                    return true;
-                }
-
-                // Otherwise keep checking next hit
-            }
-
-            // No player hit among non-ignored colliders
+            // Something else (wall, scenery) hit before the player
             return false;
         }
 
-        return false;
+        // If the raycast didn't hit anything (rare), assume player is visible if within angle/distance
+        return true;
     }
 
     private void ChasePlayer()
     {
         if (player == null) return;
-        
+
         navMeshAgent.speed = enemyChaseSpeed;
         navMeshAgent.SetDestination(player.transform.position);
     }
@@ -371,14 +356,24 @@ public class AIController : MonoBehaviour
             return;
         }
 
-        // If we reached the current waypoint
-        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance + 0.5f)
+        // If we reached the current waypoint - check direct distance for reliability
+        if (navMeshAgent.hasPath && !navMeshAgent.pathPending)
         {
-            isWaiting = true;
-            waitTimer = 0f;
-            animController.SetBool("IsPatrolling", false); // optional brief idle at waypoint
-            // You can set IsIdle = true here if you want a proper idle animation at each waypoint
+            float distanceToWaypoint = Vector3.Distance(transform.position, m_currentWaypoint.position);
+            if (distanceToWaypoint <= 1f) // More reliable than remainingDistance
+            {
+                isWaiting = true;
+                waitTimer = 0f;
+                animController.SetBool("IsPatrolling", false);
+                animController.SetBool("IsIdle", true);
+                navMeshAgent.SetDestination(m_currentWaypoint.position); // Keep destination stable during wait
+            }
         }
+        // else
+        // {
+        //     animController.SetBool("IsPatrolling", true);
+        //     animController.SetBool("IsIdle", false);
+        // }
     }
 
     public void MoveWaypoint()
@@ -391,6 +386,7 @@ public class AIController : MonoBehaviour
         {
             m_currentWaypoint = waypoints[waypoints.IndexOf(m_currentWaypoint) + 1];
         }
+        navMeshAgent.SetDestination(m_currentWaypoint.position);
     }
 
     public Vector3 ReturnPlayerPosition()
@@ -424,7 +420,7 @@ public class AIController : MonoBehaviour
         animController.SetBool("IsIdle", false);
 
         if (waypoints.Count > 0)
-        navMeshAgent.SetDestination(waypoints[waypointIndex].position);
+            navMeshAgent.SetDestination(waypoints[waypointIndex].position);
     }
 
     void OnTriggerEnter(Collider other)
@@ -448,45 +444,57 @@ public class AIController : MonoBehaviour
     {
         if (player == null) return;
 
-        Vector3 rayDirection = player.transform.position - transform.position;
-        float distanceToPlayer = rayDirection.magnitude;
-        float angleToPlayer = Vector3.Angle(rayDirection, transform.forward);
-        Vector3 normalizedDirection = rayDirection.normalized;
+        // Eye position used for raycasting (matches CanSeePlayer())
+        Vector3 eyePosition = (soldierHead != null) ? soldierHead.position : transform.position + Vector3.up * 1.5f;
+        Vector3 toPlayer = player.transform.position - eyePosition;
+        float distanceToPlayer = toPlayer.magnitude;
         float halfAngle = viewAngle * 0.5f;
 
+        float alertDrawRadius = (sphereCollider != null) ? sphereCollider.radius : alertRadius;
+
+        // Draw alert and view spheres
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, alertRadius);
+        Gizmos.DrawWireSphere(transform.position, alertDrawRadius);
 
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, viewDistance);
+        Gizmos.DrawWireSphere(eyePosition, viewDistance);
 
+        // Draw view cone from the eye
         Gizmos.color = Color.yellow;
         Vector3 leftDir = Quaternion.Euler(0, -halfAngle, 0) * transform.forward;
         Vector3 rightDir = Quaternion.Euler(0, halfAngle, 0) * transform.forward;
-        Gizmos.DrawRay(transform.position, leftDir * viewDistance);
-        Gizmos.DrawRay(transform.position, rightDir * viewDistance);
+        Gizmos.DrawRay(eyePosition, leftDir * viewDistance);
+        Gizmos.DrawRay(eyePosition, rightDir * viewDistance);
 
-        Vector3 spherecastEnd = transform.position + normalizedDirection * viewDistance;
-        Gizmos.color = Color.white;
-        Gizmos.DrawLine(transform.position, spherecastEnd);
-        Gizmos.DrawWireSphere(transform.position, viewRadius);
-        Gizmos.DrawWireSphere(spherecastEnd, viewRadius);
+        // Perform a debug raycast using the same mask as runtime
+        RaycastHit hit;
+        int mask = sightLayerMask.value;
+        bool hitSomething = Physics.Raycast(eyePosition, toPlayer.normalized, out hit, viewDistance, mask);
+        bool visible = false;
 
-        int sphereSteps = 4;
-        for (int i = 1; i < sphereSteps; i++)
+        if (hitSomething && hit.collider != null)
         {
-            Vector3 stepPos = transform.position + normalizedDirection * (viewDistance * i / (float)(sphereSteps - 1));
-            Gizmos.DrawWireSphere(stepPos, viewRadius);
+            if (hit.collider.gameObject.CompareTag("Player") || hit.collider.transform.IsChildOf(player.transform))
+                visible = true;
+
+            Gizmos.color = visible ? Color.green : Color.red;
+            Gizmos.DrawLine(eyePosition, hit.point);
+            Gizmos.DrawWireSphere(hit.point, 0.12f);
+        }
+        else
+        {
+            // Nothing hit — draw direct line to player (assume visible)
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(eyePosition, player.transform.position);
         }
 
-        bool canSee = distanceToPlayer <= alertRadius ||
-            (distanceToPlayer <= viewDistance && angleToPlayer <= halfAngle);
-        Gizmos.color = canSee ? Color.green : Color.red;
-        Gizmos.DrawRay(transform.position, normalizedDirection * Mathf.Min(distanceToPlayer, viewDistance));
+        // Small marker at the eye position
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(eyePosition, 0.08f);
 
+        // Visualize the detection proximity sphere at the player's projected position along view direction
         Gizmos.color = Color.magenta;
-        Gizmos.DrawLine(transform.position, transform.position + leftDir * viewDistance * 0.2f);
-        Gizmos.DrawLine(transform.position, transform.position + rightDir * viewDistance * 0.2f);
+        Gizmos.DrawWireSphere(eyePosition + toPlayer.normalized * Mathf.Min(distanceToPlayer, viewDistance), viewRadius);
 
     }
 }
