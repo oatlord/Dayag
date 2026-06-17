@@ -596,16 +596,16 @@ MonoBehaviour:
   m_currentWaypoint: {fileID: 0}
   playerHead: {fileID: 8106006615368926923}
   viewRadius: 1
-  viewDistance: 8
+  viewDistance: 10
   viewAngle: 90
   turnSpeed: 5
-  alertRadius: 6.5
+  alertRadius: 6
   sightLayerMask:
     serializedVersion: 2
     m_Bits: 128
   timeToSeePlayer: 5
   hitRange: 1
-  alertRadiusHeightenedAmount: 8
+  alertRadiusHeightenedAmount: 7
   alertRadiusLessenedAmount: 3
   m_alertToSwitchTimer: 0
   alertToSwitchTimerMax: 5

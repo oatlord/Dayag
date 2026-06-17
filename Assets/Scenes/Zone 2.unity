@@ -1941,6 +1941,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 2188970110069752083, guid: 3e93a3d8949492342bac3fd22f0ef13b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4102524215325402560, guid: 3e93a3d8949492342bac3fd22f0ef13b,
         type: 3}
       propertyPath: NPCName
@@ -2128,10 +2133,50 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 42131c0a22e7a0b4ebe925be1ec3c852,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4714817154256824709, guid: 42131c0a22e7a0b4ebe925be1ec3c852,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 42131c0a22e7a0b4ebe925be1ec3c852,
         type: 3}
       propertyPath: m_Name
       value: sherwayatarquinibanananin
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 42131c0a22e7a0b4ebe925be1ec3c852,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 42131c0a22e7a0b4ebe925be1ec3c852,
+        type: 3}
+      propertyPath: m_TagString
+      value: Barrier
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942844865621104101, guid: 42131c0a22e7a0b4ebe925be1ec3c852,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688365970232631406, guid: 42131c0a22e7a0b4ebe925be1ec3c852,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 42131c0a22e7a0b4ebe925be1ec3c852,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821623529969584324, guid: 42131c0a22e7a0b4ebe925be1ec3c852,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2913,10 +2958,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -3.974
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 6d9524a512b86af498f5591da579c20e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3756473180518285571, guid: 6d9524a512b86af498f5591da579c20e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1025663018108745142, guid: 6d9524a512b86af498f5591da579c20e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6d9524a512b86af498f5591da579c20e,
         type: 3}
       propertyPath: m_Name
       value: MachineThingyDayag
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d9524a512b86af498f5591da579c20e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d9524a512b86af498f5591da579c20e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Barrier
+      objectReference: {fileID: 0}
+    - target: {fileID: 2891746525080496957, guid: 6d9524a512b86af498f5591da579c20e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233112405309087440, guid: 6d9524a512b86af498f5591da579c20e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -10146,6 +10226,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 2188970110069752083, guid: 3e93a3d8949492342bac3fd22f0ef13b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4102524215325402560, guid: 3e93a3d8949492342bac3fd22f0ef13b,
         type: 3}
       propertyPath: NPCName
@@ -14001,10 +14086,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 216201322}
     m_Modifications:
+    - target: {fileID: 766023425344293685, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2560898604023764130, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560898604023764130, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966203452652599047, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208462301925767783, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5220140570551880308, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
         type: 3}
@@ -14110,6 +14215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Transport Truck
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547097865162668654, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17262,10 +17372,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 270450770}
     m_Modifications:
+    - target: {fileID: 766023425344293685, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2560898604023764130, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560898604023764130, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966203452652599047, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208462301925767783, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5220140570551880308, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
         type: 3}
@@ -17371,6 +17501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Hagutan
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547097865162668654, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
