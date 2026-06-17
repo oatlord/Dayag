@@ -22,12 +22,12 @@ public class EnemyIdleState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timer += Time.deltaTime;
-        if (timer >= aiController.waitAtWaypointTime)
-        {
-            animator.SetBool("IsPatrolling", true);
-            // Debug.Log("Timer has hit wait time. Switching to next state.");
-        }
+        // timer += Time.deltaTime;
+        // if (timer >= aiController.waitAtWaypointTime)
+        // {
+        //     animator.SetBool("IsPatrolling", true);
+        //     // Debug.Log("Timer has hit wait time. Switching to next state.");
+        // }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

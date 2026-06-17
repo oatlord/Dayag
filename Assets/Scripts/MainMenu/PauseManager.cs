@@ -98,7 +98,8 @@ public class PauseManager : MonoBehaviour
         // Debug.Log("Returning to main menu.");
         Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuSceneName);
-        pausePanel.SetActive(false);
+        SetCanvasGroupVisibility(pauseCanvasGroup, false);
+        // pausePanel.SetActive(false);
     }
 
     private bool IsGameplayScene()

@@ -13,7 +13,7 @@ public class ScenePersistenceManager : MonoBehaviour, IDataPersistence
     // Private reference to the spawn point that is to be used. Referenced for getting its current rotation and setting input maps.
     private Transform spawnPointToUse;
     // Check if player is loading from an existing save.
-    private bool loadingFromSave;
+    // private bool loadingFromSave;
     // Transform from save.
     private Transform spawnPointFromSave;
     // Player position loaded from save (avoid relying on a Transform that may not exist yet)
@@ -32,15 +32,15 @@ public class ScenePersistenceManager : MonoBehaviour, IDataPersistence
     {
         Debug.Log("LoadData in ScenePersistence called.");
         // Use the player's position from data here to load the player in instead.
-        loadingFromSave = data.hasLastSavedPlayerPosition;
-        Debug.Log("Loading from save: " + loadingFromSave);
+        // loadingFromSave = data.hasLastSavedPlayerPosition;
+        // Debug.Log("Loading from save: " + loadingFromSave);
 
-        if (loadingFromSave)
-        {
-            savedPlayerPosition = data.playerPosition;
-            // Clear the flag so subsequent scene loads won't re-trigger loading-from-save
-            data.hasLastSavedPlayerPosition = false;
-        }
+        // if (loadingFromSave)
+        // {
+        //     savedPlayerPosition = data.playerPosition;
+        //     // Clear the flag so subsequent scene loads won't re-trigger loading-from-save
+        //     data.hasLastSavedPlayerPosition = false;
+        // }
         // spawnPointFromSave = data.playerPosition;
     }
 
@@ -80,15 +80,15 @@ public class ScenePersistenceManager : MonoBehaviour, IDataPersistence
         //     player = Instantiate(playerPrefab, sceneDefaultPlayerSpawn.position, sceneDefaultPlayerSpawn.rotation);
         // }
 
-        if (loadingFromSave)
-        {
-            // Debug.Log("Loading from save. Spawning player in last checkpointed position.");
-            // Use the saved player position directly; use the default spawn's rotation for input mapping
-            spawnPointToUse = sceneDefaultPlayerSpawn;
-            player = Instantiate(playerPrefab, savedPlayerPosition, sceneDefaultPlayerSpawn.rotation);
-            // Reset loading from save, this is only supposed to trigger once when loading from an existing game.
-            loadingFromSave = false;
-        }
+        // if (loadingFromSave)
+        // {
+        //     // Debug.Log("Loading from save. Spawning player in last checkpointed position.");
+        //     // Use the saved player position directly; use the default spawn's rotation for input mapping
+        //     spawnPointToUse = sceneDefaultPlayerSpawn;
+        //     player = Instantiate(playerPrefab, savedPlayerPosition, sceneDefaultPlayerSpawn.rotation);
+        //     // Reset loading from save, this is only supposed to trigger once when loading from an existing game.
+        //     loadingFromSave = false;
+        // }
         // else if (LastExitTriggerID != null)
         // {
         //     // If there is a last trigger, spawn them in the new matching scene's position.
@@ -124,16 +124,16 @@ public class ScenePersistenceManager : MonoBehaviour, IDataPersistence
         //         }
         //     }
         // }
-        else
-        {
-            // If there was no last trigger, i.e. playing from a scene, spawn the player in the default area.
-            if (player == null)
-            {
-                spawnPointToUse = sceneDefaultPlayerSpawn;
-                player = Instantiate(playerPrefab, spawnPointToUse.position, spawnPointToUse.rotation);
-                // player = Instantiate(playerPrefab, sceneDefaultPlayerSpawn.position, sceneDefaultPlayerSpawn.rotation);
-            }
-        }
+        // else
+        // {
+        //     // If there was no last trigger, i.e. playing from a scene, spawn the player in the default area.
+        //     if (player == null)
+        //     {
+        spawnPointToUse = sceneDefaultPlayerSpawn;
+        player = Instantiate(playerPrefab, spawnPointToUse.position, spawnPointToUse.rotation);
+        // player = Instantiate(playerPrefab, sceneDefaultPlayerSpawn.position, sceneDefaultPlayerSpawn.rotation);
+        //     }
+        // }
 
         // `rotation` is a Quaternion; its components are NOT Euler degrees. Use `eulerAngles.y`
         // and compare using DeltaAngle to tolerate floating-point and wrap-around differences.
