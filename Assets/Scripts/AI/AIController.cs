@@ -106,6 +106,11 @@ public class AIController : MonoBehaviour
 
     void Awake()
     {
+        
+    }
+
+    void Start()
+    {
         animController = GetComponent<Animator>();
         sphereCollider = GetComponent<SphereCollider>();
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -115,10 +120,7 @@ public class AIController : MonoBehaviour
         {
             throw new Exception("No waypoints assigned to the AIController. Please assign waypoints in the inspector.");
         }
-    }
-
-    void Start()
-    {
+        
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
 

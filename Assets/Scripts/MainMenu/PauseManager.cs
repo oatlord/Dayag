@@ -85,11 +85,21 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         SetCanvasGroupVisibility(pauseCanvasGroup, false);
         isPaused = false;
-        
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         // Always restore to the scene's default player control map
-        InputManager.GetInstance().SwitchToDefaultPlayerMap();
+        // InputManager.GetInstance().SwitchToDefaultPlayerMap();
+
+        // Only switch input map if dialogue is not playing; dialogue needs to stay on UI map
+        if (!DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            // Always set to ScenePersistence's picked map
+            if (InputManager.GetInstance().GetCurrentlyActiveMap() != ScenePersistenceManager.instance.mapToUse)
+            {
+                InputManager.GetInstance().SwitchToPlayerMap(ScenePersistenceManager.instance.mapToUse);
+            }
+        }
     }
 
     public void ReturnToMainMenu()
@@ -104,8 +114,8 @@ public class PauseManager : MonoBehaviour
     private bool IsGameplayScene()
     {
         string currentScene = SceneManager.GetActiveScene().name;
-        return currentScene != mainMenuSceneName && 
-               !currentScene.Contains("Menu") && 
+        return currentScene != mainMenuSceneName &&
+               !currentScene.Contains("Menu") &&
                !currentScene.Contains("Loading");
     }
 
@@ -124,12 +134,12 @@ public class PauseManager : MonoBehaviour
 
         // Debug.LogWarning("OptionManager not found!");
     }
-    
+
     public void OnSaveButton()
     {
         // Debug.Log("Save menu opened");
     }
-    
+
     public void OnReturnToMenuButton() => ReturnToMainMenu();
 
     public void ShowPausePanel()

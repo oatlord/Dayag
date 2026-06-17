@@ -167,6 +167,14 @@ public class GameSceneManager : MonoBehaviour, IDataPersistence
         {
             yield return null;
         }
+
+        Scene newlyLoadedScene = SceneManager.GetSceneByName(sceneToMoveTo);
+
+        if (newlyLoadedScene.IsValid())
+        {
+            bool success = SceneManager.SetActiveScene(newlyLoadedScene);
+            Debug.Log($"Scene activation status: {success}");
+        }
         loadingScreen.SetActive(false);
         SceneIsLoading = false;
     }

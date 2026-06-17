@@ -130,9 +130,15 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
         dialogueVariables.StopListening(currentStory);
 
         // Always restore to the scene's default player control map when exiting dialogue
-        if (InputManager.GetInstance().GetCurrentlyActiveMap() != InputManager.GetInstance().GetDefaultPlayerControlMapName())
+        // if (InputManager.GetInstance().GetCurrentlyActiveMap() != InputManager.GetInstance().GetDefaultPlayerControlMapName())
+        // {
+        //     InputManager.GetInstance().SwitchToDefaultPlayerMap();
+        // }
+
+        // Always set to ScenePersistence's picked player control map.
+        if (InputManager.GetInstance().GetCurrentlyActiveMap() != ScenePersistenceManager.instance.mapToUse)
         {
-            InputManager.GetInstance().SwitchToDefaultPlayerMap();
+            InputManager.GetInstance().SwitchToPlayerMap(ScenePersistenceManager.instance.mapToUse);
         }
 
         if (cgCanvas != null && cgCanvas.activeSelf)
