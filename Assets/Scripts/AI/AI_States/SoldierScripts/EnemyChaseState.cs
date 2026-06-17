@@ -27,9 +27,10 @@ public class EnemyChaseState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // navMeshAgent.SetDestination(player.position);
-        if (!navMeshAgent.pathPending)
+        if (!navMeshAgent.pathPending && navMeshAgent.hasPath)
         {
-            if (navMeshAgent.remainingDistance <= aiController.hitRange)
+            // Only trigger kill if path is valid AND we're actually close enough
+            if (navMeshAgent.remainingDistance > 0 && navMeshAgent.remainingDistance <= aiController.hitRange)
             {
                 aiController.enemyReachedPlayer = true;
                 // aiController.StopChase();
