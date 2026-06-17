@@ -137,6 +137,7 @@ public class AIController : MonoBehaviour
 
         Debug.Log("Enemy reached player: " + enemyReachedPlayer);
         Debug.Log($"{gameObject.name} sees player: " + enemySeesPlayer);
+        Debug.Log($"{gameObject.name} left till target destination: " + navMeshAgent.remainingDistance);
 
         if (enemyReachedPlayer)
         {
@@ -495,6 +496,9 @@ public class AIController : MonoBehaviour
         // Visualize the detection proximity sphere at the player's projected position along view direction
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(eyePosition + toPlayer.normalized * Mathf.Min(distanceToPlayer, viewDistance), viewRadius);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(gameObject.transform.position, hitRange);
 
     }
 }
