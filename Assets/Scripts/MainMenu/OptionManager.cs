@@ -151,11 +151,9 @@ public class OptionManager : Menu
         PlayerPrefs.Save();
     }
 
-    public void SetFullscreen(bool isFullscreen)
+    public void SetFullscreen()
     {
-        Screen.fullScreen = isFullscreen;
-        PlayerPrefs.SetInt(PrefFullscreen, isFullscreen ? 1 : 0);
-        PlayerPrefs.Save();
+        Screen.fullScreen = true;
     }
 
     public void OpenFromPause()
@@ -180,14 +178,13 @@ public class OptionManager : Menu
         float defaultMasterVolume = DefaultVolume;
         float defaultBGMVolume = DefaultVolume;
         float defaultSFXVolume = DefaultVolume;
-        bool defaultFullscreen = true;
 
         SetMasterVolume(defaultMasterVolume);
         SetBGMVolume(defaultBGMVolume);
         SetSFXVolume(defaultSFXVolume);
-        SetFullscreen(defaultFullscreen);
+        SetFullscreen();
 
-        UpdateUI(defaultMasterVolume, defaultBGMVolume, defaultSFXVolume, defaultFullscreen);
+        UpdateUI(defaultMasterVolume, defaultBGMVolume, defaultSFXVolume);
     }
 
     private void LoadSettings()
@@ -195,16 +192,14 @@ public class OptionManager : Menu
         float masterVolume = PlayerPrefs.GetFloat(PrefMasterVolume, DefaultVolume);
         float bgmVolume = PlayerPrefs.GetFloat(PrefBGMVolume, DefaultVolume);
         float sfxVolume = PlayerPrefs.GetFloat(PrefSFXVolume, DefaultVolume);
-        bool fullscreen = PlayerPrefs.GetInt(PrefFullscreen, Screen.fullScreen ? 1 : 0) == 1;
-
 
         ApplyStoredAudioSettings(masterVolume, bgmVolume, sfxVolume);
-        SetFullscreen(fullscreen);
+        SetFullscreen();
 
-        UpdateUI(masterVolume, bgmVolume, sfxVolume, fullscreen);
+        UpdateUI(masterVolume, bgmVolume, sfxVolume);
     }
 
-    private void UpdateUI(float masterVolume, float bgmVolume, float sfxVolume, bool fullscreen)
+    private void UpdateUI(float masterVolume, float bgmVolume, float sfxVolume)
     {
         if (masterVolumeSlider != null)
             masterVolumeSlider.value = masterVolume;
@@ -214,9 +209,6 @@ public class OptionManager : Menu
 
         if (sfxVolumeSlider != null)
             sfxVolumeSlider.value = sfxVolume;
-
-        if (fullscreenToggle != null)
-            fullscreenToggle.isOn = fullscreen;
     }
 
     private void ApplyStoredAudioSettings(float masterVolume, float bgmVolume, float sfxVolume)

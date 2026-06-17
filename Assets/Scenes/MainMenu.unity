@@ -7786,7 +7786,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1681316689}
         m_TargetAssemblyTypeName: OptionManager, Assembly-CSharp
         m_MethodName: SetFullscreen
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
