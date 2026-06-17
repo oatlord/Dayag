@@ -98,6 +98,9 @@ public class OptionManager : Menu
 
         if (sfxVolumeSlider != null)
             sfxVolumeSlider.onValueChanged.AddListener(SetSFXVolume);
+
+        if (fullscreenToggle != null)
+            fullscreenToggle.onValueChanged.AddListener(SetFullscreen);
     }
 
     private void UnsubscribeUIEvents()
@@ -110,6 +113,9 @@ public class OptionManager : Menu
 
         if (sfxVolumeSlider != null)
             sfxVolumeSlider.onValueChanged.RemoveListener(SetSFXVolume);
+
+        if (fullscreenToggle != null)
+            fullscreenToggle.onValueChanged.RemoveListener(SetFullscreen);
     }
 
     public void SetMasterVolume(float value)
@@ -154,6 +160,7 @@ public class OptionManager : Menu
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+        Screen.fullScreenMode = isFullscreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
         PlayerPrefs.SetInt(PrefFullscreen, isFullscreen ? 1 : 0);
         PlayerPrefs.Save();
     }
