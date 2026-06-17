@@ -228,7 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 50316259}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 72337235}
   - component: {fileID: 72337234}
   - component: {fileID: 72337233}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,6 +701,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188970110069752083, guid: 3e93a3d8949492342bac3fd22f0ef13b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4102524215325402560, guid: 3e93a3d8949492342bac3fd22f0ef13b,
         type: 3}
@@ -2699,7 +2704,7 @@ GameObject:
   - component: {fileID: 344237530}
   - component: {fileID: 344237529}
   - component: {fileID: 344237528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2805,7 +2810,7 @@ GameObject:
   - component: {fileID: 349445531}
   - component: {fileID: 349445530}
   - component: {fileID: 349445529}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3529,7 +3534,7 @@ PrefabInstance:
     - target: {fileID: 690072338832212665, guid: 8f9ac39d61fa0b545a953d96c31b5683,
         type: 3}
       propertyPath: viewDistance
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 690072338832212665, guid: 8f9ac39d61fa0b545a953d96c31b5683,
         type: 3}
@@ -4120,7 +4125,7 @@ GameObject:
   - component: {fileID: 484946184}
   - component: {fileID: 484946183}
   - component: {fileID: 484946182}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5581,9 +5586,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 629464976}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NewsBoard
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5773,7 +5778,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 9b42ef12b0db39e42a041afbc578b5be, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 33986aa61faf7c448850708147cc9554, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &668761925
 GameObject:
@@ -6621,7 +6626,7 @@ PrefabInstance:
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -71.30734
+      value: -72.101
       objectReference: {fileID: 0}
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
@@ -6631,7 +6636,7 @@ PrefabInstance:
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.211
+      value: 7.393
       objectReference: {fileID: 0}
     - target: {fileID: 7514324156654227547, guid: 75cd569fe2363f14da19c5d7d47dbb89,
         type: 3}
@@ -6798,7 +6803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 771496825}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Papers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7025,7 +7030,7 @@ GameObject:
   - component: {fileID: 780652932}
   - component: {fileID: 780652931}
   - component: {fileID: 780652930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11248,10 +11253,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 629464976}
     m_Modifications:
+    - target: {fileID: 766023425344293685, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2560898604023764130, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560898604023764130, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966203452652599047, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208462301925767783, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4852900623111675047, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
         type: 3}
@@ -11362,6 +11387,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: News Billboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547097865162668654, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7547097865162668654, guid: 34cc9ac6e0b8973489afeef11e1a10bd,
         type: 3}
@@ -14275,7 +14305,7 @@ GameObject:
   - component: {fileID: 1505686450}
   - component: {fileID: 1505686449}
   - component: {fileID: 1505686448}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14526,7 +14556,7 @@ GameObject:
   - component: {fileID: 1511544086}
   - component: {fileID: 1511544085}
   - component: {fileID: 1511544084}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18435,7 +18465,7 @@ GameObject:
   - component: {fileID: 2029000208}
   - component: {fileID: 2029000207}
   - component: {fileID: 2029000206}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

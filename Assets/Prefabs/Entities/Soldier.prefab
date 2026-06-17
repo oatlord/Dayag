@@ -596,7 +596,7 @@ MonoBehaviour:
   m_currentWaypoint: {fileID: 0}
   soldierHead: {fileID: 0}
   viewRadius: 1
-  viewDistance: 8
+  viewDistance: 10
   viewAngle: 90
   turnSpeed: 5
   alertRadius: 4
