@@ -12,6 +12,7 @@ VAR HouseZoneTasksFinished = false
 // HOUSE AFTERMATH VARIABLES
 VAR CheckHouseFirst = false
 VAR LeaveHouse = false
+VAR GoToMintal = true
 
 // ZONE 1 VARIABLES
 VAR AskedWataruAllQuestions = false

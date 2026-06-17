@@ -24,6 +24,7 @@ I'm going to Mintal.
 
 ~LeaveHouse = true
 ~CheckHouseFirst = false
+~GoToMintal = true
 
 -> END
 

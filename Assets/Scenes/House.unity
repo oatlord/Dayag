@@ -1078,26 +1078,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 983593105}
     m_Modifications:
-    - target: {fileID: -1853094968961178454, guid: c69042103b592eb46be9d97679ba007f,
-        type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1853094968961178454, guid: c69042103b592eb46be9d97679ba007f,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1853094968961178454, guid: c69042103b592eb46be9d97679ba007f,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1853094968961178454, guid: c69042103b592eb46be9d97679ba007f,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 619d6509248199440b5c8420a0e2f4e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1214,6 +1194,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -5495902117074765545, guid: c8bba0e7c27b20b46bcd95230a39585e,
         type: 3}
+    - target: {fileID: -1853094968961178454, guid: c69042103b592eb46be9d97679ba007f,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1853094968961178454, guid: c69042103b592eb46be9d97679ba007f,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1853094968961178454, guid: c69042103b592eb46be9d97679ba007f,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1853094968961178454, guid: c69042103b592eb46be9d97679ba007f,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1680553999684506386, guid: 619d6509248199440b5c8420a0e2f4e1, type: 3}
@@ -6221,7 +6221,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8353586969229424558, guid: 0148be3aade0e904bba7eb6bdf122880,
         type: 3}
-      insertIndex: 6
+      insertIndex: 5
       addedObject: {fileID: 22927313}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0148be3aade0e904bba7eb6bdf122880, type: 3}
