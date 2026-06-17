@@ -68,8 +68,19 @@ public class PlayerController : MonoBehaviour, IDataPersistence
         Debug.Log("PlayerHasDied bool: " + playerHasDied);
         Debug.Log("Death Anim Has Played: " + deathAnimHasPlayed);
 
+        moveDirection = InputManager.GetInstance().GetMoveDirection();
+        float inputMagnitude = moveDirection.sqrMagnitude;
+        bool isMoving = inputMagnitude > 0.01f;
+        bool isCrouching = InputManager.GetInstance().IsCrouching;
+        bool isSprinting = isMoving && !isCrouching && InputManager.GetInstance().IsSprinting; 
+
         if (DialogueManager.GetInstance().dialogueIsPlaying || GameSceneManager.instance.SceneIsLoading)
         {
+            // isMoving = false;
+            animator.SetBool("IsMoving", false);
+            animator.SetBool("IsIdle", true);
+            animator.SetBool("IsSprinting", false);
+            animator.SetBool("IsCrouching", false);
             return;
         }
 
@@ -88,11 +99,7 @@ public class PlayerController : MonoBehaviour, IDataPersistence
             return;
         }
 
-        moveDirection = InputManager.GetInstance().GetMoveDirection();
-        float inputMagnitude = moveDirection.sqrMagnitude;
-        bool isMoving = inputMagnitude > 0.01f;
-        bool isCrouching = InputManager.GetInstance().IsCrouching;
-        bool isSprinting = isMoving && !isCrouching && InputManager.GetInstance().IsSprinting; 
+        
 
         if (!isMoving)
         {
@@ -140,18 +147,10 @@ public class PlayerController : MonoBehaviour, IDataPersistence
 
         animator.SetBool("IsMoving", isMoving);
 
-        if (!isMoving)
-        {
-            animator.SetBool("IsSprinting", false);
-            animator.SetBool("IsCrouching", false);
-            animator.SetBool("IsIdle", true);
-        }
-        else
-        {
-            animator.SetBool("IsIdle", false);
-            animator.SetBool("IsSprinting", isSprinting);
-            animator.SetBool("IsCrouching", isCrouching);
-        }
+        // Always set crouch and sprint based on input; allow crouch while idle
+        animator.SetBool("IsCrouching", isCrouching);
+        animator.SetBool("IsSprinting", isSprinting);
+        animator.SetBool("IsIdle", !isMoving);
     }
 
     // public void RevivePlayer()
