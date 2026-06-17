@@ -26,7 +26,6 @@ public class EnemyChaseState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        // navMeshAgent.SetDestination(player.position);
         if (!navMeshAgent.pathPending && navMeshAgent.hasPath)
         {
             // Only trigger kill if path is valid AND we're actually close enough

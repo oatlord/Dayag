@@ -11,7 +11,6 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused = false;
     private string mainMenuSceneName = "MainMenu";
-    private string currentlyActivePlayerMap;
     public static PauseManager instance;
 
     private void Awake()
@@ -77,7 +76,6 @@ public class PauseManager : MonoBehaviour
         SetCanvasGroupVisibility(pauseCanvasGroup, true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        currentlyActivePlayerMap = InputManager.GetInstance().GetCurrentlyActiveMap();
         InputManager.GetInstance().SwitchToUIMap();
     }
 
@@ -90,7 +88,8 @@ public class PauseManager : MonoBehaviour
         
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        InputManager.GetInstance().SwitchToPlayerMap(currentlyActivePlayerMap);
+        // Always restore to the scene's default player control map
+        InputManager.GetInstance().SwitchToDefaultPlayerMap();
     }
 
     public void ReturnToMainMenu()

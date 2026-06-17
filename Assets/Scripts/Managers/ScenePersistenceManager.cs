@@ -138,23 +138,28 @@ public class ScenePersistenceManager : MonoBehaviour, IDataPersistence
         // `rotation` is a Quaternion; its components are NOT Euler degrees. Use `eulerAngles.y`
         // and compare using DeltaAngle to tolerate floating-point and wrap-around differences.
         float yAngle = spawnPointToUse.eulerAngles.y;
+        string mapToUse = "PlayerControlsAxisConfig"; // Default fallback
+        
         if (Mathf.Abs(Mathf.DeltaAngle(yAngle, 90f)) < 1f)
         {
-            InputManager.GetInstance().SwitchToPlayerMap("PlayerControlsY90");
+            mapToUse = "PlayerControlsY90";
         }
         else if (Mathf.Abs(Mathf.DeltaAngle(yAngle, -90f)) < 1f)
         {
-            InputManager.GetInstance().SwitchToPlayerMap("PlayerControls");
+            mapToUse = "PlayerControls";
         }
         else if (Mathf.Abs(Mathf.DeltaAngle(yAngle, 0f)) < 1f)
         {
-            InputManager.GetInstance().SwitchToPlayerMap("PlayerControlsAxisConfig");
+            mapToUse = "PlayerControlsAxisConfig";
         }
         else
         {
             Debug.LogWarning("Error when reading current spawn point to use's Y rotation.");
-            InputManager.GetInstance().SwitchToPlayerMap("PlayerControlsAxisConfig");
         }
+        
+        // Set this as the scene's default and switch to it
+        InputManager.GetInstance().SetDefaultPlayerControlMapName(mapToUse);
+        InputManager.GetInstance().SwitchToPlayerMap(mapToUse);
     }
     // Start is called before the first frame update
     void Start()

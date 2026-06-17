@@ -30,8 +30,6 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     [SerializeField] private GameObject cgCanvas = null;
 
     [Header("Player Control Maps")]
-    // Reference to the scene's currently active player control map name to automatically switch to.
-    private string sceneCurrentlyActivePlayerControlMapName;
     // [SerializeField] private string playerControlMapName;
     [SerializeField] private string uiControlMapName = "UI_Input";
 
@@ -115,10 +113,6 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
     Debug.Log("Story variable: " + name);
 }
 
-        // Always save the currently active map before switching to uiControlMap.
-        sceneCurrentlyActivePlayerControlMapName = InputManager.GetInstance().GetCurrentlyActiveMap();
-        Debug.Log(sceneCurrentlyActivePlayerControlMapName);
-
         if (InputManager.GetInstance().GetCurrentlyActiveMap() != uiControlMapName)
         {
             InputManager.GetInstance().SwitchToUIMap();
@@ -135,15 +129,10 @@ public class DialogueManager : MonoBehaviour, IDataPersistence
 
         dialogueVariables.StopListening(currentStory);
 
-        // if (InputManager.GetInstance().GetCurrentlyActiveMap() != playerControlMapName)
-        // {
-        //     InputManager.GetInstance().SwitchToPlayerMap(playerControlMapName);
-        // }
-        // Switch to the saved currently active player control map name when exiting dialogue mode.
-        if (InputManager.GetInstance().GetCurrentlyActiveMap() != sceneCurrentlyActivePlayerControlMapName)
+        // Always restore to the scene's default player control map when exiting dialogue
+        if (InputManager.GetInstance().GetCurrentlyActiveMap() != InputManager.GetInstance().GetDefaultPlayerControlMapName())
         {
-            InputManager.GetInstance().SwitchToPlayerMap(sceneCurrentlyActivePlayerControlMapName);
-            sceneCurrentlyActivePlayerControlMapName = "";
+            InputManager.GetInstance().SwitchToDefaultPlayerMap();
         }
 
         if (cgCanvas != null && cgCanvas.activeSelf)

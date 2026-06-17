@@ -19,6 +19,12 @@ public class InputManager : MonoBehaviour
     // [SerializeField] private GameObject player;
     // [SerializeField] private Animator animator;
     [SerializeField] private PlayerInput playerInput;
+    
+    /// <summary>
+    /// The scene's default player control map name. Set by ScenePersistenceManager on scene load.
+    /// Used by dialogue, pause, and options panels to restore to the correct map.
+    /// </summary>
+    private string defaultPlayerControlMapName = "PlayerControls";
 
     // private bool wasInteractPressed = false;
     // private bool wasSubmitPressed = false;
@@ -172,6 +178,17 @@ public class InputManager : MonoBehaviour
         return playerInput.currentActionMap.name;
     }
 
+    public string GetDefaultPlayerControlMapName()
+    {
+        return defaultPlayerControlMapName;
+    }
+
+    public void SetDefaultPlayerControlMapName(string mapName)
+    {
+        defaultPlayerControlMapName = mapName;
+        Debug.Log("[InputManager] Set default player control map to: " + mapName);
+    }
+
     public void SwitchToUIMap()
     {
         // if (playerInput.currentActionMap != playerInput)
@@ -181,6 +198,14 @@ public class InputManager : MonoBehaviour
     public void SwitchToPlayerMap(string controlSchemeName)
     {
         playerInput.SwitchCurrentActionMap(controlSchemeName);
+    }
+
+    /// <summary>
+    /// Restores to the scene's default player control map.
+    /// </summary>
+    public void SwitchToDefaultPlayerMap()
+    {
+        SwitchToPlayerMap(defaultPlayerControlMapName);
     }
 
     // public void PlayerStopMoving(InputAction.CallbackContext context)
