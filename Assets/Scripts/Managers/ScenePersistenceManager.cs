@@ -21,6 +21,7 @@ public class ScenePersistenceManager : MonoBehaviour, IDataPersistence
     // ID of the exit trigger last interacted with.
     public string LastExitTriggerID;
     public GameObject player;
+    public string mapToUse;
     [SerializeField] private GameObject playerPrefab;
 
     public void SaveData(GameData data)
@@ -138,7 +139,7 @@ public class ScenePersistenceManager : MonoBehaviour, IDataPersistence
         // `rotation` is a Quaternion; its components are NOT Euler degrees. Use `eulerAngles.y`
         // and compare using DeltaAngle to tolerate floating-point and wrap-around differences.
         float yAngle = spawnPointToUse.eulerAngles.y;
-        string mapToUse = "PlayerControlsAxisConfig"; // Default fallback
+        mapToUse = "PlayerControlsAxisConfig"; // Default fallback
         
         if (Mathf.Abs(Mathf.DeltaAngle(yAngle, 90f)) < 1f)
         {
