@@ -22,6 +22,9 @@ public class AIController : MonoBehaviour
     [Tooltip("Time in seconds the enemy waits at each waypoint or its last position before moving to the next one")]
     public float waitAtWaypointTime = 2;
     public Transform m_currentWaypoint;
+    private int waypointIndex = 0;
+    private float waitTimer = 0f;
+    private bool isWaiting = false;
 
     [Header("Enemy Vision and Detection Settings")]
     public Transform playerHead;
@@ -64,6 +67,12 @@ public class AIController : MonoBehaviour
     [SerializeField] private float detectionFillRateNear = 1.0f;
     [Tooltip("Fill rate (progress/sec) when the player is AT the viewDistance (farthest visible).")]
     [SerializeField] private float detectionFillRateFar = 0.15f;
+    [Tooltip("Multiplier applied to the fill rate while the player is only sensed by proximity " +
+             "(inside alertRadius, not yet confirmed by line-of-sight) and still within the " +
+             "alertToSwitchTimerMax verification window. Keeps the meter visibly creeping during " +
+             "that window instead of staying pinned at zero. 1 = same speed as confirmed sight, " +
+             "0 = old behaviour (frozen until verified).")]
+    [SerializeField] private float proximityNoticeFillMultiplier = 0.35f;
 
     /// <summary>
     /// Normalised detection progress (0 = undetected, 1 = fully alerted / chasing).
@@ -110,28 +119,23 @@ public class AIController : MonoBehaviour
 
     void Start()
     {
-        gameObject.transform.position = waypoints[0].position;
-        m_currentWaypoint = waypoints[0];
-
         if (player == null)
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        if (waypoints.Count > 0)
         {
-            player = GameObject.FindGameObjectWithTag("Player");
+            waypointIndex = 0;
+            m_currentWaypoint = waypoints[0];
+            navMeshAgent.SetDestination(m_currentWaypoint.position);
         }
     }
 
     void Update()
     {
+        if (GameEndingManager.instance != null && GameEndingManager.instance.IsPlayingEnding) return;
+        if (DialogueManager.GetInstance().dialogueIsPlaying) return;
+
         Debug.Log("Enemy reached player: " + enemyReachedPlayer);
-
-        if (GameEndingManager.instance != null && GameEndingManager.instance.IsPlayingEnding)
-        {
-            return;
-        }
-
-        if (DialogueManager.GetInstance().dialogueIsPlaying)
-        {
-            return;
-        }
 
         if (enemyReachedPlayer)
         {
@@ -140,100 +144,133 @@ public class AIController : MonoBehaviour
                 animController.SetTrigger("Hit");
                 hasHitAnimPlayed = true;
                 enemyHasHitPlayer = true;
+                enemyHitStateActive = true;
             }
             animController.SetBool("IsSeeingPlayer", false);
             animController.SetBool("IsChasing", false);
             animController.SetBool("IsPatrolling", false);
             animController.SetBool("IsAlert", false);
+
+            m_ResetStateTimer += Time.deltaTime;
+            if (m_ResetStateTimer >= ResetStateTimer)
+            {
+                ResetAfterHit();
+            }
+
             return;
         }
 
-        // JUST IN CASE?
-        // if (enemyHasHitPlayer)
-        // {
-        //     enemyReachedPlayer = false;
-        // }
-
-        
-
-
-
         enemySeesPlayer = CanSeePlayer();
-        Debug.Log($"{gameObject.name} SEES PLAYER: " + enemySeesPlayer);
 
-        // TIMER FROM ALERT TO ANY OTHER STATE
-        if (animController.GetBool("IsAlert")) 
+        bool playerNoticed = enemySeesPlayer || playerInAlertRadius;
+        bool wasAlertBefore = animController.GetBool("IsAlert");
+
+        if (playerNoticed && !wasAlertBefore)
         {
-            m_alertToSwitchTimer += Time.deltaTime;
+            PlayAlertAudio();
+            animController.SetBool("IsAlert", true);
         }
 
-        // ── Alert-radius head-tracking ─────────────────────────────────────────
-        // Rotate on Y to face the player while they are inside the proximity
-        // sphere, without moving the AI's position.
-        if (playerInAlertRadius && player != null && !animController.GetBool("IsChasing"))
+        // --- ALERT TIMER HANDLING ---
+        if (animController.GetBool("IsAlert"))
         {
-            Vector3 dirToPlayer = player.transform.position - transform.position;
-            dirToPlayer.y = 0f;
-            if (dirToPlayer.sqrMagnitude > 0.001f)
+            m_alertToSwitchTimer += Time.deltaTime;
+            
+            // If the player is completely out of range/sight, start counting down to drop alert state
+            if (!playerNoticed && m_alertToSwitchTimer >= alertToSwitchTimerMax)
             {
-                Quaternion targetRot = Quaternion.LookRotation(dirToPlayer);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, turnSpeed * Time.deltaTime);
+                animController.SetBool("IsAlert", false);
+                m_alertToSwitchTimer = 0f;
+            }
+        }
+        else
+        {
+            m_alertToSwitchTimer = 0f;
+        }
+
+        // --- HEAD TRACKING FIX ---
+        // Only turn to look at the player if we actually actively notice them this frame!
+        if (playerNoticed && !animController.GetBool("IsChasing"))
+        {
+            Vector3 dir = player.transform.position - transform.position;
+            dir.y = 0;
+            if (dir.sqrMagnitude > 0.001f)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, 
+                    Quaternion.LookRotation(dir), turnSpeed * Time.deltaTime);
             }
         }
 
-        // Check if player is visible OR in alert radius long enough to trigger detection fill
-        bool shouldFillDetection = enemySeesPlayer || 
-            (playerInAlertRadius && m_alertToSwitchTimer >= alertToSwitchTimerMax);
-
-        if (shouldFillDetection)
+        // --- DETECTION METER PROGRESSION (CHASE BREAKER FIX) ---
+        if (playerNoticed)
         {
             animController.SetBool("IsSeeingPlayer", true);
 
-            // ── Distance-based fill rate ──────────────────────────────────────
-            // proximity = 1 when player is at alertRadius (closest),
-            // proximity = 0 when player is at viewDistance (farthest visible).
-            float distToPlayer = Vector3.Distance(transform.position, player.transform.position);
-            float proximity = Mathf.InverseLerp(viewDistance, alertRadius, distToPlayer);
+            float dist = Vector3.Distance(transform.position, player.transform.position);
+            float proximity = Mathf.InverseLerp(viewDistance, alertRadius, dist);
             float fillRate = Mathf.Lerp(detectionFillRateFar, detectionFillRateNear, proximity);
+
+            if (!enemySeesPlayer && m_alertToSwitchTimer < alertToSwitchTimerMax)
+                fillRate *= proximityNoticeFillMultiplier;
 
             detectionProgress = Mathf.Clamp01(detectionProgress + fillRate * Time.deltaTime);
 
             if (detectionProgress >= 1f)
             {
-                detectionProgress = 1f;
                 animController.SetBool("IsChasing", true);
+                navMeshAgent.speed = enemyChaseSpeed;
             }
         }
         else
         {
-            animController.SetBool("IsChasing", false);
             animController.SetBool("IsSeeingPlayer", false);
-
-            // ── Drain the meter gradually when the player is out of sight ──
+            
+            // Slowly drain the meter while out of sight
             detectionProgress = Mathf.Clamp01(detectionProgress - detectionDrainRate * Time.deltaTime);
+
+            // Only break the chase when the meter completely hits 0!
+            if (detectionProgress <= 0f)
+            {
+                animController.SetBool("IsChasing", false);
+            }
         }
 
-        if (animController.GetBool("IsChasing"))
+        // === STATE MANAGEMENT FIX ===
+        bool isChasing = animController.GetBool("IsChasing");
+        bool isAlertStateActive = animController.GetBool("IsAlert");
+
+        if (isChasing)
         {
-            gameObject.GetComponent<SphereCollider>().enabled = false;
+            ChasePlayer();
+            animController.SetBool("IsPatrolling", false);
+            animController.SetBool("IsIdle", false);
         }
-        else
+        else if (isAlertStateActive) // If player lost them but the alert/drain cooldown is still ticking
         {
-            gameObject.GetComponent<SphereCollider>().enabled = true;
+            // Wipe their navigation path completely so they stop running to your ghost position!
+            if (navMeshAgent.hasPath)
+            {
+                navMeshAgent.ResetPath(); 
+            }
+            animController.SetBool("IsPatrolling", false);
+            animController.SetBool("IsIdle", true); // Stands still or plays alert idle
+        }
+        else // Completely calm, back to normal patrol
+        {
+            animController.SetBool("IsPatrolling", true);
+            animController.SetBool("IsIdle", false);
+            PatrolBehaviour();
         }
 
+        // --- SPRINT / CROUCH SPHERECOLLIDER ADJUSTMENTS ---
         if (InputManager.GetInstance().IsSprinting)
-        {
             sphereCollider.radius = alertRadiusHeightenedAmount;
-        }
         else if (InputManager.GetInstance().IsCrouching)
-        {
             sphereCollider.radius = alertRadiusLessenedAmount;
-        }
         else
-        {
             sphereCollider.radius = alertRadius;
-        }
+
+        sphereCollider.enabled = !isChasing;
     }
 
     public void PlayAlertAudio()
@@ -308,6 +345,42 @@ public class AIController : MonoBehaviour
         return false;
     }
 
+    private void ChasePlayer()
+    {
+        if (player == null) return;
+        
+        navMeshAgent.speed = enemyChaseSpeed;
+        navMeshAgent.SetDestination(player.transform.position);
+    }
+
+    private void PatrolBehaviour()
+    {
+        if (waypoints.Count == 0) return;
+
+        navMeshAgent.speed = enemyWalkSpeed;
+
+        if (isWaiting)
+        {
+            waitTimer += Time.deltaTime;
+            if (waitTimer >= waitAtWaypointTime)
+            {
+                isWaiting = false;
+                waitTimer = 0f;
+                MoveWaypoint();
+            }
+            return;
+        }
+
+        // If we reached the current waypoint
+        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance + 0.5f)
+        {
+            isWaiting = true;
+            waitTimer = 0f;
+            animController.SetBool("IsPatrolling", false); // optional brief idle at waypoint
+            // You can set IsIdle = true here if you want a proper idle animation at each waypoint
+        }
+    }
+
     public void MoveWaypoint()
     {
         if (m_currentWaypoint == waypoints[waypoints.Count - 1])
@@ -336,13 +409,28 @@ public class AIController : MonoBehaviour
         hasHitAnimPlayed = false;
         enemyReachedPlayer = false;
         enemyHasHitPlayer = false;
+        enemyHitStateActive = false;
+        m_ResetStateTimer = 0f;
+        detectionProgress = 0f;
+        playerInAlertRadius = false;
+        m_alertToSwitchTimer = 0f;
+        isWaiting = false;
+        waitTimer = 0f;
+
+        animController.SetBool("IsChasing", false);
+        animController.SetBool("IsAlert", false);
+        animController.SetBool("IsSeeingPlayer", false);
+        animController.SetBool("IsPatrolling", true);
+        animController.SetBool("IsIdle", false);
+
+        if (waypoints.Count > 0)
+        navMeshAgent.SetDestination(waypoints[waypointIndex].position);
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            animController.SetBool("IsAlert", true);
             playerPosition = other.transform.position;
             playerInAlertRadius = true;
         }
@@ -352,17 +440,10 @@ public class AIController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            animController.SetBool("IsAlert", false);
-            playerPosition = Vector3.zero;
+            playerPosition = other.transform.position;
             playerInAlertRadius = false;
-            
-            if (m_alertToSwitchTimer >= alertToSwitchTimerMax) 
-            {
-                m_alertToSwitchTimer = 0;
-            }
         }
     }
-
     private void OnDrawGizmos()
     {
         if (player == null) return;
